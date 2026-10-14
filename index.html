@@ -127,7 +127,6 @@ details summary{cursor:pointer;font-weight:600}
   <button role="tab" id="tab-knic" aria-controls="p-knic" aria-selected="true">Knić uživo</button>
   <button role="tab" id="tab-srbija" aria-controls="p-srbija" aria-selected="false">Srbija po satima</button>
   <button role="tab" id="tab-analitika" aria-controls="p-analitika" aria-selected="false">Analitika</button>
-  <button role="tab" id="tab-istorija" aria-controls="p-istorija" aria-selected="false">Istorija</button>
 </nav>
 
 <!-- ============ KNIĆ ============ -->
@@ -203,7 +202,7 @@ details summary{cursor:pointer;font-weight:600}
         <button class="btn" id="copyBtn" type="button">Kopiraj izveštaj</button>
       </div>
     </div>
-    <div class="card scroll"><table id="stTable"><thead><tr><th>BM</th><th class="l">Mesto</th><th>Upisano</th><th>Glasalo</th><th>%</th><th>Vreme</th><th>2023<br>konačno</th><th>Procena<br>konačne</th><th>Tempo</th></tr></thead><tbody></tbody></table></div>
+    <div class="card scroll"><table id="stTable"><thead><tr><th>BM</th><th class="l">Mesto</th><th>Upisano</th><th>Glasalo</th><th>%</th><th>Vreme</th><th>Sada<br>(procena)</th><th>Prosek<br>ranije</th><th>2023<br>konačno</th><th>Procena<br>konačne</th><th>Tempo</th></tr></thead><tbody></tbody></table></div>
     <div class="msg" id="copyMsg" role="status" aria-live="polite"></div>
   </section>
 
@@ -260,6 +259,7 @@ details summary{cursor:pointer;font-weight:600}
         <div class="eyebrow">Najnovija procena konačne izlaznosti</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline"><span class="big num" id="projPct">—</span><span class="num" id="projVotes"></span></div>
         <p class="sub" id="projNote">Procena se pojavljuje kada uneseš prvi podatak.</p>
+        <p class="sub" id="natKnic"></p>
         <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
           <label for="extraHour" class="sub">Dodaj sat:</label><select id="extraHour"></select>
           <button class="btn" id="addHour" type="button">Dodaj red</button>
@@ -302,7 +302,7 @@ details summary{cursor:pointer;font-weight:600}
   <section aria-labelledby="h-an3">
     <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
       <h2 id="h-an3">Biračka mesta kroz vreme</h2>
-      <select id="anHeatMetric" aria-label="Pokazatelj u tabeli"><option value="turn">Izlaznost</option><option value="gov">SNS (lista ili kandidat) %</option><option value="u">Upisani birači</option><option value="g">Glasalo (broj)</option></select>
+      <select id="anHeatMetric" aria-label="Pokazatelj u tabeli"><option value="turn">Izlaznost</option><option value="gov">SNS (lista ili kandidat) %</option><option value="u">Upisani birači</option><option value="g">Glasalo (broj)</option><option value="nv">Nisu glasali (broj)</option><option value="ratio">Upisanih na 100 stanovnika (Popis 2022)</option></select>
     </div>
     <p class="sub">Dodirni red da otvoriš profil mesta. Boja ćelije pokazuje odstupanje od proseka opštine na tim izborima.</p>
     <div class="card scroll"><table id="anHeat"></table></div>
@@ -311,16 +311,22 @@ details summary{cursor:pointer;font-weight:600}
   <section aria-labelledby="h-an4">
     <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
       <h2 id="h-an4">Profil biračkog mesta</h2>
-      <select id="anSt" aria-label="Biračko mesto"></select>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><select id="anSt" aria-label="Biračko mesto"></select><select id="anStEl" aria-label="Izbori za rezultat"></select></div>
     </div>
     <div class="row2">
       <div class="card" style="display:grid;gap:8px"><h3 id="anStT1">Izlaznost</h3><div class="legend"><span><i style="background:var(--accent)"></i>ovo mesto</span><span><i style="background:var(--muted)"></i>opština Knić</span></div><svg id="anStTurn" viewBox="0 0 520 240" style="width:100%;height:auto" role="img" aria-label="Izlaznost mesta kroz izbore"></svg></div>
       <div class="card" style="display:grid;gap:8px"><h3>SNS (lista ili kandidat)</h3><div class="legend"><span><i style="background:var(--accent)"></i>ovo mesto</span><span><i style="background:var(--muted)"></i>opština Knić</span></div><svg id="anStGov" viewBox="0 0 520 240" style="width:100%;height:auto" role="img" aria-label="SNS kroz izbore"></svg></div>
     </div>
     <div class="row2">
-      <div class="card" id="anStFacts" style="display:grid;gap:6px"></div>
-      <div class="card scroll"><h3 style="margin-bottom:6px">Rezultat 2023.</h3><table id="anSt23"><thead><tr><th>Lista</th><th>Glasova</th><th>Mesto %</th><th>Knić %</th></tr></thead><tbody></tbody></table></div>
+      <div class="card" id="anStFacts" style="display:grid;gap:8px;align-content:start"></div>
+      <div class="card scroll"><h3 id="anStResT" style="margin-bottom:4px">Rezultat</h3><p class="sub" id="anStResSub" style="margin-bottom:6px"></p><table id="anSt23"><thead><tr><th>Lista</th><th>Glasova</th><th>Mesto %</th><th>Knić %</th><th>Razl.</th></tr></thead><tbody></tbody></table></div>
     </div>
+  </section>
+
+  <section aria-labelledby="h-an6">
+    <h2 id="h-an6">Rezerva birača i stanovništvo</h2>
+    <p class="sub" id="anResNote"></p>
+    <div class="card scroll"><table id="anRes"><thead><tr><th>BM</th><th class="l">Mesto</th><th>Stanovnika 2022</th><th>Upisano (spisak)</th><th>Upisanih na 100 stan.</th><th>Izlaznost 2023</th><th>Nisu glasali 2023</th><th>+5 p.p. = glasova</th><th>Udeo rezerve</th><th>2026 sada (procena)</th><th>Do cilja po proceni</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <section aria-labelledby="h-an5">
@@ -337,12 +343,9 @@ details summary{cursor:pointer;font-weight:600}
     </div>
     <div class="card scroll"><h3 style="margin-bottom:6px">Druge procene tokom dana (CRTA, CeSID, Ipsos)</h3><table id="anHourOther"><thead><tr><th>Izbori</th><th class="l">Izvor i sat → izlaznost</th></tr></thead><tbody></tbody></table></div>
   </section>
-</div>
 
-<!-- ============ ISTORIJA ============ -->
-<div id="p-istorija" role="tabpanel" aria-labelledby="tab-istorija" hidden style="display:grid;gap:22px">
   <section aria-labelledby="h-ist">
-    <h2 id="h-ist">Izlaznost: Srbija i Knić</h2>
+    <h2 id="h-ist">Rezultati po izborima: Srbija i Knić (opština)</h2>
     <div class="card scroll"><table id="turnTable"><thead><tr><th>Izbori</th><th>Birača Srbija</th><th>Glasalo</th><th>Izlaznost</th><th>Birača Knić</th><th>Glasalo</th><th>Izlaznost</th><th>Knić / Srbija</th></tr></thead><tbody></tbody></table></div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><label for="elSel" class="sub">Izbori:</label><select id="elSel"></select></div>
     <div class="card scroll">
@@ -375,6 +378,8 @@ details summary{cursor:pointer;font-weight:600}
     </ul>
   </section>
 </div>
+
+
 </div>
 
 <script>
@@ -451,20 +456,37 @@ function stationAt(list,u,m){ // estimate at minute m from this station's own en
   if(last.min<=420) return 0;
   return Math.min(u, last.g*SH(m)/SH(last.min));
 }
+let _BASE=null;
+function baseOf(bm){ // istorijski prosek izlaznosti mesta (parlamentarni 2016, 2020, 2022, 2023), kao udeo
+  if(!_BASE){ _BASE={}; const els=BMD.filter(e=>['p2016','p2020','p2022','p2023'].includes(e.id)); ST.forEach(s=>{ const v=els.map(e=>{ const r=e.rows.find(x=>x[0]===s.bm); return r[2]/r[1]; }); _BASE[s.bm]=v.reduce((a,b)=>a+b,0)/v.length; }); }
+  return _BASE[bm];
+}
 function model(){
   const bs=byStation(), all=curEntries();
   const ref = all.length? Math.min(1200,Math.max(...all.map(e=>e.min))) : null;
-  const rows=ST.map(s=>{ const L=bs[s.bm], u=upis(s.bm), last=L[L.length-1]||null;
-    const pace= last && last.min>420 ? Math.min(1, last.glasalo/SH(Math.min(last.min,1200))/u) : null;
-    const t23=s.g23/s.u23;
-    return {s,L,u,last,pace,t23, rel: pace!=null? pace/t23 : null, age: (last&&ref!=null)? ref-last.min : null}; });
-  const paces=rows.filter(r=>r.pace!=null).map(r=>r.pace).sort((a,b)=>a-b);
-  const med = paces.length? (paces.length%2? paces[(paces.length-1)/2] : (paces[paces.length/2-1]+paces[paces.length/2])/2) : null;
+  const rows=ST.map(s=>{ const L=bs[s.bm], u=upis(s.bm), last=L[L.length-1]||null, base=baseOf(s.bm);
+    const tl= last? Math.min(Math.max(last.min,420),1200) : null;
+    const own= last && tl>420 ? Math.min(1, last.glasalo/SH(tl)/u) : null; // sopstvena projekcija konačne
+    return {s,L,u,last,base,own,t23:s.g23/s.u23, idx: own!=null? own/base : null, age:(last&&ref!=null)? ref-last.min : null}; });
+  // indeks opštine: koliko mesta koja su se javila idu iznad/ispod svog istorijskog proseka (medijana, ponderisana svežinom)
+  const ix=rows.filter(r=>r.idx!=null).map(r=>({v:r.idx,w:r.u/(1+Math.max(0,r.age||0)/60)})).sort((a,b)=>a.v-b.v);
+  let I=null; if(ix.length){ const W=ix.reduce((a,x)=>a+x.w,0); let c=0; for(const x of ix){ c+=x.w; if(c>=W/2){ I=x.v; break; } } }
   const U=rows.reduce((a,r)=>a+r.u,0);
-  const estAt=m=>{ if(med==null) return null; return rows.reduce((a,r)=> a + (r.L.length? stationAt(r.L,r.u,m) : r.u*med*SH(m)), 0); };
+  // procena za mesto u trenutku m
+  const stEst=(r,m)=>{
+    if(I==null) return null;
+    const exp=Math.min(r.u*0.95, r.u*r.base*I*SH(m)); // šta bi mesto imalo da prati opštinu
+    if(!r.L.length) return exp;
+    const tl=Math.min(Math.max(r.last.min,420),1200);
+    if(m<=tl) return stationAt(r.L,r.u,m); // između sopstvenih unosa
+    // posle poslednjeg unosa: sopstveni tempo, a što je podatak stariji, to više težine dobija tempo opštine
+    const ownProj=stationAt(r.L,r.u,m); const wOwn=Math.max(0.3, 1-(m-tl)/240);
+    return Math.min(r.u, wOwn*ownProj+(1-wOwn)*Math.max(r.last.glasalo, exp));
+  };
+  const estAt=m=> I==null? null : rows.reduce((a,r)=>a+stEst(r,m),0);
   const reportedAt=m=>{ let sum=0,n=0; rows.forEach(r=>{ const prev=r.L.filter(e=>e.min<=m); if(prev.length){ sum+=prev[prev.length-1].glasalo; n++; } }); return {sum,n}; };
-  rows.forEach(r=>{ r.final = r.L.length? stationAt(r.L,r.u,1200) : (med!=null? r.u*med : null); });
-  return {rows,U,ref,med,estAt,reportedAt,n:rows.filter(r=>r.last).length};
+  rows.forEach(r=>{ r.now= ref!=null? stEst(r,ref) : null; r.final=stEst(r,1200); r.pace= r.final!=null? r.final/r.u : null; r.rel= r.L.length&&r.pace!=null? r.pace/r.t23 : null; r.estimated=!r.L.length; });
+  return {rows,U,ref,I,med:I,estAt,reportedAt,n:rows.filter(r=>r.last).length};
 }
 function relClass(rel){ if(rel==null) return ''; if(rel>=1) return 'ok'; if(rel>=0.93) return 'warn'; return 'bad'; }
 function relText(rel){ if(rel==null) return '—'; const d=(rel-1)*100; return (d>=0?'+':'')+fmt(d,0)+'%'; }
@@ -480,6 +502,7 @@ function renderSummary(M){
     <div class="kpi main"><span class="l">Glasalo ${ref!=null?'do '+toHM(ref):''}</span><span class="v num">${estNow!=null?fmt(estNow):'—'}</span><span class="s">${estNow!=null?fmt(100*estNow/M.U,1)+'% od '+fmt(M.U)+' upisanih':'čeka prvi unos'}</span></div>
     <div class="kpi"><span class="l">Javilo se</span><span class="v num">${M.n} / 36</span><span class="s">zbir javljenih: ${fmt(rep.sum)}</span></div>
     <div class="kpi"><span class="l">Procena konačne</span><span class="v num">${finPct!=null?fmt(finPct,1)+'%':'—'}</span><span class="s">${estFin!=null?'≈ '+fmt(estFin)+' birača ':''}${st}</span></div>
+    <div class="kpi"><span class="l">Tempo opštine</span><span class="v num">${M.I!=null?(M.I>=1?'+':'')+fmt((M.I-1)*100,1)+'%':'—'}</span><span class="s">${M.I!=null?'u odnosu na istorijski prosek mesta koja su se javila':'čeka prvi unos'}${natNowText(ref)}</span></div>
     <div class="kpi"><span class="l">Cilj</span><span class="v num">${fmt(cilj,1)}%</span><span class="s">${fmt(M.U*cilj/100)} birača · 2023: 64,89%</span></div>`;
 }
 function renderTiles(M){
@@ -488,7 +511,7 @@ function renderTiles(M){
     const stale = r.age!=null && r.age>=90;
     b.innerHTML=`<span class="t1"><span>${esc(r.s.mesto)}</span><span class="no">${r.s.bm}</span></span>
       <span class="t2">${r.last? fmt(r.last.glasalo)+' <span class="sub">/ '+fmt(r.u)+'</span>' : '<span class="sub">— / '+fmt(r.u)+'</span>'}</span>
-      <span class="t3">${r.last? fmt(100*r.last.glasalo/r.u,1)+'% · '+toHM(r.last.min)+(stale?' · <span class="stale">kasni '+Math.round(r.age/60*10)/10+' h</span>':'') : 'nema podatka'}</span>`;
+      <span class="t3">${r.last? fmt(100*r.last.glasalo/r.u,1)+'% · '+toHM(r.last.min)+(stale?' · <span class="stale">kasni '+Math.round(r.age/60*10)/10+' h</span>':'') : (r.now!=null? 'nema podatka · procena ≈ '+fmt(r.now) : 'nema podatka')}</span>`;
     b.setAttribute('aria-label',`Mesto ${r.s.bm}, ${r.s.mesto}`);
     b.addEventListener('click',()=>{ selectBm(r.s.bm); $('editor').scrollIntoView({block:'nearest',behavior:'smooth'}); });
     el.appendChild(b); });
@@ -560,7 +583,7 @@ function renderStTable(M){
   const sort=$('sortSel').value; const rows=M.rows.slice();
   if(sort==='pace') rows.sort((a,b)=>(a.rel??9)-(b.rel??9)); else if(sort==='age') rows.sort((a,b)=>(b.age??1e9)-(a.age??1e9));
   rows.forEach(r=>{ const tr=document.createElement('tr');
-    tr.innerHTML=`<td class="num">${r.s.bm}</td><td class="l">${esc(r.s.mesto)}</td><td class="num">${fmt(r.u)}</td><td class="num">${r.last?fmt(r.last.glasalo):'—'}</td><td class="num">${r.last?fmt(100*r.last.glasalo/r.u,1)+'%':'—'}</td><td class="num">${r.last?toHM(r.last.min):'—'}</td><td class="num">${fmt(100*r.t23,1)}%</td><td class="num">${r.final!=null?fmt(100*r.final/r.u,1)+'%'+(r.L.length?'':' *'):'—'}</td><td>${r.rel==null?'<span class="chip none">—</span>':'<span class="chip '+relClass(r.rel)+'">'+relText(r.rel)+' vs 2023</span>'}</td>`;
+    tr.innerHTML=`<td class="num">${r.s.bm}</td><td class="l">${esc(r.s.mesto)}</td><td class="num">${fmt(r.u)}</td><td class="num">${r.last?fmt(r.last.glasalo):'—'}</td><td class="num">${r.last?fmt(100*r.last.glasalo/r.u,1)+'%':'—'}</td><td class="num">${r.last?toHM(r.last.min):'—'}</td><td class="num">${r.now!=null?fmt(r.now)+(r.estimated?' *':''):'—'}</td><td class="num">${fmt(100*r.base,1)}%</td><td class="num">${fmt(100*r.t23,1)}%</td><td class="num">${r.final!=null?fmt(100*r.final/r.u,1)+'%'+(r.L.length?'':' *'):'—'}</td><td>${r.rel==null?'<span class="chip none">—</span>':'<span class="chip '+relClass(r.rel)+'">'+relText(r.rel)+' vs 2023</span>'}</td>`;
     tb.appendChild(tr); });
 }
 function renderLog(){
@@ -585,7 +608,7 @@ function renderReg(){
     tb.appendChild(tr); });
 }
 function syncCfgInputs(){ if(document.activeElement!==$('kCilj')) $('kCilj').value=String(S.cfg.cilj??70).replace('.',','); }
-function renderKnic(){ const M=model(); renderSummary(M); renderMap(M); renderSide(M); renderTiles(M); renderHours(M); renderKChart(M); renderStTable(M); renderLog(); if(S.sel && !$('editor').hidden){ const h=$('editor').querySelector('.hist'); if(h){ const L=byStation()[S.sel]; h.innerHTML=L.length? L.map(e=>`<span>${toHM(e.min)} · ${fmt(e.glasalo)}</span>`).join('') : '<span class="sub">Još nema unosa za ovo mesto.</span>'; } } }
+function renderKnic(){ const M=model(); window.LIVE=M; renderSummary(M); renderMap(M); renderSide(M); renderTiles(M); renderHours(M); renderKChart(M); renderStTable(M); renderLog(); if(typeof syncLive==='function') syncLive(M); if(S.sel && !$('editor').hidden){ const h=$('editor').querySelector('.hist'); if(h){ const L=byStation()[S.sel]; h.innerHTML=L.length? L.map(e=>`<span>${toHM(e.min)} · ${fmt(e.glasalo)}</span>`).join('') : '<span class="sub">Još nema unosa za ovo mesto.</span>'; } } }
 
 $('quickForm').addEventListener('submit',async ev=>{ ev.preventDefault(); const v=$('quickIn').value.trim(); const m=v.match(/^(\d{1,2})[\s,;:-]+(\d{1,4})(?:\s+(\S+))?$/);
   if(!m){ setMsg('quickMsg','Format je: broj mesta, razmak, broj glasalih. Na primer 23 145 ili 23 145 10:30.','err'); return; }
@@ -749,6 +772,9 @@ $('repDlBtn').addEventListener('click',()=>{ const {body,css}=buildReport(); con
 if(IN_ARTIFACT){ $('printBtn').hidden=true; $('repNote').textContent='Preuzmi stanje aplikacije (JSON) kao rezervnu kopiju ili za prenos u verziju na GitHub Pages, pa ga tamo učitaj. Izveštaj za štampu se preuzima kao HTML fajl koji otvoriš u pregledaču i odštampaš ili sačuvaš kao PDF.'; }
 
 /* ---------- Srbija ---------- */
+function renderNatKnic(){ const el=$('natKnic'); if(!el) return; const M=window.LIVE; if(!M||M.ref==null||M.I==null){ el.textContent='Knić: još nema unosa sa biračkih mesta.'; return; }
+  const now=100*M.estAt(M.ref)/M.U, fin=100*M.estAt(1200)/M.U; const hs=Object.keys(S.nat.sati||{}).map(Number).filter(h=>isFinite(parseNum(S.nat.sati[h]))).sort((a,b)=>a-b); const h=hs.filter(x=>x*60<=M.ref).pop();
+  el.innerHTML=`<b>Knić u ${toHM(M.ref)}:</b> ≈ ${fmt(now,1)}% glasalo, procena konačne ${fmt(fin,1)}%`+(h?` · Srbija do ${h} h ${fmt(parseNum(S.nat.sati[h]),1)}%, Knić tada ≈ ${fmt(100*M.estAt(h*60)/M.U,1)}% (razlika ${fmt(100*M.estAt(h*60)/M.U-parseNum(S.nat.sati[h]),1)} p.p.; 2023. je Knić bio +6,1 p.p. iznad Srbije na kraju dana).`:'.'); }
 ['voters','target'].forEach(k=>{ $(k).addEventListener('change',()=>{ S.nat[k]=$(k).value; saveNat(); renderNat(); }); $(k).addEventListener('input',()=>renderNat(true)); });
 function syncNatInputs(){ ['voters','target'].forEach(k=>{ if(document.activeElement!==$(k)) $(k).value=S.nat[k]; }); }
 function status(proj,tgt){ if(proj==null) return '<span class="chip none">čeka unos</span>'; const d=proj-tgt; if(d>=0) return '<span class="chip ok">na putu ka cilju</span>'; if(d>=-1.5) return '<span class="chip warn">blizu, '+fmt(d,1)+' p.p.</span>'; return '<span class="chip bad">ispod, '+fmt(d,1)+' p.p.</span>'; }
@@ -764,7 +790,7 @@ function renderNat(live){
     tb.appendChild(tr); tr.querySelector('input').addEventListener('change',e=>{ S.nat.sati=Object.assign({},S.nat.sati,{[h]:e.target.value}); saveNat(); renderNat(); }); });
   if(last){ $('projPct').textContent=fmt(last.proj,1)+'%'; $('projVotes').textContent='≈ '+fmt(V*last.proj/100)+' birača'; const gap=V*last.proj/100-T; $('projNote').textContent= last.h===20?'Konačan podatak sa zatvaranja.':`Na osnovu unosa za ${last.h} h (raspon ${fmt(last.pLo,1)}–${fmt(last.pHi,1)}%). ${gap>=0?'Iznad':'Ispod'} cilja za oko ${fmt(Math.abs(gap))} birača.`; } else { $('projPct').textContent='—'; $('projVotes').textContent=''; }
   const sel=$('extraHour'); sel.innerHTML=''; for(let h=8;h<=19;h++) if(!hours.includes(h)){ const o=document.createElement('option'); o.value=h; o.textContent=h+' h'; sel.appendChild(o); }
-  drawChart(tp);
+  drawChart(tp); renderNatKnic(); if(window.LIVE) renderSummary(window.LIVE);
 }
 $('addHour').addEventListener('click',()=>{ const h=parseInt($('extraHour').value,10); const hs=S.nat.hours||[10,12,14,16,18,20]; if(h&&!hs.includes(h)){ S.nat.hours=[...hs,h]; saveNat(); renderNat(); } });
 function drawChart(tp){
@@ -834,12 +860,22 @@ function anMapSVG(vals, diverging, maxAbs){
     s+=`<g class="pin" data-bm="${st.bm}" tabindex="0" role="button" aria-label="BM ${st.bm} ${esc(st.mesto)}"><circle cx="${p.x}" cy="${p.y}" r="22" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/><text x="${p.x}" y="${p.y+5.5}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="${v!=null&&Math.abs(v)>=100?13:16}" font-weight="600" fill="var(--ink)" pointer-events="none">${v==null?'–':(diverging&&v>0?'+':'')+fmt(v,0)}</text><title>BM ${st.bm} ${esc(st.mesto)}: ${v==null?'—':fmt(v,1)+(diverging?' p.p.':'%')}</title></g>`; });
   return s+'</svg>';
 }
-function fillAnMetric(){ const e=AN_ELS.find(x=>x.id===$('anEl').value); const sel=$('anMetric'); const prev=sel.value; sel.innerHTML='';
+function fillAnMetric(){ const sel=$('anMetric'); const prev=sel.value; if($('anEl').value==='live'){ sel.innerHTML=''; [['lnow','Izlaznost sada (procena)'],['lfin','Procena konačne izlaznosti'],['lidx','Procena u odnosu na istorijski prosek']].forEach(([v,tx])=>{ const o=document.createElement('option'); o.value=v; o.textContent=tx; sel.appendChild(o); }); sel.value=['lnow','lfin','lidx'].includes(prev)?prev:'lfin'; return; }
+  const e=AN_ELS.find(x=>x.id===$('anEl').value); sel.innerHTML='';
   const opts=[['turn','Izlaznost'],['dturn','Promena izlaznosti od prethodnih parlamentarnih']].concat(e.lists.map((l,i)=>['L'+i,l+' (%)']));
   const tot=e.lists.map((l,i)=>e.rows.reduce((a,r)=>a+r[4+i],0)); 
   opts.forEach(([v,t],k)=>{ if(v.startsWith('L') && tot[+v.slice(1)]<20 && !/Ostale/.test(t)) return; const o=document.createElement('option'); o.value=v; o.textContent=t; sel.appendChild(o); });
   sel.value=[...sel.options].some(o=>o.value===prev)?prev:'turn'; }
 function renderAnMap(){
+  if($('anEl').value==='live'){ const M=window.LIVE; const m=$('anMetric').value; const vals={}; const ok=M&&M.ref!=null&&M.I!=null;
+    if(ok) M.rows.forEach(r=>{ vals[r.s.bm]= m==='lnow'?100*r.now/r.u : m==='lfin'?100*r.pace : 100*(r.pace-r.base); });
+    const div=m==='lidx'; const vs=Object.values(vals); $('anMap').innerHTML=anMapSVG(vals,div,vs.length?Math.max(...vs.map(Math.abs)):1);
+    if(!ok){ $('anRank').innerHTML='<div class="eyebrow">2026 – uživo</div><p>Još nema unosa sa biračkih mesta. Čim se upiše prvi broj u kartici „Knić uživo”, ovde se prikazuje procena za svih 36 mesta.</p>'; return; }
+    const rows=ST.map(s=>({s,v:vals[s.bm],est:M.rows.find(r=>r.s.bm===s.bm).estimated})).sort((a,b)=>b.v-a.v); const unit=div?' p.p.':'%';
+    const li=x=>`<li><b>${x.s.bm}</b> ${esc(x.s.mesto)}: <span class="num">${(div&&x.v>0?'+':'')+fmt(x.v,1)}${unit}</span>${x.est?' <span class="sub">(procena)</span>':''}</li>`;
+    const kn= m==='lnow'?100*M.estAt(M.ref)/M.U : m==='lfin'?100*M.estAt(1200)/M.U : (M.I-1)*100;
+    $('anRank').innerHTML=`<div class="eyebrow">2026 – uživo, stanje u ${toHM(M.ref)}</div><h3>${esc($('anMetric').selectedOptions[0].textContent)}</h3><p>Opština Knić: <b class="num">${(div&&kn>0?'+':'')+fmt(kn,1)}${div?'%':'%'}</b></p><p class="sub">Javilo se ${M.n} od 36 mesta; ostala su procenjena po tempu opštine i sopstvenom istorijskom proseku.</p><div><div class="sub">Najviše</div><ol style="margin:4px 0 0 18px;padding:0">${rows.slice(0,5).map(li).join('')}</ol></div><div><div class="sub">Najmanje</div><ol style="margin:4px 0 0 18px;padding:0">${rows.slice(-5).reverse().map(li).join('')}</ol></div>`;
+    return; }
   const e=AN_ELS.find(x=>x.id===$('anEl').value); const m=$('anMetric').value; const {vals,prevParl}=anValues(e,m);
   const div=m==='dturn'; const vs=Object.values(vals).filter(v=>v!=null); const maxAbs=Math.max(...vs.map(Math.abs));
   $('anMap').innerHTML=anMapSVG(vals,div,maxAbs);
@@ -857,17 +893,19 @@ function renderAnMap(){
 /* heat table */
 function renderAnHeat(){
   const m=$('anHeatMetric').value; const els=AN_ELS;
-  const val=(e,r)=> m==='turn'?100*r[2]/r[1] : m==='gov'?100*r[4+e.gov]/r[3] : m==='u'?r[1] : r[2];
+  const val=(e,r)=> m==='turn'?100*r[2]/r[1] : m==='gov'?100*r[4+e.gov]/r[3] : m==='u'?r[1] : m==='nv'? r[1]-r[2] : m==='ratio'? (()=>{ const g=popGroup(r[0]); const uG=g.bms.reduce((a,b)=>a+e.rows.find(x=>x[0]===b)[1],0); return 100*uG/g.pop; })() : r[2];
   const avg=e=>{ const t=bmTotals(e); return m==='turn'?100*t.g/t.u : m==='gov'?100*t.gov/t.v : null; };
-  let h=`<thead><tr><th>BM</th><th class="l">Mesto</th>${els.map(e=>`<th title="${esc(e.label)}">${shortLbl(e)}</th>`).join('')}${m==='u'?'<th>Promena</th>':'<th>Prosek</th>'}</tr></thead><tbody>`;
+  let h=`<thead><tr><th>BM</th><th class="l">Mesto</th>${els.map(e=>`<th title="${esc(e.label)}">${shortLbl(e)}</th>`).join('')}${liveRow(1)?'<th title="2026, procena konačne">2026*</th>':''}${(m==='u'||m==='ratio')?'<th>Promena</th>':'<th>Prosek</th>'}</tr></thead><tbody>`;
   ST.forEach(s=>{ h+=`<tr data-bm="${s.bm}" style="cursor:pointer"><td class="num">${s.bm}</td><td class="l">${esc(s.mesto)}</td>`; const vs=[];
     els.forEach(e=>{ const r=e.rows.find(x=>x[0]===s.bm); const v=val(e,r); vs.push(v); const a=avg(e); let bg='';
       if(a!=null){ const d=v-a; const k=Math.min(1,Math.abs(d)/12); bg=`background:color-mix(in srgb, ${d>=0?'var(--ok)':'var(--bad)'} ${Math.round(k*40)}%, transparent)`; }
-      h+=`<td class="num" style="${bg}">${m==='u'||m==='g'?fmt(v):fmt(v,1)}</td>`; });
-    if(m==='u'){ const d=100*(vs[vs.length-1]-vs[0])/vs[0]; h+=`<td class="num">${(d>=0?'+':'')+fmt(d,0)}%</td>`; } else h+=`<td class="num"><b>${fmt(vs.reduce((a,b)=>a+b,0)/vs.length,m==='g'?0:1)}</b></td>`;
+      h+=`<td class="num" style="${bg}">${m==='turn'||m==='gov'?fmt(v,1):fmt(v)}</td>`; });
+    const lr=liveRow(s.bm); if(lr){ const lv= m==='turn'?fmt(100*lr.pace,1) : m==='u'?fmt(lr.u) : m==='g'?fmt(lr.now) : m==='nv'?fmt(lr.u-lr.now) : m==='ratio'?fmt(100*popGroup(s.bm).bms.reduce((a,b)=>a+upis(b),0)/popGroup(s.bm).pop) : '—'; h+=`<td class="num" style="font-style:italic;outline:1px dashed var(--line)">${lv}</td>`; }
+    if(m==='u'||m==='ratio'){ const d=100*(vs[vs.length-1]-vs[0])/vs[0]; h+=`<td class="num">${(d>=0?'+':'')+fmt(d,0)}%</td>`; } else h+=`<td class="num"><b>${fmt(vs.reduce((a,b)=>a+b,0)/vs.length,(m==='turn'||m==='gov')?1:0)}</b></td>`;
     h+='</tr>'; });
-  const totRow=els.map(e=>{ const t=bmTotals(e); return m==='turn'?fmt(100*t.g/t.u,1):m==='gov'?fmt(100*t.gov/t.v,1):m==='u'?fmt(t.u):fmt(t.g); });
-  h+=`<tr><td></td><td class="l"><b>Opština</b></td>${totRow.map(v=>`<td class="num"><b>${v}</b></td>`).join('')}<td></td></tr></tbody>`;
+  const P=MAP.naselja.reduce((a,n)=>a+n.st,0); const totRow=els.map(e=>{ const t=bmTotals(e); return m==='turn'?fmt(100*t.g/t.u,1):m==='gov'?fmt(100*t.gov/t.v,1):m==='u'?fmt(t.u):m==='nv'?fmt(t.u-t.g):m==='ratio'?fmt(100*t.u/P):fmt(t.g); });
+  const LM=window.LIVE; const liveTot= liveRow(1)? (m==='turn'?fmt(100*LM.estAt(1200)/LM.U,1):m==='u'?fmt(LM.U):m==='g'?fmt(LM.estAt(LM.ref)):m==='nv'?fmt(LM.U-LM.estAt(LM.ref)):m==='ratio'?fmt(100*LM.U/P):'—') : null;
+  h+=`<tr><td></td><td class="l"><b>Opština</b></td>${totRow.map(v=>`<td class="num"><b>${v}</b></td>`).join('')}${liveTot!=null?`<td class="num"><b><i>${liveTot}</i></b></td>`:''}<td></td></tr></tbody>`;
   $('anHeat').innerHTML=h;
   $('anHeat').querySelectorAll('tr[data-bm]').forEach(tr=>tr.addEventListener('click',()=>{ $('anSt').value=tr.dataset.bm; renderAnSt(); $('h-an4').scrollIntoView({behavior:'smooth',block:'start'}); }));
 }
@@ -875,21 +913,41 @@ function renderAnHeat(){
 function renderAnSt(){
   const bm=+$('anSt').value; const s=ST.find(x=>x.bm===bm);
   const pts=AN_ELS.map(e=>{ const r=e.rows.find(x=>x[0]===bm), t=bmTotals(e); return {l:shortLbl(e), st:100*r[2]/r[1], kn:100*t.g/t.u, sg:100*r[4+e.gov]/r[3], kg:100*t.gov/t.v, u:r[1]}; });
+  const lr=liveRow(bm), LM=window.LIVE; if(lr) pts.push({l:'2026*', st:100*lr.pace, kn:100*LM.estAt(1200)/LM.U, sg:null, kg:null, u:lr.u});
   $('anStT1').textContent='Izlaznost · BM '+bm+' '+s.mesto;
   lineChart('anStTurn',[{c:'var(--accent)',pts:pts.map(p=>({l:p.l,v:p.st})),labels:true},{c:'var(--muted)',pts:pts.map(p=>({l:p.l,v:p.kn})),dash:true,w:1.6,r:2}],{min:30,max:90,h:240});
   lineChart('anStGov',[{c:'var(--accent)',pts:pts.map(p=>({l:p.l,v:p.sg})),labels:true},{c:'var(--muted)',pts:pts.map(p=>({l:p.l,v:p.kg})),dash:true,w:1.6,r:2}],{min:10,max:90,h:240});
-  const parl=AN_ELS.filter(e=>e.kind==='parl').map(e=>{ const r=e.rows.find(x=>x[0]===bm); return 100*r[2]/r[1]; });
-  const avgP=parl.reduce((a,b)=>a+b,0)/parl.length; const u0=pts[0].u, u1=pts[pts.length-1].u;
-  const rel=pts.map(p=>p.st-p.kn); const relAvg=rel.reduce((a,b)=>a+b,0)/rel.length;
+  const parl=AN_ELS.filter(e=>e.kind==='parl').map(e=>{ const r=e.rows.find(x=>x[0]===bm); return 100*r[2]/r[1]; }); const ptsH=pts.filter(p=>p.l!=='2026*');
+  const avgP=parl.reduce((a,b)=>a+b,0)/parl.length; const u0=ptsH[0].u, u1=ptsH[ptsH.length-1].u;
+  const rel=ptsH.map(p=>p.st-p.kn); const relAvg=rel.reduce((a,b)=>a+b,0)/rel.length;
   $('anStFacts').innerHTML=`<h3>BM ${bm} · ${esc(s.mesto)}</h3><p class="sub">${esc(s.objekat)}, ${esc(s.adresa)}</p>
     <p>Upisani: <b class="num">${fmt(u0)}</b> (2012) → <b class="num">${fmt(u1)}</b> (2023), <b class="num">${fmt(100*(u1-u0)/u0,0)}%</b>. Na tvom spisku za 2026: <b class="num">${fmt(s.u26)}</b>.</p>
     <p>Prosečna izlaznost na parlamentarnim izborima: <b class="num">${fmt(avgP,1)}%</b> (najviše ${fmt(Math.max(...parl),1)}%, najmanje ${fmt(Math.min(...parl),1)}%).</p>
     <p>U odnosu na opštinu: u proseku <b class="num">${(relAvg>=0?'+':'')+fmt(relAvg,1)} p.p.</b> ${relAvg>=0?'veća':'manja'} izlaznost.</p>
-    <p>Za cilj od 70% u Kniću, ovo mesto bi po svom istorijskom odnosu trebalo da dostigne oko <b class="num">${fmt(Math.min(95,70+relAvg),0)}%</b>, odnosno <b class="num">${fmt(s.u26*Math.min(95,70+relAvg)/100)}</b> glasalih.</p>`;
-  const e23=AN_ELS.find(e=>e.id==='p2023'); const r=e23.rows.find(x=>x[0]===bm); const t=bmTotals(e23);
+    <p>Za cilj od ${fmt(parseNum(S.cfg.cilj)||70,0)}% u Kniću, ovo mesto bi po svom istorijskom odnosu trebalo da dostigne oko <b class="num">${fmt(Math.min(95,(parseNum(S.cfg.cilj)||70)+relAvg),0)}%</b>, odnosno <b class="num">${fmt(upis(bm)*Math.min(95,(parseNum(S.cfg.cilj)||70)+relAvg)/100)}</b> glasalih.</p>`+
+    (lr?`<p style="padding:8px 10px;border-radius:8px;background:var(--accent-soft)"><b>2026, stanje u ${toHM(LM.ref)}:</b> ${lr.estimated?'mesto se još nije javilo, procena':'poslednji unos '+fmt(lr.last.glasalo)+' u '+toHM(lr.last.min)+', sada procena'} ≈ <b class="num">${fmt(lr.now)}</b> glasalih; procena konačne <b class="num">${fmt(100*lr.pace,1)}%</b> (${fmt(lr.final)}).</p>`:'');
+  const e23=AN_ELS.find(e=>e.id===($('anStEl').value||'p2023')); const r=e23.rows.find(x=>x[0]===bm); const t=bmTotals(e23);
   const kt=e23.lists.map((l,i)=>e23.rows.reduce((a,x)=>a+x[4+i],0));
+  const same=AN_ELS.filter(x=>x.kind===e23.kind && x.id!=='pr2012b'); const ix=same.indexOf(e23); const prev= ix>0? same[ix-1] : null;
+  const turn=100*r[2]/r[1], kturn=100*t.g/t.u; let ch='';
+  if(prev){ const pr=prev.rows.find(x=>x[0]===bm); const d=turn-100*pr[2]/pr[1]; const dg=100*r[4+e23.gov]/r[3]-100*pr[4+prev.gov]/pr[3]; ch=` · promena izlaznosti od ${shortLbl(prev)}: ${(d>=0?'+':'')+fmt(d,1)} p.p. · SNS: ${(dg>=0?'+':'')+fmt(dg,1)} p.p.`; }
+  $('anStResT').textContent='Rezultat · '+e23.label;
+  $('anStResSub').textContent=`Upisano ${fmt(r[1])}, glasalo ${fmt(r[2])} (${fmt(turn,1)}%; Knić ${fmt(kturn,1)}%), važećih ${fmt(r[3])}${ch}.`+(e23.note?' '+e23.note:'');
   const tb=$('anSt23').querySelector('tbody'); tb.innerHTML='';
-  e23.lists.map((l,i)=>({l,i,v:r[4+i]})).sort((a,b)=>b.v-a.v).filter(x=>x.v>0||kt[x.i]>100).slice(0,8).forEach(x=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${esc(x.l)}</td><td class="num">${fmt(x.v)}</td><td class="num">${fmt(100*x.v/r[3],1)}%</td><td class="num">${fmt(100*kt[x.i]/t.v,1)}%</td>`; tb.appendChild(tr); });
+  e23.lists.map((l,i)=>({l,i,v:r[4+i]})).sort((a,b)=>b.v-a.v).filter(x=>x.v>0||kt[x.i]>100).slice(0,12).forEach(x=>{ const sp=100*x.v/r[3], kp=100*kt[x.i]/t.v, d=sp-kp; const tr=document.createElement('tr'); tr.innerHTML=`<td>${esc(x.l)}</td><td class="num">${fmt(x.v)}</td><td class="num">${fmt(sp,1)}%</td><td class="num">${fmt(kp,1)}%</td><td class="num" style="color:${Math.abs(d)<2?'var(--muted)':d>0?'var(--ok)':'var(--bad)'}">${(d>=0?'+':'')+fmt(d,1)}</td>`; tb.appendChild(tr); });
+}
+/* stanovništvo i rezerva */
+const POPGROUPS=[{bms:[23,24,25],nas:['Knić']},{bms:[12,13],nas:['Gruža','Grabovac']},{bms:[14,15],nas:['Guberevac']},{bms:[16,17],nas:['Guncati']},{bms:[26],nas:['Konjuša','Brestovac']},{bms:[35],nas:['Toponica','Kusovac']},{bms:[29],nas:['Ljubić']},{bms:[28],nas:['Lipnica']}];
+function popGroup(bm){ let g=POPGROUPS.find(x=>x.bms.includes(bm)); if(!g){ const s=ST.find(x=>x.bm===bm); g={bms:[bm],nas:[s.nas||s.mesto]}; } const pop=g.nas.reduce((a,n)=>a+((MAP.naselja.find(x=>x.l===n)||{}).st||0),0); return {bms:g.bms,nas:g.nas,pop}; }
+function renderAnRes(){
+  const e=AN_ELS.find(x=>x.id==='p2023'); const rows=ST.map(s=>{ const r=e.rows.find(x=>x[0]===s.bm); const g=popGroup(s.bm); const uG=g.bms.reduce((a,b)=>a+upis(b),0);
+    return {s,r,g,ratio:100*uG/g.pop, nv:r[1]-r[2], turn:100*r[2]/r[1]}; });
+  const totNv=rows.reduce((a,x)=>a+x.nv,0); rows.sort((a,b)=>b.nv-a.nv); let cum=0;
+  const tb=$('anRes').querySelector('tbody'); tb.innerHTML='';
+  rows.forEach(x=>{ cum+=x.nv; const shared=x.g.bms.length>1;  const tr=document.createElement('tr');
+    tr.innerHTML=`<td class="num">${x.s.bm}</td><td class="l">${esc(x.s.mesto)}</td><td class="num">${fmt(x.g.pop)}${shared?'<span class="sub"> ('+x.g.bms.join('+')+')</span>':''}</td><td class="num">${fmt(upis(x.s.bm))}</td><td class="num" style="color:${x.ratio>95?'var(--bad)':'inherit'}">${fmt(x.ratio,0)}</td><td class="num">${fmt(x.turn,1)}%</td><td class="num"><b>${fmt(x.nv)}</b></td><td class="num">${fmt(upis(x.s.bm)*0.05)}</td><td class="num">${fmt(100*cum/totNv,0)}%</td>${(()=>{ const lr=liveRow(x.s.bm); if(!lr) return '<td class="num">—</td><td class="num">—</td>'; const LM=window.LIVE; const cilj=(parseNum(S.cfg.cilj)||70)/100; const kb=LM.rows.reduce((a,r)=>a+r.u*r.base,0)/LM.U; const goal=lr.u*Math.min(0.95,lr.base*cilj/kb); const miss=goal-lr.final; return `<td class="num">${fmt(lr.now)}${lr.estimated?' *':''}</td><td class="num" style="color:${miss>0?'var(--bad)':'var(--ok)'}">${miss>0?fmt(miss):'✓'}</td>`; })()}`; tb.appendChild(tr); });
+  const U=ST.reduce((a,s)=>a+upis(s.bm),0), P=MAP.naselja.reduce((a,n)=>a+n.st,0); const adults=P*0.83;
+  $('anResNote').innerHTML=`Na tvom spisku je <b>${fmt(U)}</b> upisanih, a Popis 2022. je u opštini našao <b>${fmt(P)}</b> stanovnika, uključujući decu. Kada se odbiju maloletni (u Srbiji oko 17% stanovništva, za Knić podatak po uzrastu nisam proverio), punoletnih stanovnika je oko <b>${fmt(adults)}</b>, što je ${U>adults?'manje':'više'} od broja upisanih. Deo upisanih, dakle, verovatno živi van Knića, pa je stvarna izlaznost među onima koji tu žive veća od zvanične. Mesta sa više od 95 upisanih na 100 stanovnika (crveno) su ona gde je taj raskorak najveći. Tabela je poređana po broju birača koji 2023. nisu glasali; prvih desetak mesta nosi oko polovine cele rezerve. Sumorovac i Bajčetina (zajedno 92 stanovnika) nemaju svoje biračko mesto i nisu raspoređeni.`;
 }
 /* hourly */
 const H_SERIES=[{k:'n2016',lbl:'Srbija 2016',c:'var(--muted)',d:HOURLY.national['2016']},{k:'n2020',lbl:'Srbija 2020',c:'var(--warn)',d:HOURLY.national['2020']},{k:'n2022',lbl:'Srbija 2022',c:'var(--c22)',d:HOURLY.national['2022']},{k:'n2023',lbl:'Srbija 2023',c:'var(--c23)',d:HOURLY.national['2023']},{k:'s2022',lbl:'Šumadija i Z. Srbija 2022',c:'var(--accent)',d:HOURLY.sumadija['2022'],dash:true},{k:'s2023',lbl:'Šumadija i Z. Srbija 2023',c:'var(--ok)',d:HOURLY.sumadija['2023'],dash:true}];
@@ -916,12 +974,16 @@ function initAnalytics(){
   const es=$('anEl'); AN_ELS.slice().reverse().forEach(e=>{ const o=document.createElement('option'); o.value=e.id; o.textContent=e.label; es.appendChild(o); });
   es.value='p2023'; fillAnMetric();
   es.addEventListener('change',()=>{ fillAnMetric(); renderAnMap(); }); $('anMetric').addEventListener('change',renderAnMap);
-  $('anMap').addEventListener('click',ev=>{ const p=ev.target.closest('[data-bm]'); if(p){ $('anSt').value=p.dataset.bm; renderAnSt(); $('h-an4').scrollIntoView({behavior:'smooth',block:'start'}); } });
+  $('anMap').addEventListener('click',ev=>{ const p=ev.target.closest('[data-bm]'); if(p){ $('anSt').value=p.dataset.bm; $('anStEl').value=$('anEl').value; renderAnSt(); $('h-an4').scrollIntoView({behavior:'smooth',block:'start'}); } });
   $('anHeatMetric').addEventListener('change',renderAnHeat);
   const ss=$('anSt'); ST.forEach(s=>{ const o=document.createElement('option'); o.value=s.bm; o.textContent='BM '+s.bm+' · '+s.mesto; ss.appendChild(o); }); ss.value='23'; ss.addEventListener('change',renderAnSt);
+  const se=$('anStEl'); AN_ELS.slice().reverse().forEach(e=>{ const o=document.createElement('option'); o.value=e.id; o.textContent=e.label; se.appendChild(o); }); se.value='p2023'; se.addEventListener('change',renderAnSt);
   $('anHMode').addEventListener('change',renderAnHour);
-  renderAnSummary(); renderAnMap(); renderAnHeat(); renderAnSt(); renderAnHour();
+  renderAnSummary(); renderAnMap(); renderAnHeat(); renderAnSt(); renderAnRes(); renderAnHour(); if(window.LIVE) syncLive(window.LIVE);
 }
+function natNowText(ref){ if(ref==null) return ''; const hs=Object.keys(S.nat.sati||{}).map(Number).filter(h=>isFinite(parseNum(S.nat.sati[h]))&&h*60<=ref).sort((a,b)=>a-b); if(!hs.length) return ''; const h=hs[hs.length-1]; const M=window.LIVE; const k= M&&M.estAt? 100*M.estAt(h*60)/M.U : null; return `<br>Srbija (RIK) do ${h} h: ${fmt(parseNum(S.nat.sati[h]),1)}%`+(k!=null?` · Knić tada ≈ ${fmt(k,1)}%`:''); }
+function syncLive(M){ try{ if(typeof initAnalytics==='function' && $('anEl').options.length){ if(!$('anEl').querySelector('option[value="live"]')){ const o=document.createElement('option'); o.value='live'; o.textContent='2026 – uživo (procena)'; $('anEl').prepend(o); } if($('anEl').value==='live') { fillAnMetric(); renderAnMap(); } renderAnHeat(); renderAnSt(); renderAnRes(); } if(typeof renderNatKnic==='function') renderNatKnic(); }catch(e){ console.error(e); } }
+function liveRow(bm){ const M=window.LIVE; if(!M||M.ref==null||M.I==null) return null; return M.rows.find(r=>r.s.bm===bm); }
 function stationHistory(bm){ return AN_ELS.filter(e=>e.kind==='parl').map(e=>{ const r=e.rows.find(x=>x[0]===bm); return [yearOf(e.id), 100*r[2]/r[1]]; }); }
 
 /* ---------- Istorija ---------- */
@@ -939,10 +1001,10 @@ function renderResults(){
 }
 
 /* ---------- tabs ---------- */
-const TABS=['knic','srbija','analitika','istorija'];
+const TABS=['knic','srbija','analitika'];
 function showTab(t){ TABS.forEach(k=>{ const on=k===t; $('tab-'+k).setAttribute('aria-selected',on?'true':'false'); $('p-'+k).hidden=!on; }); store.set('izb26_tab',t); }
 TABS.forEach(k=>$('tab-'+k).addEventListener('click',()=>showTab(k)));
-const h=location.hash.replace('#',''); showTab(TABS.includes(h)?h:store.get('izb26_tab','knic'));
+const h=location.hash.replace('#',''); showTab(TABS.includes(h)?h:(h==='istorija'?'analitika':(TABS.includes(store.get('izb26_tab','knic'))?store.get('izb26_tab','knic'):'knic')));
 
 function renderAll(){ renderKnic(); renderReg(); syncCfgInputs(); syncNatInputs(); renderNat(); }
 renderAll(); renderHistory(); initAnalytics(); renderMode();
