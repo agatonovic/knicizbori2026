@@ -7,3 +7,7 @@ Praćenje izlaznosti po biračkim mestima u opštini Knić na parlamentarnim izb
 - „Štampaj izveštaj” daje A4 pregled trenutnog stanja.
 
 Izvori: RIK (spisak biračkih mesta, rezultati), RZS (publikacije o izborima), RGZ (granice naselja).
+
+## Podaci (folder `podaci/`)
+- `rezultati_po_bm_2012_2023.json` / `.csv` – rezultati za svih 36 biračkih mesta u Kniću: parlamentarni 2012, 2014, 2016, 2020, 2022, 2023 i predsednički 2012 (oba kruga) i 2017. Izvor: RIK (XLS po biračkim mestima, portal rezultata 2023). Za 2022. su očitani skenirani zapisnici (upisani, glasali, važeći, SNS, SPS); ostale liste 2022. nisu pojedinačno.
+- `izlaznost_po_satima.json` – RIK preseci za Srbiju (2016, 2020, 2022, 2023) i region Šumadije i Zapadne Srbije (2022, 2023), plus procene CRTA/CeSID/Ipsos.
