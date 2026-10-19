@@ -1,0 +1,11 @@
+id,izbori,datum,srbija_upisani,srbija_glasali,srbija_izlaznost_pct,knic_upisani,knic_glasali,knic_izlaznost_pct,razlika_pp,izvor
+p2012,Parlamentarni 2012,2012-05-06,6770013,3912904,57.8,12082,8308,68.76,10.96,"RZS, Izbori za narodne poslanike i predsednika Republike, maj 2012 (G20126014)"
+pr2012a,Predsednički 2012 – I krug,2012-05-06,6770013,3911136,57.77,12082,8308,68.76,10.99,RZS G20126014
+pr2012b,Predsednički 2012 – II krug,2012-05-20,6771479,3133682,46.28,12081,6115,50.62,4.34,RZS G20126014
+p2014,Parlamentarni 2014,2014-03-16,6765998,3592375,53.09,11773,6680,56.74,3.65,"RZS, Izbori za narodne poslanike, mart 2014 (G20146004)"
+p2016,Parlamentarni 2016,2016-04-24,6739441,3778923,56.07,11446,7582,66.24,10.17,"RZS, Izbori za narodne poslanike, april 2016 (G20166001)"
+pr2017,Predsednički 2017,2017-04-02,6724949,3655365,54.36,11316,6203,54.82,0.46,"RZS, Izbori za predsednika Republike, april 2017 (G20176003)"
+p2020,Parlamentarni 2020,2020-06-21,6584376,3221908,48.93,10842,6865,63.32,14.39,"RIK, Ukupni rezultati 2020 – po opštinama (XLS); deo opozicije bojkotovao"
+pr2022,Predsednički 2022,2022-04-03,6502307,3811585,58.62,10625,6436,60.57,1.95,"RZS, Izbori za predsednika Republike, 3. april 2022 (G20226009)"
+p2022,Parlamentarni 2022,2022-04-03,6502307,3810559,58.6,10625,6436,60.57,1.97,"RZS, Izbori za narodne poslanike, 3. april 2022 (G20226010)"
+p2023,Parlamentarni 2023,2023-12-17,6500666,3820746,58.77,10563,6854,64.89,6.12,"RIK, rezultati izbora (portal) i RZS G20246006"

@@ -1,0 +1,103 @@
+id,izbori,lista_kandidat,srbija_glasova,srbija_pct_vazecih,knic_glasova,knic_pct_vazecih
+p2012,Parlamentarni 2012,Pokrenimo Srbiju – T. Nikolić (SNS),940659,25.16,2476,31.36
+p2012,Parlamentarni 2012,Izbor za bolji život – B. Tadić (DS),863294,23.09,1460,18.49
+p2012,Parlamentarni 2012,SPS–PUPS–JS – I. Dačić,567689,15.18,1382,17.5
+p2012,Parlamentarni 2012,DSS – V. Koštunica,273532,7.32,588,7.45
+p2012,Parlamentarni 2012,Preokret – Č. Jovanović (LDP),255546,6.83,437,5.53
+p2012,Parlamentarni 2012,Ujedinjeni regioni Srbije – M. Dinkić,215666,5.77,648,8.21
+p2012,Parlamentarni 2012,SRS – V. Šešelj,180558,4.83,240,3.04
+p2012,Parlamentarni 2012,Dveri za život Srbije,169590,4.54,330,4.18
+p2012,Parlamentarni 2012,SVM – I. Pastor,68323,1.83,14,0.18
+p2012,Parlamentarni 2012,Pokret radnika i seljaka,57199,1.53,137,1.74
+p2012,Parlamentarni 2012,Ostale liste,147261,3.94,184,2.33
+pr2012a,Predsednički 2012 – I krug,Boris Tadić,989454,26.5,1575,19.75
+pr2012a,Predsednički 2012 – I krug,Tomislav Nikolić,979216,26.22,2822,35.38
+pr2012a,Predsednički 2012 – I krug,Ivica Dačić,556013,14.89,1309,16.41
+pr2012a,Predsednički 2012 – I krug,Vojislav Koštunica,290861,7.79,681,8.54
+pr2012a,Predsednički 2012 – I krug,Zoran Stanković,257054,6.88,605,7.59
+pr2012a,Predsednički 2012 – I krug,Čedomir Jovanović,196668,5.27,392,4.91
+pr2012a,Predsednički 2012 – I krug,Jadranka Šešelj,147793,3.96,200,2.51
+pr2012a,Predsednički 2012 – I krug,Vladan Glišić,108303,2.9,241,3.02
+pr2012a,Predsednički 2012 – I krug,Ištvan Pastor,63420,1.7,13,0.16
+pr2012a,Predsednički 2012 – I krug,Zoran Dragišić,60116,1.61,99,1.24
+pr2012a,Predsednički 2012 – I krug,Muamer Zukorlić,54492,1.46,25,0.31
+pr2012a,Predsednički 2012 – I krug,Danica Grujičić,30602,0.82,14,0.18
+pr2012b,Predsednički 2012 – II krug,Tomislav Nikolić,1552063,51.16,4094,69.03
+pr2012b,Predsednički 2012 – II krug,Boris Tadić,1481952,48.84,1837,30.97
+p2014,Parlamentarni 2014,A. Vučić – Budućnost u koju verujemo (SNS),1736920,49.96,3900,59.85
+p2014,Parlamentarni 2014,I. Dačić – SPS–PUPS–JS,484607,13.94,827,12.69
+p2014,Parlamentarni 2014,DS – Sa Demokratskom strankom za demokratsku Srbiju,216634,6.23,240,3.68
+p2014,Parlamentarni 2014,B. Tadić – NDS–LSV–ZZS,204767,5.89,187,2.87
+p2014,Parlamentarni 2014,DSS – V. Koštunica,152436,4.38,225,3.45
+p2014,Parlamentarni 2014,Dveri – B. Obradović,128458,3.69,198,3.04
+p2014,Parlamentarni 2014,LDP – Č. Jovanović,120879,3.48,339,5.2
+p2014,Parlamentarni 2014,URS – M. Dinkić,109167,3.14,427,6.55
+p2014,Parlamentarni 2014,SVM – I. Pastor,75294,2.17,5,0.08
+p2014,Parlamentarni 2014,DJB – S. Radulović,74973,2.16,23,0.35
+p2014,Parlamentarni 2014,SRS – V. Šešelj,72303,2.08,55,0.84
+p2014,Parlamentarni 2014,Ostale liste,100278,2.88,90,1.38
+p2016,Parlamentarni 2016,A. Vučić – Srbija pobeđuje (SNS),1823147,49.71,4051,55.78
+p2016,Parlamentarni 2016,I. Dačić – SPS–JS,413770,11.28,847,11.66
+p2016,Parlamentarni 2016,SRS – V. Šešelj,306052,8.34,645,8.88
+p2016,Parlamentarni 2016,DJB – S. Radulović,227626,6.21,110,1.51
+p2016,Parlamentarni 2016,DS – Za pravednu Srbiju,227589,6.2,488,6.72
+p2016,Parlamentarni 2016,Dveri–DSS,190530,5.19,413,5.69
+p2016,Parlamentarni 2016,Savez za bolju Srbiju – LDP–LSV–SDS,189564,5.17,386,5.31
+p2016,Parlamentarni 2016,SVM – I. Pastor,56620,1.54,19,0.26
+p2016,Parlamentarni 2016,Zavetnici – M. Đurđević,27690,0.75,71,0.98
+p2016,Parlamentarni 2016,Ostale liste,205327,5.6,233,3.21
+pr2017,Predsednički 2017,Aleksandar Vučić,2012788,56.01,3951,65.09
+pr2017,Predsednički 2017,Saša Janković,597728,16.63,442,7.28
+pr2017,Predsednički 2017,Luka Maksimović (Beli),344498,9.59,547,9.01
+pr2017,Predsednički 2017,Vuk Jeremić,206676,5.75,445,7.33
+pr2017,Predsednički 2017,Vojislav Šešelj,163802,4.56,261,4.3
+pr2017,Predsednički 2017,Boško Obradović,83523,2.32,151,2.49
+pr2017,Predsednički 2017,Saša Radulović,51651,1.44,56,0.92
+pr2017,Predsednički 2017,Milan Stamatović,42193,1.17,126,2.08
+pr2017,Predsednički 2017,Aleksandar Popović,41070,1.14,46,0.76
+pr2017,Predsednički 2017,Nenad Čanak,38167,1.06,15,0.25
+pr2017,Predsednički 2017,Miroslav Parović,11540,0.32,30,0.49
+p2020,Parlamentarni 2020,A. Vučić – Za našu decu (SNS),1953998,63.02,4520,68.97
+p2020,Parlamentarni 2020,I. Dačić – SPS–JS,334333,10.78,609,9.29
+p2020,Parlamentarni 2020,A. Šapić – SPAS,123393,3.98,168,2.56
+p2020,Parlamentarni 2020,Za Kraljevinu Srbiju (POKS),85888,2.77,334,5.1
+p2020,Parlamentarni 2020,Suverenisti (DJB),73953,2.39,109,1.66
+p2020,Parlamentarni 2020,Metla 2020,72085,2.32,127,1.94
+p2020,Parlamentarni 2020,SVM – I. Pastor,71893,2.32,8,0.12
+p2020,Parlamentarni 2020,SRS – V. Šešelj,65954,2.13,133,2.03
+p2020,Parlamentarni 2020,PSG – S. Trifunović,50765,1.64,72,1.1
+p2020,Parlamentarni 2020,Zavetnici – M. Đurđević,45950,1.48,111,1.69
+p2020,Parlamentarni 2020,Zdravo da pobedi – M. Stamatović,33435,1.08,103,1.57
+p2020,Parlamentarni 2020,Narodni blok – V. Ilić,7873,0.25,114,1.74
+p2020,Parlamentarni 2020,Ostale liste,181088,5.84,146,2.23
+pr2022,Predsednički 2022,Aleksandar Vučić,2224914,60.01,3996,63.75
+pr2022,Predsednički 2022,Zdravko Ponoš,698538,18.84,739,11.79
+pr2022,Predsednički 2022,Miloš Jovanović,226137,6.1,418,6.67
+pr2022,Predsednički 2022,Boško Obradović,165181,4.46,460,7.34
+pr2022,Predsednički 2022,Milica Đurđević Stamenkovski,160553,4.33,448,7.15
+pr2022,Predsednički 2022,Biljana Stojković,122378,3.3,82,1.31
+pr2022,Predsednički 2022,Branka Stamenković,77031,2.08,73,1.16
+pr2022,Predsednički 2022,Miša Vacić,32947,0.89,52,0.83
+p2022,Parlamentarni 2022,A. Vučić – Zajedno možemo sve (SNS),1635101,44.27,3032,48.9
+p2022,Parlamentarni 2022,M. Tepić – Ujedinjeni za pobedu Srbije,520469,14.09,604,9.74
+p2022,Parlamentarni 2022,I. Dačić – SPS–JS,435274,11.79,828,13.35
+p2022,Parlamentarni 2022,M. Jovanović – NADA,204444,5.54,363,5.85
+p2022,Parlamentarni 2022,MORAMO – Akcija,178733,4.84,103,1.66
+p2022,Parlamentarni 2022,Dveri–POKS,144762,3.92,425,6.85
+p2022,Parlamentarni 2022,Zavetnici – M. Đurđević,141227,3.82,374,6.03
+p2022,Parlamentarni 2022,Suverenisti,86362,2.34,91,1.47
+p2022,Parlamentarni 2022,SRS – V. Šešelj,82066,2.22,146,2.35
+p2022,Parlamentarni 2022,B. Tadić – Ajmo ljudi,31196,0.84,109,1.76
+p2022,Parlamentarni 2022,SVM – I. Pastor,60313,1.63,10,0.16
+p2022,Parlamentarni 2022,Ostale liste,173381,4.69,116,1.87
+p2023,Parlamentarni 2023,A. Vučić – Srbija ne sme da stane (SNS),1783701,48.07,3628,54.55
+p2023,Parlamentarni 2023,"Srbija protiv nasilja (SSP, NPS, ZLF, DS…)",902450,24.32,1246,18.73
+p2023,Parlamentarni 2023,I. Dačić – Premijer Srbije (SPS),249916,6.73,519,7.8
+p2023,Parlamentarni 2023,M. Jovanović – NADA,191431,5.16,437,6.57
+p2023,Parlamentarni 2023,MI – Glas iz naroda (Nestorović),178830,4.82,249,3.74
+p2023,Parlamentarni 2023,"Nacionalno okupljanje (Dveri, Zavetnici)",105165,2.83,308,4.63
+p2023,Parlamentarni 2023,SVM,64747,1.74,25,0.38
+p2023,Parlamentarni 2023,SRS – V. Šešelj,55782,1.5,76,1.14
+p2023,Parlamentarni 2023,"DJB–SDS (Radulović, Tadić)",45079,1.21,48,0.72
+p2023,Parlamentarni 2023,Narodna stranka – Vuk Jeremić,33388,0.9,21,0.32
+p2023,Parlamentarni 2023,Ostale liste,100489,2.71,94,1.41
