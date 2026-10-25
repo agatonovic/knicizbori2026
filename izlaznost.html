@@ -78,8 +78,8 @@ details summary{cursor:pointer;font-weight:600}
     </form>
     <div class="row note">
       <label for="upisani" style="text-transform:none;letter-spacing:0;font-weight:500;display:flex;gap:8px;align-items:center">Upisanih u Kniću 2026:
-        <input id="upisani" type="text" inputmode="numeric" value="10333" style="width:110px;font-size:15px;padding:6px"></label>
-      <span>(spisak bir. mesta; promeni ako dobiješ zvaničan broj)</span>
+        <input id="upisani" type="text" inputmode="numeric" value="10217" style="width:110px;font-size:15px;padding:6px"></label>
+      <span>(zbir po biračkim mestima na dan izbora)</span>
     </div>
     <div class="note" id="err" role="alert"></div>
   </section>
@@ -170,7 +170,7 @@ const knicAt=(y,h)=>KNIC[y].fin*fSH[y](h);
 
 // ---------- Stanje ----------
 const KEY="knic-izlaznost-2026";
-let state={up:10333,entries:[{t:"08:00",pct:5.14}]};
+let state={up:10217,entries:[{t:"08:00",pct:4.96}]};
 try{const s=localStorage.getItem(KEY);if(s){const p=JSON.parse(s);if(p&&Array.isArray(p.entries))state=p;}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 
