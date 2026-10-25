@@ -1,0 +1,280 @@
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Izlaznost Knić uživo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: jedna kolona za telefon — unos gore, presuda, poređenje, grafik, tabela unosa. Boje iz brenda „Knić bez rudnika“. */
+:root{
+  --bg:#ffffff; --bg2:#f2f4fa; --bg3:#e4e8f6; --line:#e1e6f4; --line3:#7d8cbd;
+  --ink:#0b0f1e; --ink6:#414a6d; --ink4:#5c678f;
+  --plava:#253f87; --plava9:#16265a; --plava4:#7e8bb5; --plava2:#b7c4ee; --plavaT:#253f87;
+  --crvena:#c0152f; --crvenaT:#ac1129; --zelT:#0e6b4b; --inv:#ffffff;
+  --disp:"Oswald","Arial Narrow",system-ui,sans-serif;
+  --text:"Inter",system-ui,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Courier New",monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1020; --bg2:#161b31; --bg3:#212843; --line:#262e4d; --line3:#646f9f;
+  --ink:#f4f6fc; --ink6:#b4bdd9; --ink4:#98a1c2; --plavaT:#aabcf6; --plava4:#7e8bb5;
+  --crvenaT:#ff8d9c; --zelT:#57cf9f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1020; --bg2:#161b31; --bg3:#212843; --line:#262e4d; --line3:#646f9f;
+  --ink:#f4f6fc; --ink6:#b4bdd9; --ink4:#98a1c2; --plavaT:#aabcf6; --plava4:#7e8bb5;
+  --crvenaT:#ff8d9c; --zelT:#57cf9f; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--text);font-size:15px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:24px}
+header{background:var(--plava9);color:var(--inv);padding:16px 18px;display:grid;gap:4px}
+.nad{font-family:var(--disp);font-weight:500;letter-spacing:.18em;font-size:12px;text-transform:uppercase;opacity:.85}
+h1{font-family:var(--disp);font-weight:700;font-size:34px;line-height:1;margin:0;text-transform:uppercase;text-wrap:balance}
+h2{font-family:var(--disp);font-weight:600;font-size:20px;margin:0;text-transform:uppercase;letter-spacing:.02em}
+.sub{font-size:13px;opacity:.85}
+.card{border:2px solid var(--line3);padding:16px;display:grid;gap:12px}
+form.unos{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;align-items:end}
+label{display:grid;gap:4px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink6)}
+input,select{font:500 18px var(--mono);padding:10px;border:2px solid var(--line3);background:var(--bg);color:var(--ink);border-radius:6px;min-width:0;width:100%;box-sizing:border-box}
+button{font:600 15px var(--text);padding:12px 14px;border-radius:6px;border:2px solid var(--plava);background:var(--plava);color:var(--inv);cursor:pointer}
+button.sec{background:transparent;color:var(--plavaT);border-color:var(--line3)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--plavaT);outline-offset:2px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.verdict{display:grid;gap:6px}
+.big{font:500 52px/1 var(--mono);letter-spacing:-.02em}
+.vlabel{font-family:var(--disp);font-weight:700;font-size:24px;text-transform:uppercase;line-height:1.05;text-wrap:balance}
+.up{color:var(--zelT)} .down{color:var(--crvenaT)}
+.note{font-size:13px;color:var(--ink4)}
+.tblw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{background:var(--bg3);text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink6);padding:8px;font-weight:600;white-space:nowrap}
+td{padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.avg td{font-weight:700;background:var(--bg2)}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;padding:1px 6px;border:1px solid var(--line3);border-radius:2px;color:var(--ink6);text-transform:uppercase}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{background:var(--bg2);padding:12px;display:grid;gap:2px}
+.kpi b{font:500 24px var(--mono)}
+.kpi span{font-size:12px;color:var(--ink6)}
+svg{width:100%;height:auto;display:block}
+svg text{font-family:var(--text);font-size:11px;fill:var(--ink4)}
+.izvor{background:var(--bg3);padding:10px 12px;font:500 12px/1.5 var(--mono);color:var(--ink4)}
+.del{background:none;border:none;color:var(--crvenaT);padding:2px 6px;font-size:13px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+details summary{cursor:pointer;font-weight:600}
+@media (prefers-reduced-motion:no-preference){.big{transition:color .3s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="nad">Grupa građana Knić bez rudnika</div>
+    <h1>Izlaznost Knić uživo</h1>
+    <div class="sub">Parlamentarni izbori 25. oktobra 2026 · poređenje sa izborima 2016–2023</div>
+  </header>
+
+  <section class="card" aria-labelledby="h-unos">
+    <h2 id="h-unos">Novi presek</h2>
+    <form class="unos" id="f">
+      <label for="vreme">Vreme<input id="vreme" type="time" min="07:00" max="20:00" step="60" required></label>
+      <label for="mod">Unosim<select id="mod"><option value="pct">procenat</option><option value="br">broj glasalih</option></select></label>
+      <label for="val"><span id="valLbl">Izlaznost %</span><input id="val" type="text" inputmode="decimal" placeholder="5,14" required></label>
+      <button type="submit">Dodaj presek</button>
+    </form>
+    <div class="row note">
+      <label for="upisani" style="text-transform:none;letter-spacing:0;font-weight:500;display:flex;gap:8px;align-items:center">Upisanih u Kniću 2026:
+        <input id="upisani" type="text" inputmode="numeric" value="10333" style="width:110px;font-size:15px;padding:6px"></label>
+      <span>(spisak bir. mesta; promeni ako dobiješ zvaničan broj)</span>
+    </div>
+    <div class="note" id="err" role="alert"></div>
+  </section>
+
+  <section class="card verdict" aria-labelledby="h-v" id="vCard">
+    <h2 id="h-v">Poslednji presek</h2>
+    <div id="verdict"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-c">
+    <h2 id="h-c">Poređenje u isto vreme</h2>
+    <div class="tblw"><table id="cmp"></table></div>
+    <p class="note" id="cmpNote"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h-g">
+    <h2 id="h-g">Tok dana</h2>
+    <div id="chart"></div>
+    <div class="row note" id="legend"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-l">
+    <h2 id="h-l">Uneti preseci</h2>
+    <div class="tblw"><table id="log"></table></div>
+    <div class="row"><button class="sec" id="copy" type="button">Kopiraj pregled</button><span class="note" id="copyMsg"></span></div>
+    <textarea id="copyBox" hidden rows="6" style="width:100%;font:13px var(--mono)"></textarea>
+  </section>
+
+  <details class="card">
+    <summary>Kako se računa i koliko je pouzdano</summary>
+    <div class="note" style="display:grid;gap:8px;font-size:14px;color:var(--ink6)">
+      <p><b>Zvanično za Knić postoji samo konačna izlaznost</b> (RIK, po biračkim mestima). Satne preseke RIK objavljuje samo za Srbiju i za okruge.</p>
+      <p><b>Procena za Knić po satima:</b> konačna izlaznost Knića × udeo konačne izlaznosti koji je u tom satu bio postignut. Za 2022. i 2023. udeo je iz preseka Šumadijskog okruga (RIK), za 2016. i 2020. iz preseka Srbije. Primer: 2023. Šumadija je do 14h imala 53,5% svoje konačne izlaznosti, pa je procena za Knić 64,89 × 0,535 = 34,7%.</p>
+      <p><b>Jutro (7–10h) je najslabiji deo procene.</b> RIK prvi presek daje u 10h; tačka u 9h je iz procena CeSID/Ipsos, a od 7h do 9h kriva je glatko povezana od nule. Seoske sredine kao Knić obično glasaju ranije od proseka Srbije, pa jutarnja prednost Knića može da bude delom „normalna“. Procena konačne izlaznosti zato se prikazuje tek od 12h.</p>
+      <p><b>Između tačaka</b> vrednosti su interpolirane monotonom krivom (ne raste unazad).</p>
+    </div>
+  </details>
+
+  <div class="izvor">Izvor: RIK (presek izlaznosti Srbija i Šumadijski okrug; konačni rezultati po biračkim mestima), RZS; CeSID/Ipsos samo za 9h. Obrada: Knić bez rudnika.</div>
+</div>
+
+<script>
+(function(){
+// ---------- Istorijski podaci ----------
+// Konačna izlaznost Knića (RIK/RZS, % upisanih) i broj upisanih
+const KNIC={2016:{fin:66.24,up:11446,gl:7582},2020:{fin:63.32,up:10842,gl:6865},2022:{fin:60.57,up:10625,gl:6436},2023:{fin:64.89,up:10563,gl:6854}};
+// Zvanični preseci RIK (% upisanih); 9h = CeSID/Ipsos (nezvanično)
+const NAT={
+ 2016:{9:5.2,10:8.85,14:28.89,18:47.68,20:56.07},
+ 2020:{9:5.2,10:9.30,12:18.01,14:26.11,16:33.42,18:40.82,20:48.93},
+ 2022:{9:5.1,10:9.59,12:20.52,14:31.56,16:41.56,18:50.82,20:58.60},
+ 2023:{9:4.8,10:9.94,12:21.33,14:32.38,16:42.36,18:51.93,20:58.77}};
+const SUM={
+ 2022:{10:8.02,12:19.28,14:31.94,16:42.78,18:52.01,20:59.51},
+ 2023:{12:19.58,14:32.13,16:42.64,18:52.75,20:60.06}};
+// Faktor jutarnjeg zaostatka Šumadije (2022, 10h): udeo Šumadije / udeo Srbije
+const F=(SUM[2022][10]/SUM[2022][20])/(NAT[2022][10]/NAT[2022][20]);
+function shareFrom(obj,fin){const o={7:0};for(const h in obj)o[h]=obj[h]/fin;return o;}
+// Udeo konačne izlaznosti po satu
+const SH={};
+SH[2016]=shareFrom(NAT[2016],56.07);
+SH[2020]=shareFrom(NAT[2020],48.93);
+SH[2022]=shareFrom(SUM[2022],59.51); SH[2022][9]=(NAT[2022][9]/58.60)*F;
+SH[2023]=shareFrom(SUM[2023],60.06); SH[2023][10]=(NAT[2023][10]/58.77)*F; SH[2023][9]=(NAT[2023][9]/58.77)*F;
+const BASIS={2016:"kriva Srbije",2020:"kriva Srbije",2022:"kriva Šumadije",2023:"kriva Šumadije"};
+const YEARS=[2016,2020,2022,2023];
+
+// Monotona kubna interpolacija (Fritsch–Carlson)
+function mono(pts){
+  const xs=Object.keys(pts).map(Number).sort((a,b)=>a-b), ys=xs.map(x=>pts[x]), n=xs.length;
+  const d=[],m=new Array(n);
+  for(let i=0;i<n-1;i++)d.push((ys[i+1]-ys[i])/(xs[i+1]-xs[i]));
+  m[0]=d[0];m[n-1]=d[n-2];
+  for(let i=1;i<n-1;i++)m[i]=(d[i-1]*d[i]<=0)?0:(d[i-1]+d[i])/2;
+  for(let i=0;i<n-1;i++){if(d[i]===0){m[i]=m[i+1]=0;continue}const a=m[i]/d[i],b=m[i+1]/d[i],s=a*a+b*b;if(s>9){const t=3/Math.sqrt(s);m[i]=t*a*d[i];m[i+1]=t*b*d[i];}}
+  return function(x){
+    if(x<=xs[0])return ys[0]; if(x>=xs[n-1])return ys[n-1];
+    let i=0;while(x>xs[i+1])i++;
+    const h=xs[i+1]-xs[i],t=(x-xs[i])/h,t2=t*t,t3=t2*t;
+    return (2*t3-3*t2+1)*ys[i]+(t3-2*t2+t)*h*m[i]+(-2*t3+3*t2)*ys[i+1]+(t3-t2)*h*m[i+1];
+  };
+}
+const fSH={},fNAT={},fSUM={};
+YEARS.forEach(y=>{fSH[y]=mono(SH[y]);fNAT[y]=mono(Object.assign({7:0},NAT[y]));});
+fSUM[2022]=mono(Object.assign({7:0},SUM[2022],{9:SUM[2022][20]*SH[2022][9],}));
+fSUM[2023]=mono(Object.assign({7:0},SUM[2023],{9:60.06*SH[2023][9],10:60.06*SH[2023][10]}));
+const knicAt=(y,h)=>KNIC[y].fin*fSH[y](h);
+
+// ---------- Stanje ----------
+const KEY="knic-izlaznost-2026";
+let state={up:10333,entries:[{t:"08:00",pct:5.14}]};
+try{const s=localStorage.getItem(KEY);if(s){const p=JSON.parse(s);if(p&&Array.isArray(p.entries))state=p;}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+
+const $=id=>document.getElementById(id);
+const fmt=(v,d=1)=>v.toLocaleString("sr-RS",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtN=v=>Math.round(v).toLocaleString("sr-RS");
+const hOf=t=>{const[a,b]=t.split(":").map(Number);return a+b/60;};
+const parseNum=s=>parseFloat(String(s).trim().replace(/\./g,"").replace(",",".")) ;
+const parsePct=s=>parseFloat(String(s).trim().replace(",","."));
+const sign=(v,d=1)=>(v>0?"+":v<0?"−":"±")+fmt(Math.abs(v),d);
+
+$("upisani").value=state.up;
+const now=new Date();let hh=Math.min(20,Math.max(7,now.getHours()));
+$("vreme").value=String(hh).padStart(2,"0")+":00";
+$("mod").addEventListener("change",()=>{$("valLbl").textContent=$("mod").value==="pct"?"Izlaznost %":"Broj glasalih";$("val").placeholder=$("mod").value==="pct"?"5,14":"531";});
+$("upisani").addEventListener("change",()=>{const v=parseNum($("upisani").value);if(v>1000){state.up=v;save();render();}});
+$("f").addEventListener("submit",e=>{
+  e.preventDefault();$("err").textContent="";
+  const t=$("vreme").value;const h=t?hOf(t):NaN;
+  if(!(h>=7&&h<=20)){$("err").textContent="Vreme mora biti između 07:00 i 20:00.";return;}
+  let pct;
+  if($("mod").value==="pct"){pct=parsePct($("val").value);}else{const n=parseNum($("val").value);pct=100*n/state.up;}
+  if(!(pct>0&&pct<100)){$("err").textContent="Unesi izlaznost između 0 i 100 % (npr. 5,14) ili broj glasalih manji od broja upisanih.";return;}
+  state.entries=state.entries.filter(x=>x.t!==t);state.entries.push({t,pct:Math.round(pct*100)/100});
+  state.entries.sort((a,b)=>hOf(a.t)-hOf(b.t));save();$("val").value="";render();
+});
+
+function analyze(en){
+  const h=hOf(en.t);
+  const rows=YEARS.map(y=>{const k=knicAt(y,h);return{y,k,diff:en.pct-k,ratio:en.pct/k,proj:en.pct/fSH[y](h)};});
+  const avgK=rows.reduce((s,r)=>s+r.k,0)/rows.length;
+  const avgSh=YEARS.reduce((s,y)=>s+fSH[y](h),0)/YEARS.length;
+  const projs=rows.map(r=>r.proj);
+  return{h,rows,avgK,diff:en.pct-avgK,ratio:en.pct/avgK,proj:en.pct/avgSh,pmin:Math.min(...projs),pmax:Math.max(...projs),avgSh};
+}
+
+function render(){
+  const E=state.entries;
+  // verdict
+  if(!E.length){$("verdict").innerHTML='<p class="note">Još nema preseka. Unesi prvi presek iznad (npr. 08:00 i 5,14).</p>';}
+  else{
+    const en=E[E.length-1],a=analyze(en),up=state.up,cnt=up*en.pct/100,avgCnt=up*a.avgK/100;
+    const cls=a.diff>=0?"up":"down";
+    const word=a.diff>=0?(a.ratio>=1.15?"Znatno iznad proseka":"Iznad proseka"):(a.ratio<=0.87?"Znatno ispod proseka":"Ispod proseka");
+    const showProj=a.h>=12;
+    $("verdict").innerHTML=`
+      <div class="row" style="gap:16px;align-items:baseline"><span class="big ${cls}">${fmt(en.pct,2)}%</span><span class="note mono">do ${en.t} · ≈${fmtN(cnt)} glasalih</span></div>
+      <div class="vlabel ${cls}">${word} 2016–2023</div>
+      <div class="kpis">
+        <div class="kpi"><span>Prosek Knića u ${en.t} (procena)</span><b>${fmt(a.avgK,1)}%</b><span>≈${fmtN(avgCnt)} na današnjem spisku</span></div>
+        <div class="kpi"><span>Razlika od proseka</span><b class="${cls}">${sign(a.diff)} p.p.</b><span>${sign(cnt-avgCnt,0)} ljudi · ×${fmt(a.ratio,2)}</span></div>
+        <div class="kpi"><span>Procena konačne izlaznosti</span><b>${showProj?fmt(Math.min(a.proj,95),1)+"%":"od 12h"}</b><span>${showProj?"raspon "+fmt(Math.min(a.pmin,95),1)+"–"+fmt(Math.min(a.pmax,95),1)+"% · ≈"+fmtN(up*Math.min(a.proj,95)/100)+" ljudi":"jutarnji presek nije dovoljno pouzdan"}</span></div>
+      </div>`;
+  }
+  // comparison table for last entry
+  if(E.length){
+    const en=E[E.length-1],a=analyze(en);
+    let html=`<tr><th>Izbori</th><th class="n">Knić u ${en.t}</th><th class="n">Danas</th><th class="n">Razlika</th><th class="n">Konačno Knić</th><th>Osnova</th></tr>`;
+    a.rows.slice().reverse().forEach(r=>{html+=`<tr><td>Parlamentarni ${r.y}</td><td class="n">${fmt(r.k,1)}%</td><td class="n">${fmt(en.pct,2)}%</td><td class="n ${r.diff>=0?"up":"down"}">${sign(r.diff)}</td><td class="n">${fmt(KNIC[r.y].fin,2)}%</td><td><span class="tag">${BASIS[r.y]}</span></td></tr>`;});
+    html+=`<tr class="avg"><td>Prosek 4 izbora</td><td class="n">${fmt(a.avgK,1)}%</td><td class="n">${fmt(en.pct,2)}%</td><td class="n ${a.diff>=0?"up":"down"}">${sign(a.diff)}</td><td class="n">${fmt(YEARS.reduce((s,y)=>s+KNIC[y].fin,0)/4,2)}%</td><td></td></tr>`;
+    html+=`<tr><th colspan="6">Zvanični preseci RIK u isto vreme (region, ne Knić)</th></tr>`;
+    [2023,2022].forEach(y=>{html+=`<tr><td>Šumadijski okrug ${y}</td><td class="n">${fmt(fSUM[y](a.h),1)}%</td><td class="n">${fmt(en.pct,2)}%</td><td class="n ${en.pct-fSUM[y](a.h)>=0?"up":"down"}">${sign(en.pct-fSUM[y](a.h))}</td><td class="n">${fmt(SUM[y][20],2)}%</td><td><span class="tag">${a.h<10?"interpolirano":"RIK"}</span></td></tr>`;});
+    [2023,2022,2020,2016].forEach(y=>{html+=`<tr><td>Srbija ${y}</td><td class="n">${fmt(fNAT[y](a.h),1)}%</td><td class="n">${fmt(en.pct,2)}%</td><td class="n ${en.pct-fNAT[y](a.h)>=0?"up":"down"}">${sign(en.pct-fNAT[y](a.h))}</td><td class="n">${fmt(NAT[y][20],2)}%</td><td><span class="tag">${[10,12,14,16,18,20].includes(Math.round(a.h*60)/60)?"RIK":"interpolirano"}</span></td></tr>`;});
+    $("cmp").innerHTML=html;
+    $("cmpNote").textContent=a.h<10?"Pre 10h nema zvaničnih preseka: vrednosti za jutro su procena (CeSID/Ipsos u 9h, od 7h kriva od nule). Poređenje tumači oprezno.":"Brojevi za Knić pre 20h su procena iz regionalnog toka dana; konačne vrednosti su zvanične.";
+  } else {$("cmp").innerHTML="";$("cmpNote").textContent="";}
+  drawChart();
+  // log
+  let lg=`<tr><th>Vreme</th><th class="n">Izlaznost</th><th class="n">≈ Glasalih</th><th class="n">Prosek tada</th><th class="n">Razlika</th><th class="n">Procena kraja</th><th></th></tr>`;
+  E.forEach((en,i)=>{const a=analyze(en);lg+=`<tr><td class="mono">${en.t}</td><td class="n">${fmt(en.pct,2)}%</td><td class="n">${fmtN(state.up*en.pct/100)}</td><td class="n">${fmt(a.avgK,1)}%</td><td class="n ${a.diff>=0?"up":"down"}">${sign(a.diff)}</td><td class="n">${a.h>=12?fmt(Math.min(a.proj,95),1)+"%":"—"}</td><td><button class="del" data-i="${i}" type="button" aria-label="Obriši presek ${en.t}">Obriši</button></td></tr>`;});
+  $("log").innerHTML=lg;
+  document.querySelectorAll(".del").forEach(b=>b.onclick=()=>{state.entries.splice(+b.dataset.i,1);save();render();});
+}
+
+function drawChart(){
+  const W=720,H=360,L=44,R=14,T=14,B=34,x=h=>L+(h-7)/13*(W-L-R),yMax=Math.max(75,...state.entries.map(e=>e.pct+5)),y=v=>T+(1-v/yMax)*(H-T-B);
+  const cs=getComputedStyle(document.documentElement);
+  const col={2016:cs.getPropertyValue("--line3"),2020:cs.getPropertyValue("--plava4"),2022:cs.getPropertyValue("--plava2"),2023:cs.getPropertyValue("--plavaT")};
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Izlaznost Knića po satima: procene za 2016–2023 i današnji preseci">`;
+  for(let v=0;v<=yMax;v+=10){s+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end">${v}%</text>`;}
+  for(let h=7;h<=20;h++){s+=`<text x="${x(h)}" y="${H-12}" text-anchor="middle">${h}h</text>`;}
+  YEARS.forEach(yr=>{let d="";for(let m=0;m<=780;m+=10){const h=7+m/60;d+=(m?"L":"M")+x(h).toFixed(1)+","+y(knicAt(yr,h)).toFixed(1);}
+    s+=`<path d="${d}" fill="none" stroke="${col[yr]}" stroke-width="${yr===2023?2.5:1.6}" stroke-dasharray="${yr===2023?"":"5 4"}"/>`;});
+  // prosek
+  let d="";for(let m=0;m<=780;m+=10){const h=7+m/60;const v=YEARS.reduce((a,yr)=>a+knicAt(yr,h),0)/4;d+=(m?"L":"M")+x(h).toFixed(1)+","+y(v).toFixed(1);}
+  s+=`<path d="${d}" fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="2 3"/>`;
+  const E=state.entries;
+  if(E.length){let p="";E.forEach((e,i)=>{p+=(i?"L":"M")+x(hOf(e.t))+","+y(e.pct);});
+    s+=`<path d="${p}" fill="none" stroke="var(--crvena)" stroke-width="3"/>`;
+    E.forEach(e=>{s+=`<circle cx="${x(hOf(e.t))}" cy="${y(e.pct)}" r="5" fill="var(--crvena)"/>`;});
+    const l=E[E.length-1];s+=`<text x="${Math.min(x(hOf(l.t))+8,W-60)}" y="${y(l.pct)-8}" style="fill:var(--crvenaT);font-weight:700;font-size:13px">${fmt(l.pct,2)}%</text>`;}
+  s+=`</svg>`;$("chart").innerHTML=s;
+  $("legend").innerHTML=`<span><b style="color:var(--crvenaT)">━</b> 2026 (uneto)</span><span><b>┅</b> prosek 2016–2023</span>`+YEARS.slice().reverse().map(yr=>`<span><b style="color:${col[yr]}">${yr===2023?"━":"╌"}</b> Knić ${yr} (procena)</span>`).join("");
+}
+
+$("copy").addEventListener("click",()=>{
+  const lines=["Izlaznost Knić 2026 – poređenje sa prosekom 2016–2023 (procena za Knić po satima)"];
+  state.entries.forEach(en=>{const a=analyze(en);lines.push(`${en.t}: ${fmt(en.pct,2)}% (≈${fmtN(state.up*en.pct/100)}) · prosek ${fmt(a.avgK,1)}% · ${sign(a.diff)} p.p.`+(a.h>=12?` · procena kraja ${fmt(Math.min(a.proj,95),1)}%`:""));});
+  const txt=lines.join("\n");
+  const fallback=()=>{const b=$("copyBox");b.hidden=false;b.value=txt;b.select();$("copyMsg").textContent="Označeno – kopiraj ručno.";};
+  try{navigator.clipboard.writeText(txt).then(()=>{$("copyMsg").textContent="Kopirano.";},fallback);}catch(e){fallback();}
+});
+render();
+window.__test={analyze,knicAt,fSH,fSUM,fNAT};
+})();
+</script>
+</body></html>
