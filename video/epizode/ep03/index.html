@@ -1,0 +1,346 @@
+<!doctype html><html lang="sr-Cyrl"><head><meta charset="utf-8"><title>Ep3</title>
+<style>
+@font-face{font-family:Oswald;src:url(assets/Oswald-var.woff2) format('woff2');font-weight:200 700}
+@font-face{font-family:Inter;src:url(assets/Inter-var.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:JBM;src:url(assets/JetBrainsMono-var.woff2) format('woff2');font-weight:100 800}
+:root{
+  --white:#ffffff;--s200:#f2f4fa;--s300:#e4e8f6;--l100:#e1e6f4;--l300:#7d8cbd;
+  --ink9:#0b0f1e;--ink6:#414a6d;--ink4:#5c678f;
+  --p900:#16265a;--p700:#253f87;--p400:#7e8bb5;--p200:#b7c4ee;--p100:#eaeefb;--ptx:#253f87;
+  --red:#c0152f;--redtx:#ac1129;--red100:#fbe8eb;
+}
+html,body{margin:0;padding:0;background:#fff}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--white);font-family:Inter,sans-serif;color:var(--ink9)}
+.scene{position:absolute;inset:0;display:none}
+.abs{position:absolute}
+.disp{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+.nad{font-family:Oswald,sans-serif;font-weight:500;font-size:30px;letter-spacing:.18em;text-transform:uppercase;color:var(--ptx)}
+.mono{font-family:JBM,monospace;font-weight:500;font-feature-settings:"tnum"}
+.lbl{font-family:Inter;font-weight:600;font-size:30px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink6)}
+#sub{position:absolute;left:64px;right:64px;bottom:430px;text-align:center;font-family:Inter;font-weight:600;font-size:46px;line-height:1.25;color:var(--ink9)}
+#sub span{display:inline;padding:6px 14px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#src{position:absolute;left:64px;right:64px;top:1530px;height:64px;background:var(--s300);display:flex;align-items:center;padding:0 22px;box-sizing:border-box;font-family:JBM;font-size:23px;color:var(--ink4);font-weight:500;white-space:nowrap;overflow:hidden}
+.grid{position:absolute;width:2px;background:var(--l100)}
+.tick{position:absolute;font-family:JBM;font-size:24px;color:var(--ink4);transform:translateX(-50%)}
+.cell{position:absolute;width:76px;height:76px;background:var(--s200)}
+</style></head>
+<body>
+<div id="stage">
+
+<!-- S1 one constituency -->
+<div class="scene" id="s1" style="background:var(--p900)">
+  <div class="abs nad" style="left:64px;top:150px;color:var(--p200)">Изборна аналитика · 3/5 · Наш део</div>
+  <div class="abs disp" id="s1h" style="left:64px;top:215px;width:952px;font-size:88px;color:#fff">Цела Србија –<br>једна изборна јединица</div>
+  <svg id="s1map" class="abs" style="left:234px;top:520px" width="612" height="680" viewBox="0 0 900 1000"></svg>
+  <div class="abs" id="s1box" style="left:340px;top:1240px;width:400px;height:84px;background:#fff;color:var(--p900);font-family:Oswald;font-weight:700;font-size:44px;letter-spacing:.06em;display:flex;align-items:center;justify-content:center">ИСТИ ЗБИР</div>
+</div>
+
+<!-- S2 question -->
+<div class="scene" id="s2">
+  <div class="abs" id="s2a" style="left:64px;top:300px;width:952px">
+    <div class="disp" style="font-size:84px;color:var(--ink4)">Ко ће победити<br>у Книћу?</div>
+    <div id="s2strike" class="abs" style="left:0;top:40px;height:8px;background:var(--ink9)"></div><div id="s2strike2" class="abs" style="left:0;top:120px;height:8px;background:var(--ink9)"></div>
+  </div>
+  <div class="abs disp" id="s2b" style="left:64px;top:620px;width:952px;font-size:150px;color:var(--p900)">Колики је<br>наш део<br>посла?</div>
+</div>
+
+<!-- S3 Serbia 2023 -->
+<div class="scene" id="s3">
+  <div class="abs nad" style="left:64px;top:150px">Србија · парламентарни избори 2023</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">Србија, 2023.</div>
+  <div class="abs lbl" style="left:64px;top:420px">Листе власти</div>
+  <div class="abs mono" id="s3vn" style="right:64px;top:404px;font-size:52px;color:var(--p700)">2.098.364</div>
+  <div class="abs" id="s3a1" style="left:64px;top:470px;height:140px;background:var(--p700)"></div>
+  <div class="abs" id="s3a2" style="top:470px;height:140px;background:var(--p400)"></div>
+  <div class="abs" id="s3a3" style="top:470px;height:140px;background:var(--p200)"></div>
+  <div class="abs" id="s3leg" style="left:64px;top:630px;display:flex;gap:30px;font-family:Inter;font-weight:600;font-size:28px;color:var(--ink6)">
+    <span id="lg1"><i style="display:inline-block;width:24px;height:24px;background:var(--p700);vertical-align:-3px;margin-right:8px"></i>СНС <b class="mono" style="font-weight:500">1.783.701</b></span>
+    <span id="lg2"><i style="display:inline-block;width:24px;height:24px;background:var(--p400);vertical-align:-3px;margin-right:8px"></i>СПС <b class="mono" style="font-weight:500">249.916</b></span>
+    <span id="lg3"><i style="display:inline-block;width:24px;height:24px;background:var(--p200);vertical-align:-3px;margin-right:8px"></i>СВМ <b class="mono" style="font-weight:500">64.747</b></span>
+  </div>
+  <div class="abs lbl" style="left:64px;top:740px">Све остале листе</div>
+  <div class="abs mono" id="s3on" style="right:64px;top:724px;font-size:52px;color:var(--ink6)">1.612.614</div>
+  <div class="abs" id="s3o" style="left:64px;top:790px;height:140px;background:var(--ink6)"></div>
+  <div class="abs" id="s3gap" style="top:470px;height:140px;border:4px dashed var(--redtx);box-sizing:border-box"></div>
+  <div class="abs" id="s3d" style="left:64px;top:1010px;width:952px;padding:24px 32px;box-sizing:border-box;background:var(--red100)">
+    <span style="font-family:Inter;font-weight:600;font-size:40px;color:var(--ink9);margin-right:18px">разлика</span><span class="mono" style="font-size:80px;color:var(--redtx)">485.750</span>
+  </div>
+</div>
+
+<!-- S4 sounds like a lot -->
+<div class="scene" id="s4">
+  <div class="abs nad" style="left:64px;top:150px">Србија · 2023</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">Звучи много?</div>
+  <div class="abs lbl" style="left:64px;top:430px">Разлика</div>
+  <div class="abs mono" style="right:64px;top:414px;font-size:52px;color:var(--redtx)">485.750</div>
+  <div class="abs" id="s4g" style="left:64px;top:480px;height:140px;background:var(--red)"></div>
+  <div class="abs lbl" style="left:64px;top:690px">Нису гласали</div>
+  <div class="abs mono" id="s4nn" style="right:64px;top:674px;font-size:52px;color:var(--p900)">2.679.920</div>
+  <div class="abs" id="s4n" style="left:64px;top:740px;height:140px;background:var(--p900)"></div>
+  <div class="abs" id="s4x" style="left:64px;top:960px;width:952px;font-family:Inter;font-weight:600;font-size:44px;line-height:1.3;color:var(--ink9)">Код куће је остало <span class="mono" style="color:var(--p900)">5,5</span> пута више људи него што је разлика.</div>
+</div>
+
+<!-- S5 map 615 -->
+<div class="scene" id="s5">
+  <div class="abs nad" style="left:64px;top:150px">Рачуница · сразмерно броју бирача</div>
+  <div class="abs" id="s5t1" style="left:64px;top:205px;width:952px;font-family:Inter;font-weight:700;font-size:46px;line-height:1.2;color:var(--ink9)">Свака општина даје свој део<br>нових гласова за промену</div>
+  <div class="abs" id="s5t2" style="left:64px;top:205px;width:952px">
+    <div class="mono" style="font-size:56px;color:var(--ink9)">6.500.666 : 10.563 = <span style="color:var(--p700);font-size:84px">615</span></div>
+    <div style="font-family:Inter;font-weight:600;font-size:32px;color:var(--ink6);margin-top:4px">Србија има 615 пута више бирача од Кнића</div>
+  </div>
+  <svg id="s5map" class="abs" style="left:190px;top:420px" width="700" height="778" viewBox="0 0 900 1000"></svg>
+  <div class="abs" id="s5done" style="left:64px;top:1230px;width:952px;display:flex;align-items:baseline;gap:20px"><span class="lbl">разлика</span><span class="mono" id="s5gn" style="font-size:64px;color:var(--redtx)">485.750</span></div>
+  <div class="abs" id="s5k" style="left:620px;top:830px;font-family:Inter;font-weight:800;font-size:44px;color:var(--redtx);background:#fff;padding:4px 12px">← НАШ ДЕО</div>
+</div>
+
+<!-- S6 789 -->
+<div class="scene" id="s6">
+  <div class="abs nad" style="left:64px;top:150px">Наш део · нови гласови за промену</div>
+  <div class="abs mono" style="left:64px;top:200px;font-size:44px;color:var(--ink6)">485.751 : 615 =</div>
+  <div class="abs" id="s6b" style="left:64px;top:280px;height:330px;background:var(--red)"></div>
+  <div class="abs" id="s6n" style="left:100px;top:300px">
+    <div class="mono" style="font-size:230px;color:#fff;line-height:1.05">789</div>
+    <div style="font-family:Inter;font-weight:700;font-size:40px;color:#fff;margin-top:-8px">људи из Кнића</div>
+  </div>
+  <div class="abs lbl" id="s6l" style="left:64px;top:700px">Кнић 2023 · нису гласали: <span class="mono" style="font-weight:500">3.709</span></div>
+  <div class="abs" id="s6bar" style="left:64px;top:750px;width:952px;height:120px;background:var(--s300)"></div>
+  <div class="abs" id="s6f" style="left:64px;top:750px;height:120px;background:var(--p700)"></div>
+  <div class="abs" id="s6q" style="left:302px;top:730px;height:160px;border-left:4px dashed var(--ink9)"></div>
+  <div class="abs" id="s6ql" style="left:314px;top:890px;font-family:JBM;font-weight:600;font-size:30px;color:var(--ink9)">¼ = 927</div>
+  <div class="abs" id="s6t" style="left:64px;top:980px;width:952px;font-family:Inter;font-weight:700;font-size:48px;line-height:1.25;color:var(--ink9)">789 је мање од четвртине<br>оних који код нас нису гласали.</div>
+</div>
+
+<!-- S7 second lever -->
+<div class="scene" id="s7">
+  <div class="abs nad" style="left:64px;top:150px">Друга полуга · прелазак</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">Један прелазак<br>= два гласа</div>
+  <svg id="s7svg" class="abs" style="left:64px;top:470px" width="952" height="420" viewBox="0 0 952 420"></svg>
+  <div class="abs" id="s7r" style="left:64px;top:930px;width:952px">
+    <div style="display:flex;gap:14px" id="s7people"></div>
+    <div style="font-family:Inter;font-weight:700;font-size:44px;color:var(--ink9);margin-top:22px">Довољно је да се предомисли<br>сваки осми бирач власти.</div>
+  </div>
+</div>
+
+<!-- S8 395 -->
+<div class="scene" id="s8">
+  <div class="abs nad" style="left:64px;top:150px">Наш део · прелазак, по истом рачуну</div>
+  <div class="abs mono" style="left:64px;top:200px;font-size:44px;color:var(--ink6)">242.876 : 615 =</div>
+  <div class="abs" id="s8b" style="left:64px;top:280px;height:330px;background:var(--p700)"></div>
+  <div class="abs" id="s8n" style="left:100px;top:300px">
+    <div class="mono" style="font-size:230px;color:#fff;line-height:1.05">395</div>
+    <div style="font-family:Inter;font-weight:700;font-size:40px;color:#fff;margin-top:-8px">људи из Кнића</div>
+  </div>
+  <svg id="s8map" class="abs" style="left:230px;top:660px" width="620" height="650" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s8c" style="left:64px;top:1180px;width:460px;background:#fff;border:3px solid var(--red);padding:14px 18px;box-sizing:border-box">
+    <div style="font-family:Inter;font-weight:800;font-size:34px;color:var(--ink9)">Честин (и Бајчетина)</div>
+    <div class="mono" style="font-size:34px;color:var(--redtx)">502 уписана &gt; 395</div>
+  </div>
+</div>
+
+<!-- S9 conversation -->
+<div class="scene" id="s9">
+  <div class="abs disp" id="s9h" style="left:64px;top:260px;width:952px;font-size:130px;color:var(--p900)">Није<br>немогуће.</div>
+  <div class="abs" id="s9m" style="left:64px;top:620px;width:952px;border:3px solid var(--l300);box-sizing:border-box;background:#fff">
+    <div style="background:var(--p700);color:#fff;font-family:Oswald;font-weight:500;letter-spacing:.14em;font-size:30px;padding:16px 28px">ЈЕДАН РАЗГОВОР · КОМШИЈИ</div>
+    <div style="padding:30px 28px 34px;font-family:Inter;font-weight:500;font-size:44px;line-height:1.3;color:var(--ink9)">Хајде у недељу да гласамо.<br>Наш део је <b>789</b> људи. Буди један од њих.</div>
+  </div>
+</div>
+
+<!-- S10 date -->
+<div class="scene" id="s10" style="background:var(--p900)">
+  <div class="abs nad" style="left:64px;top:150px;color:var(--p200)">Парламентарни избори 2026</div>
+  <div class="abs disp" id="s10d" style="left:64px;top:300px;font-size:200px;color:#fff;width:952px">25.<br>октобар</div>
+  <div class="abs mono" id="s10hh" style="left:64px;top:760px;font-size:64px;color:var(--p200)">НЕДЕЉА · 07–20ч</div>
+</div>
+
+<!-- S11 student list -->
+<div class="scene" id="s11">
+  <div class="abs nad" style="left:64px;top:150px">Парламентарни избори · 25. октобар 2026</div>
+  <div class="abs disp" id="s10h" style="left:64px;top:470px;width:952px;font-size:120px;color:var(--p900)">Гласамо<br>за број</div>
+  <div class="abs" id="s10l" style="left:64px;top:800px;width:952px;height:307px">
+    <img id="slc" src="assets/sl_circle.png" class="abs" alt="">
+    <img id="slt" src="assets/sl_top.png" class="abs" alt="">
+    <img id="sl1" src="assets/sl_l1.png" class="abs" alt="">
+    <img id="sl2" src="assets/sl_l2.png" class="abs" alt="">
+  </div>
+  <div class="abs mono" id="s11d" style="left:64px;top:1180px;font-size:44px;color:var(--ink6)">25. 10. · 07–20ч</div>
+</div>
+
+<!-- OUT -->
+<div class="scene" id="so">
+  <canvas id="logo" class="abs" width="1600" height="1600" style="left:140px;top:420px;width:800px;height:800px"></canvas>
+  <div class="abs disp" id="sod" style="left:0;right:0;top:1300px;text-align:center;font-size:64px;color:var(--p700)">25. 10. · 07–20ч</div>
+</div>
+
+<div id="sub"><span id="subt"></span></div>
+<div id="src"></div>
+</div>
+<script src="data.js"></script><script src="serbia.js"></script><script>
+const O=0.30, TAG=110.45, END=TAG+3.97+2.6;
+window.DURATION=END+O;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const lin=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const fmt=n=>{const s=Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');return (n<0?'−':'')+s;};
+const cnt=(t,a,d,v)=>fmt(v*eo(lin(t,a,a+d)));
+function fade(el,t,a,dur=.28,dy=36){const p=eo(lin(t,a,a+dur));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dy}px)`;}
+const SUBS=[
+ [0.00,4.78,'На парламентарним изборима, цела Србија је једна изборна јединица.'],[5.29,9.46,'Сваки глас из Кнића иде у исти збир као глас из Београда.'],
+ [10.12,13.03,'Зато питање није ко ће победити у Книћу.'],[13.61,16.42,'Питање је – колики је наш део посла.'],
+ [17.37,20.28,'2023, листе власти –'],[20.59,24.41,'СНС, СПС и Савез војвођанских Мађара –'],[24.77,28.88,'добиле су у Србији 2.098.000 гласова.'],
+ [29.39,33.67,'Све остале листе заједно – 1.612.000.'],[34.27,37.45,'Разлика: 485.000.'],
+ [38.40,39.27,'Звучи много.'],[39.86,44.73,'Али код куће је тада остало 2.680.000 људи.'],
+ [45.65,48.70,'Када би свака општина дала нове гласове за промену,'],[48.91,50.86,'сразмерно броју својих бирача –'],[51.25,52.37,'разлика нестаје.'],
+ [53.23,54.73,'Како то изгледа за Кнић?'],[55.56,59.32,'Србија има 615 пута више бирача од Кнића.'],
+ [59.94,63.48,'Ако разлику поделимо на 615 једнаких делова –'],[63.86,68.54,'један део, наш, износи 789 људи.'],
+ [69.25,72.71,'Мање од четвртине оних који код нас нису гласали.'],
+ [73.57,74.84,'Или друга полуга.'],[75.43,79.27,'Ко пређе са листе власти на другу листу, рачуна се двапут.'],
+ [79.88,84.62,'У целој Србији довољно је да се предомисли сваки осми бирач власти.'],
+ [85.28,89.55,'Наш део, по истом рачуну: 395 људи.'],[90.34,92.17,'Триста деведесет пет.'],[92.73,95.09,'Мање него што има бирача у Честину.'],
+ [96.03,97.30,'То није немогуће.'],[97.79,99.74,'То је један разговор са комшијом.'],
+ [100.42,104.03,'25. октобра, од 7 до 20 часова.'],[104.62,106.24,'Гласамо за број три.'],
+ [106.80,107.94,'Студентска листа –'],[108.20,109.87,'Студенти побеђују!'],
+ [TAG+0.28,TAG+1.37,'Ви одлучујете –'],[TAG+2.00,TAG+3.68,'Кнић без рудника.'],
+];
+const SC=[['s1',-9,9.9],['s2',9.9,17.1],['s3',17.1,37.9],['s4',37.9,45.4],['s5',45.4,65.55],['s6',65.55,73.3],['s7',73.3,85.0],['s8',85.0,95.7],['s9',95.7,100.2],['s10',100.2,104.45],['s11',104.45,110.2],['so',110.2,999]];
+const SRC={
+ s1:'Закон о избору народних посланика · Србија = једна изборна јединица',
+ s3:'Извор: РИК, коначни резултати 2023 · власт = СНС + СПС + СВМ',
+ s4:'Извор: РИК 2023 · 6.500.666 уписаних − 3.820.746 изашлих',
+ s5:'Рачуница · сразмерно броју уписаних (РИК 2023) · гласови ≠ мандати',
+ s6:'Рачуница · 485.751 : 615,4 = 789 · Кнић: 10.563 − 6.854 = 3.709',
+ s7:'Рачуница · РИК 2023 · 242.876 = 11,6% од 2.098.364 · гласови ≠ мандати',
+ s8:'Рачуница · 242.876 : 615,4 = 395 · РИК 2023: БМ 1 Честин, 502 уписана',
+};
+const DARK={s1:1,s10:1};
+
+// S1 Serbia map
+(function(){const S=window.SRB;let h=`<path d="${S.d}" fill="#253f87" stroke="#7e8bb5" stroke-width="3"/>`;
+ h+=`<line id="s1lk" x1="${S.knic[0]}" y1="${S.knic[1]}" x2="${S.knic[0]}" y2="${S.knic[1]}" stroke="#ffffff" stroke-width="5"/>`;
+ h+=`<line id="s1lb" x1="${S.bg[0]}" y1="${S.bg[1]}" x2="${S.bg[0]}" y2="${S.bg[1]}" stroke="#ffffff" stroke-width="5"/>`;
+ h+=`<circle cx="${S.bg[0]}" cy="${S.bg[1]}" r="14" fill="#ffffff"/><text x="${S.bg[0]-24}" y="${S.bg[1]+12}" text-anchor="end" font-family="Inter" font-weight="700" font-size="40" fill="#ffffff">Београд</text>`;
+ h+=`<circle id="s1kd" cx="${S.knic[0]}" cy="${S.knic[1]}" r="16" fill="#c0152f" stroke="#fff" stroke-width="4"/><text x="${S.knic[0]+28}" y="${S.knic[1]+14}" font-family="Inter" font-weight="700" font-size="40" fill="#ffffff">Кнић</text>`;
+ $('s1map').innerHTML=h;})();
+// S5 dots
+(function(){const S=window.SRB;let h=`<path d="${S.d}" fill="#f2f4fa" stroke="#7d8cbd" stroke-width="3"/>`;
+ S.dots.forEach((p,i)=>h+=`<circle id="p${i}" cx="${p[0]}" cy="${p[1]}" r="7" fill="#b7c4ee"/>`);$('s5map').innerHTML=h;
+ const k=S.dots[S.ki];const e=$('s5k');e.style.left=(190+k[0]*700/900+30)+'px';e.style.top=(420+k[1]*778/1000-34)+'px';})();
+// S7 lever svg: two stacks of blocks
+(function(){let h='';const bw=110,bh=56,g=8;
+ for(let i=0;i<5;i++)h+=`<rect id="v${i}" x="120" y="${360-(i+1)*(bh+g)}" width="${bw*2}" height="${bh}" fill="#253f87"/>`;
+ for(let i=0;i<3;i++)h+=`<rect id="o${i}" x="600" y="${360-(i+1)*(bh+g)}" width="${bw*2}" height="${bh}" fill="#414a6d"/>`;
+ h+=`<rect id="mv" x="120" y="${360-5*(bh+g)}" width="${bw*2}" height="${bh}" fill="#c0152f"/>`;
+ h+=`<text x="230" y="405" text-anchor="middle" font-family="Inter" font-weight="700" font-size="30" fill="#253f87">ВЛАСТ</text><text x="710" y="405" text-anchor="middle" font-family="Inter" font-weight="700" font-size="30" fill="#414a6d">ОСТАЛЕ ЛИСТЕ</text>`;
+ h+=`<text id="m1" x="380" y="60" font-family="JBM" font-weight="700" font-size="56" fill="#253f87" text-anchor="middle">−1</text><text id="m2" x="860" y="60" font-family="JBM" font-weight="700" font-size="56" fill="#414a6d" text-anchor="middle">+1</text>`;
+ $('s7svg').innerHTML=h;
+ let p='';for(let i=0;i<8;i++)p+=`<div id="pp${i}" style="width:104px;height:150px;position:relative"><div style="position:absolute;left:30px;top:0;width:44px;height:44px;border-radius:50%;background:${i===7?'#c0152f':'#253f87'}"></div><div style="position:absolute;left:12px;top:54px;width:80px;height:96px;background:${i===7?'#c0152f':'#253f87'}"></div></div>`;
+ $('s7people').innerHTML=p;})();
+// S8 Knić map with Čestin
+(function(){const M=window.MAPD;let h='';
+ M.nas.forEach(n=>h+=`<path ${['Čestin','Bajčetina'].includes(n.l)?'class="ces"':''} d="${n.d}" fill="#f2f4fa" stroke="#ffffff" stroke-width="4"/>`);
+ h+=`<path d="${M.jezero}" fill="#b7c4ee"/><path d="${M.opstina}" fill="none" stroke="#7d8cbd" stroke-width="5"/>`;
+ $('s8map').innerHTML=h;})();
+// student list layout
+const SLM={circle:[40,120,392,476],top:[386,141,1146,195],l1:[386,215,1146,342],l2:[386,347,1146,457]};
+const SLK=952/(1146-40);
+[['slc','circle'],['slt','top'],['sl1','l1'],['sl2','l2']].forEach(([id,k])=>{const b=SLM[k],e=$(id);
+ e.style.left=((b[0]-40)*SLK)+'px';e.style.top=((b[1]-120)*SLK)+'px';e.style.width=((b[2]-b[0])*SLK)+'px';e.style.height=((b[3]-b[1])*SLK)+'px';});
+// logo canvas
+const LOGO=new Image();LOGO.src='assets/logo.png';
+function drawLogo(t){
+ const c=$('logo'),x=c.getContext('2d');const W=c.width,cx=W/2,cy=W/2;x.clearRect(0,0,W,W);
+ if(!LOGO.complete)return;const sc=W/447;
+ const pc=eo(lin(t,TAG-0.25,TAG+0.35));
+ x.save();x.globalAlpha=pc;x.beginPath();x.arc(cx,cy,140*sc,0,Math.PI*2);x.clip();x.drawImage(LOGO,0,(1-pc)*30,W,W);x.restore();
+ const a1=eio(lin(t,TAG+0.20,TAG+1.45));
+ if(a1>0){x.save();x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,W,Math.PI-0.06,Math.PI-0.06+(Math.PI+0.12)*a1,false);x.closePath();x.arc(cx,cy,140*sc,0,Math.PI*2,true);x.clip('evenodd');x.drawImage(LOGO,0,0,W,W);x.restore();}
+ const a2=eio(lin(t,TAG+1.95,TAG+3.70));
+ if(a2>0){x.save();x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,W,Math.PI+0.06,Math.PI+0.06-(Math.PI+0.12)*a2,true);x.closePath();x.arc(cx,cy,140*sc,0,Math.PI*2,true);x.clip('evenodd');x.drawImage(LOGO,0,0,W,W);x.restore();}
+}
+
+let lastScene=null;
+window.render=function(vt){
+ const t=vt-O;
+ let cur=SC.find(s=>t>=s[1]&&t<s[2])[0];
+ if(cur!==lastScene){document.querySelectorAll('.scene').forEach(e=>e.style.display='none');$(cur).style.display='block';lastScene=cur;}
+ const s=SUBS.find(x=>t>=x[0]-0.05&&t<x[1]+0.25);
+ const sub=$('subt');sub.textContent=s?s[2]:'';
+ const dark=DARK[cur];
+ sub.style.color=dark?'#ffffff':(cur==='so'?'#16265a':'#0b0f1e');
+ sub.style.background=dark?'rgba(22,38,90,0)':'rgba(255,255,255,.92)';
+ $('sub').style.display=s?'block':'none';
+ const src=SRC[cur];$('src').style.display=src?'flex':'none';if(src)$('src').textContent=src;
+ if(cur==='s1'){
+  fade($('s1h'),t,-1,.3,0);$('s1map').style.opacity=eo(lin(t,0.2,0.8));
+  const S=window.SRB;const p=eo(lin(t,5.4,6.4));const tx=(540-234)*900/612,ty=(1240-520)*1000/680;
+  const lk=$('s1lk'),lb=$('s1lb');lk.setAttribute('x2',S.knic[0]+(tx-S.knic[0])*p);lk.setAttribute('y2',S.knic[1]+(ty-S.knic[1])*p);
+  lb.setAttribute('x2',S.bg[0]+(tx-S.bg[0])*p);lb.setAttribute('y2',S.bg[1]+(ty-S.bg[1])*p);
+  fade($('s1box'),t,6.3,.3,20);
+ }
+ if(cur==='s2'){
+  fade($('s2a'),t,10.0);$('s2strike').style.width=(600*eo(lin(t,11.6,12.0)))+'px';$('s2strike2').style.width=(330*eo(lin(t,11.9,12.3)))+'px';
+  fade($('s2b'),t,13.6);
+ }
+ if(cur==='s3'){
+  const k=952/2200000;
+  const a=eo(lin(t,20.6,21.3)),b=eo(lin(t,21.6,22.2)),c=eo(lin(t,22.4,23.0));
+  $('s3a1').style.width=(1783701*k*a)+'px';
+  $('s3a2').style.left=(64+1783701*k)+'px';$('s3a2').style.width=(249916*k*b)+'px';
+  $('s3a3').style.left=(64+(1783701+249916)*k)+'px';$('s3a3').style.width=(64747*k*c)+'px';
+  $('lg1').style.opacity=lin(t,20.6,20.9);$('lg2').style.opacity=lin(t,21.6,21.9);$('lg3').style.opacity=lin(t,22.4,22.7);
+  $('s3vn').textContent=cnt(t,24.8,0.9,2098364);$('s3vn').style.opacity=lin(t,24.8,24.9);
+  const o=eo(lin(t,29.4,30.3));$('s3o').style.width=(1612614*k*o)+'px';$('s3on').textContent=cnt(t,31.5,0.9,1612614);$('s3on').style.opacity=lin(t,31.5,31.6);
+  const g=$('s3gap');g.style.left=(64+1612614*k)+'px';g.style.width=((2098364-1612614)*k)+'px';g.style.opacity=lin(t,34.2,34.5);
+  fade($('s3d'),t,35.3);
+ }
+ if(cur==='s4'){
+  const k=952/2800000;
+  $('s4g').style.width=(485750*k)+'px';
+  const n=eo(lin(t,39.9,41.2));$('s4n').style.width=(2679920*k*n)+'px';$('s4nn').textContent=cnt(t,39.9,1.3,2679920);$('s4nn').style.opacity=lin(t,39.9,40.0);
+  fade($('s4x'),t,42.3);
+ }
+ if(cur==='s5'){
+  const S=window.SRB;fade($('s5map'),t,45.45,.3,0);
+  const t2=lin(t,55.5,55.8);$('s5t1').style.opacity=1-t2;$('s5t2').style.opacity=t2;
+  S.dots.forEach((p,i)=>{const a=45.7+(i/615)*4.8;const e=$('p'+i);
+   let f=t>=a?'#7e8bb5':'#e1e6f4';
+   if(t>=59.9&&t<63.8){const ph=Math.floor((t-59.9)*6)%2;f=(i%2===ph)?'#253f87':'#7e8bb5';}
+   if(i===S.ki&&t>=63.86){f='#c0152f';e.setAttribute('r',7+9*eo(lin(t,63.86,64.3)));}else e.setAttribute('r',7);
+   e.setAttribute('fill',f);});
+  $('s5k').style.opacity=lin(t,64.0,64.3);
+  const gp=eo(lin(t,51.25,52.4));$('s5gn').textContent=fmt(485750*(1-gp));$('s5done').style.opacity=lin(t,51.1,51.3)*(1-lin(t,54.9,55.2));
+ }
+ if(cur==='s6'){
+  const w=eo(lin(t,65.6,66.1));$('s6b').style.width=(952*w)+'px';$('s6n').style.opacity=lin(t,65.9,66.1);
+  ['s6l','s6bar'].forEach(id=>$(id).style.opacity=lin(t,69.2,69.4));
+  const f=eo(lin(t,69.4,70.2));$('s6f').style.width=(952*789/3709*f)+'px';
+  $('s6q').style.opacity=lin(t,70.2,70.4);$('s6ql').style.opacity=lin(t,70.2,70.4);
+  fade($('s6t'),t,70.6);
+ }
+ if(cur==='s7'){
+  const p=eio(lin(t,76.6,77.6));const mv=$('mv');
+  const y0=360-5*64,y1=360-4*64;mv.setAttribute('x',120+480*p);mv.setAttribute('y',y0+(y1-y0)*p - Math.sin(Math.PI*p)*90);
+  $('m1').setAttribute('opacity',lin(t,77.6,77.8));$('m2').setAttribute('opacity',lin(t,77.8,78.0));
+  fade($('s7r'),t,79.9);
+  for(let i=0;i<8;i++)$('pp'+i).style.opacity=lin(t,80.0+i*0.12,80.2+i*0.12);
+ }
+ if(cur==='s8'){
+  const w=eo(lin(t,87.7,88.2));$('s8b').style.width=(952*w)+'px';$('s8n').style.opacity=lin(t,87.9,88.1);
+  $('s8map').style.opacity=lin(t,90.3,90.6);
+  const on=t>=92.73;document.querySelectorAll('#s8map .ces').forEach(e=>{e.setAttribute('fill',on?'#fbe8eb':'#f2f4fa');e.setAttribute('stroke',on?'#c0152f':'#ffffff');e.setAttribute('stroke-width',on?10:4);if(on)e.parentNode.appendChild(e);});
+  fade($('s8c'),t,93.2);
+ }
+ if(cur==='s9'){fade($('s9h'),t,95.9);fade($('s9m'),t,97.8);}
+ if(cur==='s10'){fade($('s10d'),t,100.3);fade($('s10hh'),t,101.9);}
+ if(cur==='s11'){
+  fade($('s10h'),t,104.6,.3,30);
+  const c=eo(lin(t,105.75,106.15));const ce=$('slc');ce.style.opacity=lin(t,105.75,105.9);ce.style.transform=`scale(${0.6+0.4*c})`;
+  [['slt',106.80],['sl1',108.20],['sl2',108.95]].forEach(([id,a])=>{const p=eo(lin(t,a,a+0.3));const e=$(id);e.style.opacity=p;e.style.transform=`translateX(${(1-p)*60}px)`;});
+  fade($('s11d'),t,109.4);
+ }
+ if(cur==='so'){drawLogo(t);$('sod').style.opacity=eo(lin(t,TAG+3.9,TAG+4.4));}
+};
+window.ready=Promise.all([...['slc','slt','sl1','sl2'].map(id=>$(id).decode()),document.fonts.ready,new Promise(r=>{if(LOGO.complete)r();else LOGO.onload=r;})]);
+</script></body></html>

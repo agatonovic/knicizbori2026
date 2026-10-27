@@ -1,0 +1,25 @@
+<style>
+@font-face{font-family:Oswald;src:url(assets/Oswald-var.woff2) format('woff2');font-weight:200 700}
+@font-face{font-family:Inter;src:url(assets/Inter-var.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:JBM;src:url(assets/JetBrainsMono-var.woff2) format('woff2');font-weight:100 800}
+:root{
+  --white:#ffffff;--s200:#f2f4fa;--s300:#e4e8f6;--l100:#e1e6f4;--l300:#7d8cbd;
+  --ink9:#0b0f1e;--ink6:#414a6d;--ink4:#5c678f;
+  --p900:#16265a;--p700:#253f87;--p400:#7e8bb5;--p200:#b7c4ee;--p100:#eaeefb;--ptx:#253f87;
+  --red:#c0152f;--redtx:#ac1129;--red100:#fbe8eb;
+}
+html,body{margin:0;padding:0;background:#fff}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--white);font-family:Inter,sans-serif;color:var(--ink9)}
+.scene{position:absolute;inset:0;display:none}
+.abs{position:absolute}
+.disp{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+.nad{font-family:Oswald,sans-serif;font-weight:500;font-size:30px;letter-spacing:.18em;text-transform:uppercase;color:var(--ptx)}
+.mono{font-family:JBM,monospace;font-weight:500;font-feature-settings:"tnum"}
+.lbl{font-family:Inter;font-weight:600;font-size:30px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink6)}
+#sub{position:absolute;left:64px;right:64px;bottom:430px;text-align:center;font-family:Inter;font-weight:600;font-size:46px;line-height:1.25;color:var(--ink9)}
+#sub span{display:inline;padding:6px 14px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#src{position:absolute;left:64px;right:64px;top:1530px;height:64px;background:var(--s300);display:flex;align-items:center;padding:0 22px;box-sizing:border-box;font-family:JBM;font-size:23px;color:var(--ink4);font-weight:500;white-space:nowrap;overflow:hidden}
+.grid{position:absolute;width:2px;background:var(--l100)}
+.tick{position:absolute;font-family:JBM;font-size:24px;color:var(--ink4);transform:translateX(-50%)}
+.cell{position:absolute;width:76px;height:76px;background:var(--s200)}
+</style>

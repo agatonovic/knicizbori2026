@@ -1,0 +1,127 @@
+<body>
+<div id="stage">
+
+<div class="scene" id="s1" style="background:var(--p900)">
+  <div class="abs nad" style="left:64px;top:150px;color:var(--p200)">Изборна аналитика · 4/4 · Недеља</div>
+  <div class="abs" id="s1nums" style="left:64px;top:300px;width:952px;height:420px"></div>
+  <div class="abs disp" id="s1t" style="left:64px;top:780px;width:952px;font-size:120px;color:#fff">Ништа не значе<br>ако не изађемо</div>
+</div>
+
+<div class="scene" id="s2">
+  <div class="abs disp" id="s2t" style="left:64px;top:260px;width:952px;font-size:150px;color:var(--p900)">Недеља,<br>корак по<br>корак</div>
+  <div class="abs" id="s2steps" style="left:64px;top:860px;width:952px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px"></div>
+</div>
+
+<div class="scene" id="s3">
+  <div class="abs" style="left:64px;top:150px;display:flex;align-items:center;gap:20px"><span class="mono stepn">1</span><span class="nad" style="font-size:34px">Корак 1</span></div>
+  <div class="abs disp" style="left:64px;top:250px;font-size:110px;width:952px">Провери<br>где гласаш</div>
+  <div class="abs" id="s3url" style="left:64px;top:520px;width:952px;height:110px;border:4px solid var(--p700);box-sizing:border-box;display:flex;align-items:center;padding:0 28px;font-family:JBM;font-size:50px;color:var(--ink9)"><span id="s3u"></span><span id="s3c" style="display:inline-block;width:4px;height:56px;background:var(--p700);margin-left:4px"></span></div>
+  <svg id="s3map" class="abs" style="left:300px;top:680px" width="480" height="504" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s3l" style="left:64px;top:1200px;width:952px;text-align:center;font-family:Inter;font-weight:600;font-size:34px;color:var(--ink6)">36 бирачких места у Книћу</div>
+</div>
+
+<div class="scene" id="s4">
+  <div class="abs" style="left:64px;top:150px;display:flex;align-items:center;gap:20px"><span class="mono stepn">2</span><span class="nad" style="font-size:34px">Корак 2</span></div>
+  <div class="abs disp" style="left:64px;top:250px;font-size:110px;width:952px">Понеси<br>документ</div>
+  <div class="abs" id="s4id" style="left:64px;top:540px;width:460px;height:290px;border:4px solid var(--p700);box-sizing:border-box;background:var(--p100)">
+    <div style="position:absolute;left:28px;top:30px;width:130px;height:170px;background:var(--p400)"></div>
+    <div style="position:absolute;left:190px;top:40px;width:220px;height:16px;background:var(--p400)"></div>
+    <div style="position:absolute;left:190px;top:80px;width:180px;height:16px;background:var(--p200)"></div>
+    <div style="position:absolute;left:190px;top:120px;width:200px;height:16px;background:var(--p200)"></div>
+    <div style="position:absolute;left:28px;bottom:22px;font-family:Oswald;font-weight:700;font-size:40px;color:var(--p900)">ЛИЧНА КАРТА</div>
+  </div>
+  <div class="abs" id="s4pp" style="left:620px;top:510px;width:300px;height:350px;background:var(--p900);box-sizing:border-box">
+    <div style="position:absolute;left:100px;top:90px;width:100px;height:100px;border:6px solid #b7c4ee;border-radius:50%"></div>
+    <div style="position:absolute;left:0;right:0;bottom:40px;text-align:center;font-family:Oswald;font-weight:700;font-size:44px;color:#fff">ПАСОШ</div>
+  </div>
+  <div class="abs" id="s4or" style="left:520px;top:640px;width:100px;text-align:center;font-family:Inter;font-weight:700;font-size:36px;color:var(--ink6)">или</div>
+  <div class="abs" id="s4ob" style="left:64px;top:930px;width:952px;padding:24px 28px;box-sizing:border-box;border:4px dashed var(--ink4)">
+    <div style="font-family:Inter;font-weight:700;font-size:40px;color:var(--ink9)">Обавештење о бирачком месту</div>
+    <div style="font-family:Oswald;font-weight:700;font-size:56px;color:var(--ink6);margin-top:6px">НИЈЕ ОБАВЕЗНО</div>
+  </div>
+</div>
+
+<div class="scene" id="s5">
+  <div class="abs" style="left:64px;top:150px;display:flex;align-items:center;gap:20px"><span class="mono stepn">3</span><span class="nad" style="font-size:34px">Корак 3 · Листић</span></div>
+  <div class="abs disp" id="s5h" style="left:64px;top:240px;font-size:84px;width:952px">Заокружи<br>један број</div>
+  <svg id="ballot" class="abs" style="left:110px;top:440px" width="860" height="760" viewBox="0 0 860 760"></svg>
+  <div class="abs" id="s5tag" style="left:110px;top:1210px;padding:12px 24px;font-family:Oswald;font-weight:700;font-size:48px;letter-spacing:.04em;color:#fff;background:var(--p700)">НАЈСИГУРНИЈЕ</div>
+</div>
+
+<div class="scene" id="s6">
+  <div class="abs" style="left:64px;top:150px;display:flex;align-items:center;gap:20px"><span class="mono stepn">3</span><span class="nad" style="font-size:34px">Корак 3 · Важи или не важи</span></div>
+  <div class="abs disp" style="left:64px;top:240px;font-size:84px;width:952px">Три листића</div>
+  <div id="s6cards"></div>
+</div>
+
+<div class="scene" id="s7">
+  <div class="abs disp" id="s7h" style="left:64px;top:200px;font-size:130px;width:952px;color:var(--p900)">Гласање<br>је тајно</div>
+  <svg id="s7svg" class="abs" style="left:140px;top:520px" width="800" height="560" viewBox="0 0 800 560"></svg>
+  <div class="abs" id="s7cam" style="left:64px;top:1110px;width:952px;display:flex;align-items:center;gap:28px">
+    <svg width="150" height="120" viewBox="0 0 150 120" aria-hidden="true"><rect x="10" y="28" width="130" height="84" fill="none" stroke="#0b0f1e" stroke-width="8"/><rect x="48" y="12" width="54" height="20" fill="#0b0f1e"/><circle cx="75" cy="70" r="24" fill="none" stroke="#0b0f1e" stroke-width="8"/><line id="camx" x1="6" y1="116" x2="144" y2="6" stroke="#c0152f" stroke-width="12"/></svg>
+    <div style="font-family:Oswald;font-weight:700;font-size:56px;color:var(--ink9)">ЛИСТИЋ СЕ НЕ<br>ФОТОГРАФИШЕ</div>
+  </div>
+</div>
+
+<div class="scene" id="s8">
+  <div class="abs nad" style="left:64px;top:150px">Кнић · парламентарни избори 2023</div>
+  <div class="abs" style="left:64px;top:200px"><span class="mono" id="s8n" style="font-size:150px;color:var(--redtx)">203</span></div>
+  <div class="abs" style="left:64px;top:380px;font-family:Inter;font-weight:700;font-size:40px;color:var(--ink9)">неважећа листића</div>
+  <svg id="s8map" class="abs" style="left:240px;top:470px" width="600" height="630" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s8c" style="left:64px;top:1130px;width:952px;font-family:Inter;font-weight:600;font-size:40px;color:var(--ink9)">Више него што је гласало у Дубрави <span class="mono">(86)</span> и Кикојевцу <span class="mono">(67)</span> заједно: <span class="mono" style="color:var(--p700)">153</span></div>
+</div>
+
+<div class="scene" id="s9">
+  <div class="abs" style="left:64px;top:150px;display:flex;align-items:center;gap:20px"><span class="mono stepn" style="background:var(--red)">4</span><span class="nad" style="font-size:34px;color:var(--redtx)">Корак 4 · најважнији</span></div>
+  <div class="abs disp" id="s9h" style="left:64px;top:250px;font-size:120px;width:952px;color:var(--p900)">Гласај ујутру</div>
+  <svg id="s9svg" class="abs" style="left:64px;top:420px" width="952" height="660" viewBox="0 0 952 660"></svg>
+  <div class="abs" id="s9a" style="left:64px;top:1100px;width:952px;font-family:Inter;font-weight:700;font-size:40px;line-height:1.3;color:var(--ink9)"></div>
+</div>
+
+<div class="scene" id="s10">
+  <div class="abs disp" id="s10h" style="left:64px;top:240px;width:952px;font-size:150px;color:var(--p900)">Гласај рано.</div>
+  <div class="abs" id="s10m" style="left:64px;top:560px;width:952px;border:3px solid var(--l300);box-sizing:border-box;background:#fff">
+    <div style="background:var(--p700);color:#fff;font-family:Oswald;font-weight:500;letter-spacing:.14em;font-size:30px;padding:16px 28px">ПОРУКА · 10:15</div>
+    <div style="padding:30px 28px 34px;font-family:Inter;font-weight:500;font-size:46px;line-height:1.3;color:var(--ink9)">Ја сам гласао.<br>Ти? Бирачко место је отворено до 20ч.</div>
+  </div>
+  <div class="abs disp" id="s10c" style="left:64px;top:1000px;font-size:130px;color:var(--p900)">Па позови.</div>
+</div>
+
+<div class="scene" id="s11">
+  <div class="abs nad" style="left:64px;top:150px">Подсетимо се</div>
+  <div class="abs" id="r1" style="left:64px;top:230px;width:952px;border-bottom:3px solid var(--l100);padding-bottom:26px"><div class="mono" style="font-size:130px;color:var(--redtx);line-height:1">3.709</div><div style="font-family:Inter;font-weight:600;font-size:38px;color:var(--ink9)">људи у Книћу није гласало 2023.</div></div>
+  <div class="abs" id="r2" style="left:64px;top:560px;width:952px;border-bottom:3px solid var(--l100);padding-bottom:26px"><div class="mono" style="font-size:96px;color:var(--p700);line-height:1.1">3.704 → 1.643</div><div style="font-family:Inter;font-weight:600;font-size:38px;color:var(--ink9)">разлика власт − остали се преполовила</div></div>
+  <div class="abs" id="r3" style="left:64px;top:860px;width:952px"><div class="mono" style="font-size:130px;color:var(--p900);line-height:1">789</div><div style="font-family:Inter;font-weight:600;font-size:38px;color:var(--ink9)">наш део нових гласова за промену</div></div>
+</div>
+
+<div class="scene" id="s12" style="background:var(--p900)">
+  <div class="abs disp" id="s12h" style="left:64px;top:600px;width:952px;font-size:170px;color:#fff">Сада је<br>на нама.</div>
+</div>
+
+<div class="scene" id="s13" style="background:var(--p900)">
+  <div class="abs nad" style="left:64px;top:150px;color:var(--p200)">Парламентарни избори 2026</div>
+  <div class="abs disp" id="s13d" style="left:64px;top:300px;font-size:200px;color:#fff;width:952px">25.<br>октобар</div>
+  <div class="abs mono" id="s13h" style="left:64px;top:760px;font-size:64px;color:var(--p200)">НЕДЕЉА · ОД 07ч</div>
+  <div class="abs" id="s13n" style="left:64px;top:880px;font-family:Inter;font-weight:500;font-size:32px;color:var(--p200)">Бирачка места раде до 20ч. Ко је тада на бирачком месту – гласа.</div>
+</div>
+
+<div class="scene" id="s14">
+  <div class="abs nad" style="left:64px;top:150px">Парламентарни избори · 25. октобар 2026</div>
+  <div class="abs disp" id="s10h2" style="left:64px;top:470px;width:952px;font-size:120px;color:var(--p900)">Гласамо<br>за број</div>
+  <div class="abs" id="s10l" style="left:64px;top:800px;width:952px;height:307px">
+    <img id="slc" src="assets/sl_circle.png" class="abs" alt="">
+    <img id="slt" src="assets/sl_top.png" class="abs" alt="">
+    <img id="sl1" src="assets/sl_l1.png" class="abs" alt="">
+    <img id="sl2" src="assets/sl_l2.png" class="abs" alt="">
+  </div>
+  <div class="abs mono" id="s14d" style="left:64px;top:1180px;font-size:44px;color:var(--ink6)">25. 10. · 07–20ч</div>
+</div>
+
+<div class="scene" id="so">
+  <canvas id="logo" class="abs" width="1600" height="1600" style="left:140px;top:420px;width:800px;height:800px"></canvas>
+  <div class="abs disp" id="sod" style="left:0;right:0;top:1300px;text-align:center;font-size:64px;color:var(--p700)">25. 10. · 07–20ч</div>
+</div>
+
+<div id="sub"><span id="subt"></span></div>
+<div id="src"></div>
+</div>

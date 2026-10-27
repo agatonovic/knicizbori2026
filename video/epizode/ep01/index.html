@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="sr-Cyrl">
+<head>
+<meta charset="utf-8">
+<title>Ep1</title>
+<style>
+@font-face{font-family:Oswald;src:url(assets/Oswald-var.woff2) format('woff2');font-weight:200 700}
+@font-face{font-family:Inter;src:url(assets/Inter-var.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:JBM;src:url(assets/JetBrainsMono-var.woff2) format('woff2');font-weight:100 800}
+:root{
+  --white:#ffffff;--s200:#f2f4fa;--s300:#e4e8f6;--l100:#e1e6f4;--l300:#7d8cbd;
+  --ink9:#0b0f1e;--ink6:#414a6d;--ink4:#5c678f;
+  --p900:#16265a;--p700:#253f87;--p400:#7e8bb5;--p200:#b7c4ee;--p100:#eaeefb;--ptx:#253f87;
+  --red:#c0152f;--redtx:#ac1129;--red100:#fbe8eb;
+}
+html,body{margin:0;padding:0;background:#fff}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--white);font-family:Inter,sans-serif;color:var(--ink9)}
+.scene{position:absolute;inset:0;display:none}
+.abs{position:absolute}
+.disp{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+.nad{font-family:Oswald,sans-serif;font-weight:500;font-size:30px;letter-spacing:.18em;text-transform:uppercase;color:var(--ptx)}
+.mono{font-family:JBM,monospace;font-weight:500;font-feature-settings:"tnum"}
+.lbl{font-family:Inter;font-weight:600;font-size:30px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink6)}
+#sub{position:absolute;left:64px;right:64px;bottom:430px;text-align:center;font-family:Inter;font-weight:600;font-size:46px;line-height:1.25;color:var(--ink9)}
+#sub span{display:inline;padding:6px 14px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#src{position:absolute;left:64px;right:64px;top:1530px;height:64px;background:var(--s300);display:flex;align-items:center;padding:0 22px;box-sizing:border-box;font-family:JBM;font-size:23px;color:var(--ink4);font-weight:500;white-space:nowrap;overflow:hidden}
+.bar{position:absolute;height:140px}
+.grid{position:absolute;width:2px;background:var(--l100)}
+.tick{position:absolute;font-family:JBM;font-size:24px;color:var(--ink4);transform:translateX(-50%)}
+.box{position:absolute;width:168px;height:150px;background:var(--s200);border:2px solid var(--l100);box-sizing:border-box}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- S1 hook -->
+<div class="scene" id="s1" style="background:var(--p900)">
+  <div class="abs nad" style="left:64px;top:150px;color:var(--p200)">Изборна аналитика · 1/5 · Кнић</div>
+  <div class="abs disp" id="s1h" style="left:64px;top:240px;width:952px;font-size:132px;color:#fff">Највећа странка<br>у Книћу</div>
+  <div class="abs" id="s1blk" style="left:64px;top:680px;height:300px;background:var(--red);"></div>
+  <div class="abs mono" id="s1n" style="left:100px;top:708px;font-size:250px;color:#fff;line-height:1;letter-spacing:-.03em">3.709</div>
+  <div class="abs" id="s1c" style="left:64px;top:1015px;font-family:Inter;font-weight:500;font-size:40px;color:var(--p200)">људи није гласало на изборима 2023.</div>
+  <div class="abs disp" id="s1d" style="left:64px;top:1110px;font-size:84px;color:#fff;width:952px">Нема листу.<br>Нема кандидата.</div>
+</div>
+
+<!-- S2 stacked -->
+<div class="scene" id="s2">
+  <div class="abs nad" style="left:64px;top:150px">Парламентарни избори · децембар 2023</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">Кнић, 2023.</div>
+  <div class="abs lbl" style="left:64px;top:430px">Уписаних бирача</div>
+  <div class="abs mono" id="s2u" style="left:64px;top:478px;font-size:120px;color:var(--ink9)">10.563</div>
+  <div class="abs" id="s2frame" style="left:64px;top:660px;width:952px;height:150px;border:3px solid var(--l300);box-sizing:border-box"></div>
+  <div class="abs" id="s2g" style="left:64px;top:660px;height:150px;background:var(--p700)"></div>
+  <div class="abs" id="s2r" style="top:660px;height:150px;background:var(--red)"></div>
+  <div class="abs" id="s2gl" style="left:64px;top:850px">
+    <div class="lbl">Гласало</div>
+    <div class="mono" id="s2gn" style="font-size:96px;color:var(--p700);margin-top:6px">6.854</div>
+    <div class="mono" style="font-size:34px;color:var(--ink6)">64,9% уписаних</div>
+  </div>
+  <div class="abs" id="s2rl" style="right:64px;top:850px;text-align:right">
+    <div class="lbl">Није гласало</div>
+    <div class="mono" id="s2rn" style="font-size:96px;color:var(--redtx);margin-top:6px">3.709</div>
+    <div class="mono" style="font-size:34px;color:var(--ink6)">35,1% уписаних</div>
+  </div>
+</div>
+
+<!-- S3 head to head -->
+<div class="scene" id="s3">
+  <div class="abs nad" style="left:64px;top:150px">Кнић · парламентарни избори 2023</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">Ко је већи?</div>
+  <div id="s3grid"></div>
+  <div class="abs lbl" style="left:64px;top:520px">Нису гласали</div>
+  <div class="abs bar" id="s3r" style="left:64px;top:570px;background:var(--red)"></div>
+  <div class="abs mono" id="s3rn" style="right:64px;top:500px;font-size:56px;color:var(--redtx)">3.709</div>
+  <div class="abs lbl" style="left:64px;top:780px">Владајућа листа (СНС)</div>
+  <div class="abs bar" id="s3b" style="left:64px;top:830px;background:var(--p700)"></div>
+  <div class="abs mono" id="s3bn" style="right:64px;top:760px;font-size:56px;color:var(--p700)">3.628</div>
+  <div class="abs" id="s3diff" style="left:64px;top:1120px;width:952px;padding:26px 32px;box-sizing:border-box;background:var(--red100);border-left:0">
+    <span class="mono" style="font-size:72px;color:var(--redtx)">+81</span>
+    <span style="font-family:Inter;font-weight:600;font-size:40px;color:var(--ink9);margin-left:18px">више оних који нису гласали</span>
+  </div>
+</div>
+
+<!-- S4 columns -->
+<div class="scene" id="s4">
+  <div class="abs nad" style="left:64px;top:150px">Нису гласали у Книћу · парламентарни избори</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">Сваки пут исто</div>
+  <div id="s4cols"></div>
+  <div class="abs" id="s4line" style="left:100px;width:916px;height:0;border-top:4px dashed var(--redtx)"></div>
+  <div class="abs" id="s4ll" style="left:856px;width:170px;font-family:JBM;font-size:30px;line-height:1.15;color:var(--redtx);font-weight:600">НАЈМАЊЕ<br><span style="font-size:42px">3.709</span></div>
+</div>
+
+<!-- S5 map -->
+<div class="scene" id="s5">
+  <div class="abs nad" style="left:64px;top:150px">36 бирачких места · 2023</div>
+  <div class="abs" id="s5c1" style="left:64px;top:195px;width:952px;padding:6px 24px 14px;box-sizing:border-box;border:3px solid var(--p700)">
+    <span class="mono" id="s5n1" style="font-size:84px;color:var(--p700)">17</span><span class="mono" style="font-size:56px;color:var(--ink4)"> / 36</span>
+    <div style="font-family:Inter;font-weight:600;font-size:34px;color:var(--ink9);margin-top:2px"><span style="display:inline-block;width:22px;height:22px;border-radius:50%;background:#253f87;margin-right:10px;vertical-align:-2px"></span>више него гласова за листу власти (СНС)</div>
+  </div>
+  <div class="abs" id="s5c2" style="left:64px;top:385px;width:952px;background:var(--red);padding:12px 24px 18px;box-sizing:border-box">
+    <span class="mono" style="font-size:84px;color:#fff">12</span><span class="mono" style="font-size:56px;color:#ffd9de"> / 36</span>
+    <div style="font-family:Inter;font-weight:600;font-size:34px;color:#fff;margin-top:2px"><span style="display:inline-block;width:22px;height:22px;border-radius:50%;background:#fff;margin-right:10px;vertical-align:-2px"></span>више него за СНС и СПС заједно</div>
+  </div>
+  <svg id="s5map" class="abs" style="left:175px;top:585px" width="730" height="766" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s5leg" style="left:64px;top:1390px;display:none"></div>
+</div>
+
+<!-- S6 Knic town -->
+<div class="scene" id="s6">
+  <div class="abs nad" style="left:64px;top:150px">Бирачка места 23, 24, 25 · 2023</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">У самом Книћу</div>
+  <div class="abs lbl" style="left:64px;top:420px">Нису гласали</div>
+  <div class="abs bar" id="s6r" style="left:64px;top:470px;background:var(--red)"></div>
+  <div class="abs mono" id="s6rn" style="top:500px;font-size:64px;color:var(--redtx)">652</div>
+  <div class="abs lbl" style="left:64px;top:660px">Листа власти (СНС)</div>
+  <div class="abs bar" id="s6b" style="left:64px;top:710px;background:var(--p700)"></div>
+  <div class="abs mono" id="s6bn" style="top:740px;font-size:64px;color:var(--p700)">543</div>
+  <div class="abs" id="s6t" style="left:64px;top:920px;width:952px"></div>
+</div>
+
+<!-- S7 Serbia -->
+<div class="scene" id="s7">
+  <div class="abs nad" style="left:64px;top:150px">Србија · парламентарни избори 2023</div>
+  <div class="abs disp" style="left:64px;top:210px;font-size:110px;width:952px">И Србија</div>
+  <div class="abs lbl" style="left:64px;top:410px">Нису гласали</div>
+  <div class="abs" id="s7r" style="left:64px;top:455px;height:110px;background:var(--red)"></div>
+  <div class="abs mono" id="s7rn" style="right:64px;top:396px;font-size:50px;color:var(--redtx)">2.679.920</div>
+  <div class="abs lbl" style="left:64px;top:600px">Листе власти (СНС + СПС)</div>
+  <div class="abs" id="s7b" style="left:64px;top:645px;height:110px;background:var(--p700)"></div>
+  <div class="abs mono" id="s7bn" style="right:64px;top:586px;font-size:50px;color:var(--p700)">2.033.617</div>
+  <div class="abs" id="s7k" style="left:64px;top:800px;width:952px">
+    <div style="display:flex;align-items:baseline;gap:18px"><span class="mono" id="s7kn" style="font-size:84px;color:var(--ink9)">10 / 10</span><span style="font-family:Inter;font-weight:600;font-size:34px;color:var(--ink6)">избора од 2012.</span></div>
+    <div style="font-family:Inter;font-weight:500;font-size:30px;color:var(--ink6);margin-top:4px">нису гласали &gt; листе власти (на председничким: кандидат власти)</div>
+  </div>
+  <div id="s7boxes"></div>
+</div>
+
+<!-- S8 registry / call -->
+<div class="scene" id="s8">
+  <div class="abs nad" style="left:64px;top:150px">Попис 2022 · бирачки списак 2023</div>
+  <div class="abs" id="s8a" style="left:64px;top:220px;width:952px">
+    <div><span class="mono" style="font-size:200px;color:var(--p700);line-height:1">104,5</span></div>
+    <div style="font-family:Inter;font-weight:600;font-size:44px;color:var(--ink9);margin-top:6px">уписаних бирача (2023) на 100 пунолетних становника Кнића (Попис 2022)</div>
+    <div style="font-family:Inter;font-weight:500;font-size:32px;color:var(--ink6);margin-top:14px">Неки са списка живе и раде ван општине.</div>
+  </div>
+  <div class="abs" id="s8m" style="left:64px;top:760px;width:952px;border:3px solid var(--l300);box-sizing:border-box;background:#fff">
+    <div style="background:var(--p700);color:#fff;font-family:Oswald;font-weight:500;letter-spacing:.14em;font-size:30px;padding:16px 28px">ПОРУКА · КОМШИЈИ</div>
+    <div style="padding:30px 28px 34px;font-family:Inter;font-weight:500;font-size:44px;line-height:1.3;color:var(--ink9)">Долазиш ли у недељу?<br>Гласамо <b>25. октобра</b>, од 7 до 20ч.</div>
+  </div>
+  <div class="abs disp" id="s8c" style="left:64px;top:1130px;font-size:150px;color:var(--p900)">Позови их.</div>
+</div>
+
+<!-- S9 date -->
+<div class="scene" id="s9" style="background:var(--p900)">
+  <div class="abs nad" style="left:64px;top:150px;color:var(--p200)">Парламентарни избори 2026</div>
+  <div class="abs disp" id="s9d" style="left:64px;top:300px;font-size:200px;color:#fff;width:952px">25.<br>октобар</div>
+  <div class="abs mono" id="s9h" style="left:64px;top:760px;font-size:64px;color:var(--p200)">НЕДЕЉА · 07–20ч</div>
+  <div class="abs disp" id="s9q" style="left:64px;top:940px;padding:28px 34px 34px;background:var(--red);color:#fff;font-size:118px">Шта ако<br>проговоре?</div>
+</div>
+
+<!-- S10 student list -->
+<div class="scene" id="s10">
+  <div class="abs nad" style="left:64px;top:150px">Парламентарни избори · 25. октобар 2026</div>
+  <div class="abs disp" id="s10h" style="left:64px;top:470px;width:952px;font-size:120px;color:var(--p900)">Гласамо<br>за број</div>
+  <div class="abs" id="s10l" style="left:64px;top:800px;width:952px;height:307px">
+    <img id="slc" src="assets/sl_circle.png" class="abs" alt="" >
+    <img id="slt" src="assets/sl_top.png" class="abs" alt="">
+    <img id="sl1" src="assets/sl_l1.png" class="abs" alt="">
+    <img id="sl2" src="assets/sl_l2.png" class="abs" alt="">
+  </div>
+  <div class="abs mono" id="s10d" style="left:64px;top:1180px;font-size:44px;color:var(--ink6)">25. 10. · 07–20ч</div>
+</div>
+
+<!-- OUT logo -->
+<div class="scene" id="so">
+  <canvas id="logo" class="abs" width="1600" height="1600" style="left:140px;top:420px;width:800px;height:800px"></canvas>
+  <div class="abs disp" id="sod" style="left:0;right:0;top:1300px;text-align:center;font-size:64px;color:var(--p700)">25. 10. · 07–20ч</div>
+</div>
+
+<div id="sub"><span id="subt"></span></div>
+<div id="src"></div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const O = 0.30;             // VO offset in video
+const TAG = 79.60;          // tag audio start (audio time on VO clock)
+const END = TAG + 3.97 + 2.6;
+window.DURATION = END + O;
+
+const $ = id => document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const lin=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const fmt=n=>Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const cnt=(t,a,d,v)=>fmt(v*eo(lin(t,a,a+d)));
+function fade(el,t,a,dur=.28,dy=36){const p=eo(lin(t,a,a+dur));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dy}px)`;}
+
+// ---------- subtitles (audio clock) ----------
+const SUBS=[
+ [0.00,1.83,'Највећа странка у Книћу…'],[2.14,4.30,'нема ни листу, ни кандидата.'],
+ [5.39,8.30,'Децембра 2023, у Книћу није гласало'],[8.30,11.38,'3.709 људи.'],
+ [12.32,13.90,'Владајућа листа добила је –'],[13.90,17.05,'3.628 гласова.'],
+ [17.77,19.37,'И то није изузетак.'],
+ [19.76,23.10,'Од 2012, на сваким изборима код куће остане'],[23.10,26.39,'најмање три и по хиљаде наших комшија.'],
+ [27.24,28.71,'Погледајмо бирачка места.'],
+ [29.24,32.40,'На 17 од 36, оних који нису гласали'],[32.40,35.78,'било је више него гласова за листу власти.'],
+ [36.37,40.00,'А на 12 – више него за целу власт заједно.'],
+ [40.72,41.72,'У самом Книћу –'],[42.03,44.45,'652 није гласало.'],[44.94,48.58,'За листу власти гласало је 543 особе.'],
+ [49.33,50.93,'И Србија има исту причу:'],[51.36,54.27,'на свих 10 избора од 2012,'],[54.60,58.95,'оних који ћуте било је више од оних који су гласали за листе власти.'],
+ [59.68,61.39,'Неки од њих не живе овде.'],[61.73,65.05,'Раде у Крагујевцу, у Београду, у иностранству.'],
+ [65.66,67.65,'Ако знаш неког – позови га.'],[68.01,69.16,'Избори су у недељу.'],
+ [69.72,73.35,'25. октобра, од 7 до 20 часова.'],[73.88,75.41,'Гласамо за број три.'],
+ [75.95,77.04,'Студентска листа –'],[77.36,79.07,'Студенти побеђују!'],
+ [TAG+0.28,TAG+1.37,'Ви одлучујете –'],[TAG+2.00,TAG+3.68,'Кнић без рудника.'],
+];
+// ---------- scenes (audio clock) ----------
+const SC=[['s1',-9,5.1],['s2',5.1,12.0],['s3',12.0,17.5],['s4',17.5,26.9],['s5',26.9,40.5],['s6',40.5,49.0],['s7',49.0,59.4],['s8',59.4,69.5],['s9',69.5,73.75],['s10',73.75,79.35],['so',79.35,999]];
+const SRC={
+ s2:'Извор: РЗС, РИК · парл. избори 2023 · % уписаних бирача',
+ s3:'Извор: РИК · парл. избори 2023 · број бирача и гласова',
+ s4:'Извор: РЗС, РИК · 2012–2023 · уписани минус гласали',
+ s5:'Извор: РИК, записници по БМ · 2023 · СПС = коалиција власти',
+ s6:'Извор: РИК, записници по БМ 23–25 · парл. избори 2023',
+ s7:'Извор: РЗС, РИК · власт = СНС+СПС (2012: ДС+СПС)',
+ s8:'Извор: РЗС Попис 2022; РИК 2023 · однос уписаних и пунолетних',
+};
+const DARK={s1:1,s9:1};
+
+// ---------- build static pieces ----------
+// S3 grid 0..4000 over 952px
+(function(){const g=$('s3grid');for(let v=0;v<=4000;v+=1000){const x=64+952*v/4000;g.insertAdjacentHTML('beforeend',`<div class="grid" style="left:${x-1}px;top:560px;height:430px"></div><div class="tick" style="left:${x}px;top:1000px">${fmt(v)}</div>`);}})();
+// S4 columns
+const COLS=[['2012',3774],['2014',5093],['2016',3864],['2020',3977],['2022',4189],['2023',3709]];
+const S4={x0:100,w:740,base:1240,h:720,max:6000};
+(function(){const g=$('s4cols');const cw=S4.w/COLS.length;
+ for(let v=0;v<=6000;v+=2000){const y=S4.base-S4.h*v/S4.max;g.insertAdjacentHTML('beforeend',`<div class="abs" style="left:${S4.x0}px;width:${S4.w}px;top:${y}px;height:2px;background:var(--l100)"></div><div class="abs mono" style="left:22px;top:${y-16}px;font-size:24px;color:var(--ink4)">${v/1000}k</div>`);}
+ COLS.forEach((c,i)=>{const x=S4.x0+i*cw+22;g.insertAdjacentHTML('beforeend',`<div class="abs" id="c${i}" style="left:${x}px;width:${cw-44}px;background:var(--p700)"></div><div class="abs mono" id="cn${i}" style="left:${x-10}px;width:${cw-24}px;text-align:center;font-size:32px;color:var(--ink9)">${fmt(c[1])}</div><div class="abs mono" style="left:${x-10}px;width:${cw-24}px;text-align:center;top:${S4.base+16}px;font-size:30px;color:var(--ink6)">${c[0]}</div>`);});
+ const y=S4.base-S4.h*3709/S4.max;$('s4line').style.top=y+'px';$('s4ll').style.top=(y+14)+'px';
+})();
+// S5 map
+(function(){const s=$('s5map');const M=window.MAPD;let h='';
+ M.naselja.forEach(d=>h+=`<path d="${d}" fill="#f2f4fa" stroke="#ffffff" stroke-width="3"/>`);
+ h+=`<path d="${M.jezero}" fill="#b7c4ee"/>`;
+ h+=`<path d="${M.opstina}" fill="none" stroke="#7d8cbd" stroke-width="4"/>`;
+ const off={23:[-16,4],24:[16,4],25:[0,-22]};
+ M.bm.forEach(b=>{const o=off[b.bm]||[0,0];h+=`<circle id="d${b.bm}" cx="${b.x+o[0]}" cy="${b.y+o[1]}" r="10" fill="#5c678f" stroke="#fff" stroke-width="3"/>`;});
+ s.innerHTML=h;
+})();
+// S6 table
+(function(){const rows=[['Рибеш · БМ 23',274,227],['Доња мала · БМ 24',178,144],['Горња мала · БМ 25',200,172]];
+ let h=`<div style="display:grid;grid-template-columns:1fr 200px 200px;border-bottom:3px solid var(--l300);padding:10px 0" class="lbl"><div>Место</div><div style="text-align:right">Нису гл.</div><div style="text-align:right">СНС</div></div>`;
+ rows.forEach((r,i)=>h+=`<div id="s6r${i}" style="display:grid;grid-template-columns:1fr 200px 200px;border-bottom:2px solid var(--l100);padding:20px 0;align-items:baseline"><div style="font-family:Inter;font-weight:600;font-size:38px">${r[0]}</div><div class="mono" style="text-align:right;font-size:46px;color:var(--redtx)">${r[1]}</div><div class="mono" style="text-align:right;font-size:46px;color:var(--p700)">${r[2]}</div></div>`);
+ $('s6t').innerHTML=h;})();
+// S7 boxes
+const EL=[['2012','парл.'],['2012','пред. I'],['2012','пред. II'],['2014','парл.'],['2016','парл.'],['2017','пред.'],['2020','парл.'],['2022','пред.'],['2022','парл.'],['2023','парл.']];
+(function(){const g=$('s7boxes');EL.forEach((e,i)=>{const x=64+(i%5)*196,y=990+Math.floor(i/5)*172;
+ g.insertAdjacentHTML('beforeend',`<div class="box" id="bx${i}" style="left:${x}px;top:${y}px"><div class="mono" style="position:absolute;left:16px;top:12px;font-size:32px;color:var(--ink9)">${e[0]}</div><div style="position:absolute;left:16px;top:54px;font-family:Inter;font-weight:600;font-size:22px;color:var(--ink6)">${e[1]}</div><svg style="position:absolute;right:14px;bottom:12px" width="52" height="44" viewBox="0 0 52 44" aria-hidden="true"><polyline id="ck${i}" points="5,24 19,38 47,6" fill="none" stroke="#253f87" stroke-width="7" stroke-linecap="square" stroke-dasharray="70" stroke-dashoffset="70"/></svg></div>`);});})();
+
+// ---------- student list layout ----------
+const SLM={circle:[40,120,392,476],top:[386,141,1146,195],l1:[386,215,1146,342],l2:[386,347,1146,457]};
+const SLK=952/(1146-40);
+[['slc','circle'],['slt','top'],['sl1','l1'],['sl2','l2']].forEach(([id,k])=>{const b=SLM[k],e=$(id);
+ e.style.left=((b[0]-40)*SLK)+'px';e.style.top=((b[1]-120)*SLK)+'px';e.style.width=((b[2]-b[0])*SLK)+'px';e.style.height=((b[3]-b[1])*SLK)+'px';});
+// ---------- logo canvas ----------
+const LOGO=new Image();LOGO.src='assets/logo.png';
+function drawLogo(t){
+ const c=$('logo'),x=c.getContext('2d');const W=c.width,cx=W/2,cy=W/2;x.clearRect(0,0,W,W);
+ if(!LOGO.complete)return;
+ const sc=W/447;
+ const pc=eo(lin(t,TAG-0.25,TAG+0.35));
+ // center motif
+ x.save();x.globalAlpha=pc;x.beginPath();x.arc(cx,cy,140*sc,0,Math.PI*2);x.clip();
+ const yo=(1-pc)*30;x.drawImage(LOGO,0,yo,W,W);x.restore();
+ // top sweep: ВИ ОДЛУЧУЈЕТЕ (left -> over top -> right, clockwise)
+ const a1=eio(lin(t,TAG+0.20,TAG+1.45));
+ if(a1>0){x.save();x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,W,Math.PI-0.06,Math.PI-0.06+(Math.PI+0.12)*a1,false);x.closePath();x.arc(cx,cy,140*sc,0,Math.PI*2,true);x.clip('evenodd');x.drawImage(LOGO,0,0,W,W);x.restore();}
+ // bottom sweep: КНИЋ БЕЗ РУДНИКА (left -> under bottom -> right, counter-clockwise)
+ const a2=eio(lin(t,TAG+1.95,TAG+3.70));
+ if(a2>0){x.save();x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,W,Math.PI+0.06,Math.PI+0.06-(Math.PI+0.12)*a2,true);x.closePath();x.arc(cx,cy,140*sc,0,Math.PI*2,true);x.clip('evenodd');x.drawImage(LOGO,0,0,W,W);x.restore();}
+}
+
+// ---------- render ----------
+let lastScene=null;
+window.render=function(vt){
+ const t=vt-O; // audio clock
+ let cur=SC.find(s=>t>=s[1]&&t<s[2])[0];
+ if(cur!==lastScene){document.querySelectorAll('.scene').forEach(e=>e.style.display='none');$(cur).style.display='block';lastScene=cur;}
+ const st=SC.find(s=>s[0]===cur)[1];
+ // subtitles
+ const s=SUBS.find(x=>t>=x[0]-0.05&&t<x[1]+0.25);
+ const sub=$('subt');sub.textContent=s?s[2]:'';
+ const dark=DARK[cur];
+ sub.style.color=dark?'#ffffff':(cur==='so'?'#16265a':'#0b0f1e');
+ sub.style.background=dark?'rgba(22,38,90,0)':'rgba(255,255,255,.92)';
+ $('sub').style.display=s?'block':'none';
+ // source bar
+ const src=SRC[cur];$('src').style.display=src?'flex':'none';if(src)$('src').textContent=src;
+ // per scene
+ if(cur==='s1'){
+  fade($('s1h'),t,-1,.3,0);
+  const w=eo(lin(t,0.0,0.7));$('s1blk').style.width=(952*w)+'px';
+  $('s1n').textContent=cnt(t,0.1,0.9,3709);$('s1n').style.opacity=lin(t,0.05,0.2);
+  fade($('s1c'),t,1.0);
+  fade($('s1d'),t,2.3);
+ }
+ if(cur==='s2'){
+  $('s2u').textContent=cnt(t,5.45,0.8,10563);
+  $('s2frame').style.opacity=lin(t,5.35,5.65);
+  const g=eo(lin(t,6.4,7.4));$('s2g').style.width=(952*6854/10563*g)+'px';
+  fade($('s2gl'),t,6.6);$('s2gn').textContent=cnt(t,6.6,0.8,6854);
+  const r=eo(lin(t,9.0,9.8));const gw=952*6854/10563;$('s2r').style.left=(64+gw)+'px';$('s2r').style.width=((952-gw)*r)+'px';
+  fade($('s2rl'),t,9.2);$('s2rn').textContent=cnt(t,9.2,0.8,3709);
+ }
+ if(cur==='s3'){
+  const k=952/4000;
+  const r=eo(lin(t,12.05,12.5));$('s3r').style.width=(3709*k*r)+'px';$('s3rn').style.opacity=r;$('s3rn').textContent='3.709';
+  const b=eo(lin(t,13.9,14.9));$('s3b').style.width=(3628*k*b)+'px';
+  $('s3bn').textContent=cnt(t,13.9,1.0,3628);$('s3bn').style.opacity=lin(t,13.9,14.0);
+  fade($('s3diff'),t,15.6);
+  // keep labels from overflowing
+ }
+ if(cur==='s4'){
+  COLS.forEach((c,i)=>{const a=17.85+i*0.32;const p=eo(lin(t,a,a+0.55));const h=S4.h*c[1]/S4.max*p;const e=$('c'+i);e.style.height=h+'px';e.style.top=(S4.base-h)+'px';
+   const n=$('cn'+i);n.style.top=(S4.base-h-48)+'px';n.style.opacity=lin(t,a+0.3,a+0.5);n.textContent=cnt(t,a,0.55,c[1]);});
+  const l=eo(lin(t,23.0,23.6));$('s4line').style.width=(916*l)+'px';$('s4ll').style.opacity=lin(t,23.3,23.6);
+ }
+ if(cur==='s5'){
+  const M=window.MAPD;
+  $('s5map').style.opacity=eo(lin(t,27.05,27.45));
+  const A=M.bm.filter(b=>b.a),B=M.bm.filter(b=>b.b);
+  let shownA=0;
+  A.forEach((b,i)=>{const a=29.3+i*0.12;const p=eo(lin(t,a,a+0.25));const e=$('d'+b.bm);if(p>0){shownA++;e.setAttribute('fill','#253f87');e.setAttribute('r',10+6*p);}else{e.setAttribute('fill','#5c678f');e.setAttribute('r',10);}});
+  B.forEach((b,i)=>{const a=36.4+i*0.13;const p=eo(lin(t,a,a+0.25));const e=$('d'+b.bm);if(p>0){e.setAttribute('fill','#c0152f');e.setAttribute('r',16+4*p);}});
+  fade($('s5c1'),t,29.2);$('s5n1').textContent=shownA;
+  fade($('s5c2'),t,36.35);
+ }
+ if(cur==='s6'){
+  const k=952/800;
+  const r=eo(lin(t,42.0,43.0));$('s6r').style.width=(652*k*r)+'px';$('s6rn').style.left=(64+652*k*r+22)+'px';$('s6rn').textContent=cnt(t,42.0,1.0,652);$('s6rn').style.opacity=lin(t,42.0,42.1);
+  const b=eo(lin(t,46.5,47.4));$('s6b').style.width=(543*k*b)+'px';$('s6bn').style.left=(64+543*k*b+22)+'px';$('s6bn').textContent=cnt(t,46.5,0.9,543);$('s6bn').style.opacity=lin(t,46.5,46.6);
+  fade($('s6t'),t,47.5);
+  [0,1,2].forEach(i=>fade($('s6r'+i),t,47.7+i*0.22,.25,16));
+ }
+ if(cur==='s7'){
+  const k=952/3000000;
+  const r=eo(lin(t,49.35,50.15));$('s7r').style.width=(2679920*k*r)+'px';$('s7rn').textContent=cnt(t,49.35,0.8,2679920);$('s7rn').style.opacity=lin(t,49.35,49.45);
+  const b=eo(lin(t,50.05,50.85));$('s7b').style.width=(2033617*k*b)+'px';$('s7bn').textContent=cnt(t,50.05,0.8,2033617);$('s7bn').style.opacity=lin(t,50.05,50.15);
+  fade($('s7k'),t,51.3);
+  let n=0;EL.forEach((e,i)=>{const a=51.6+i*0.3;const p=eo(lin(t,a,a+0.3));const bx=$('bx'+i);bx.style.opacity=lin(t,51.3,51.6);
+   $('ck'+i).setAttribute('stroke-dashoffset',70*(1-p));if(p>=1)n++;bx.style.borderColor=p>=1?'#253f87':'#e1e6f4';});
+  $('s7kn').textContent=n+' / 10';
+ }
+ if(cur==='s8'){
+  fade($('s8a'),t,59.6);
+  fade($('s8m'),t,65.5);
+  fade($('s8c'),t,66.1);
+ }
+ if(cur==='s9'){
+  fade($('s9d'),t,69.6);fade($('s9h'),t,70.9);$('s9q').style.display='none';
+ }
+ if(cur==='s10'){
+  fade($('s10h'),t,73.85,.3,30);
+  const c=eo(lin(t,74.95,75.35));const ce=$('slc');ce.style.opacity=lin(t,74.95,75.1);ce.style.transform=`scale(${0.6+0.4*c})`;
+  [['slt',75.95],['sl1',77.36],['sl2',78.05]].forEach(([id,a])=>{const p=eo(lin(t,a,a+0.3));const e=$(id);e.style.opacity=p;e.style.transform=`translateX(${(1-p)*60}px)`;});
+  fade($('s10d'),t,78.6);
+ }
+ if(cur==='so'){
+  drawLogo(t);
+  $('sod').style.opacity=eo(lin(t,TAG+3.9,TAG+4.4));
+ }
+};
+window.ready=Promise.all([...['slc','slt','sl1','sl2'].map(id=>$(id).decode()),document.fonts.ready,new Promise(r=>{if(LOGO.complete)r();else LOGO.onload=r;})]);
+</script>
+</body>
+</html>
