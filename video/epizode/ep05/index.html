@@ -1,0 +1,475 @@
+<!doctype html><html lang="sr-Cyrl"><head><meta charset="utf-8"><title>Ep5</title>
+<style>
+@font-face{font-family:Oswald;src:url(assets/Oswald-var.woff2) format('woff2');font-weight:200 700}
+@font-face{font-family:Inter;src:url(assets/Inter-var.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:JBM;src:url(assets/JetBrainsMono-var.woff2) format('woff2');font-weight:100 800}
+:root{
+  --white:#ffffff;--s200:#f2f4fa;--s300:#e4e8f6;--l100:#e1e6f4;--l300:#7d8cbd;
+  --ink9:#0b0f1e;--ink6:#414a6d;--ink4:#5c678f;
+  --p900:#16265a;--p700:#253f87;--p400:#7e8bb5;--p200:#b7c4ee;--p100:#eaeefb;--ptx:#253f87;
+  --red:#c0152f;--redtx:#ac1129;--red100:#fbe8eb;
+}
+html,body{margin:0;padding:0;background:#fff}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--white);font-family:Inter,sans-serif;color:var(--ink9)}
+.scene{position:absolute;inset:0;display:none}
+.abs{position:absolute}
+.disp{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+.nad{font-family:Oswald,sans-serif;font-weight:500;font-size:30px;letter-spacing:.18em;text-transform:uppercase;color:var(--ptx)}
+.mono{font-family:JBM,monospace;font-weight:500;font-feature-settings:"tnum"}
+.lbl{font-family:Inter;font-weight:600;font-size:30px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink6)}
+#sub{position:absolute;left:64px;right:64px;bottom:430px;text-align:center;font-family:Inter;font-weight:600;font-size:46px;line-height:1.25;color:var(--ink9)}
+#sub span{display:inline;padding:6px 14px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#src{position:absolute;left:64px;right:64px;top:1530px;height:64px;background:var(--s300);display:flex;align-items:center;padding:0 22px;box-sizing:border-box;font-family:JBM;font-size:23px;color:var(--ink4);font-weight:500;white-space:nowrap;overflow:hidden}
+.grid{position:absolute;width:2px;background:var(--l100)}
+.tick{position:absolute;font-family:JBM;font-size:24px;color:var(--ink4);transform:translateX(-50%)}
+.cell{position:absolute;width:76px;height:76px;background:var(--s200)}
+.stepn{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:var(--p700);color:#fff;font-size:40px}
+</style></head>
+<body>
+<div id="stage">
+
+<div class="scene" id="s1" style="background:var(--p900)">
+  <div class="abs nad" style="left:64px;top:150px;color:var(--p200)">Изборна аналитика · Резултати · 25.10.2026.</div>
+  <div class="abs disp" id="s1d" style="left:64px;top:230px;font-size:64px;color:var(--p200)">25. октобар</div>
+  <div class="abs disp" id="s1t" style="left:64px;top:310px;width:952px;font-size:150px;color:#fff">Кнић је<br>изабрао</div>
+  <svg id="s1map" class="abs" style="left:190px;top:640px" width="700" height="734" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s1l" style="left:64px;top:1530px;width:952px;text-align:center;font-family:Inter;font-weight:600;font-size:34px;color:var(--p200)">36 бирачких места · сви записници</div>
+</div>
+
+<div class="scene" id="s2">
+  <div class="abs nad" style="left:64px;top:150px">Излазност у Книћу</div>
+  <div class="abs lbl" id="s2gl" style="left:64px;top:230px">Гласало</div>
+  <div class="abs mono" id="s2n" style="left:64px;top:270px;font-size:170px;line-height:1;color:var(--p900)">0</div>
+  <div class="abs lbl" id="s2il" style="left:64px;top:470px">Излазност</div>
+  <div class="abs mono" id="s2p" style="left:64px;top:510px;font-size:170px;line-height:1;color:var(--red)">72,3%</div>
+  <svg id="s2c" class="abs" style="left:64px;top:690px" width="952" height="660"></svg>
+</div>
+
+<div class="scene" id="s3">
+  <div class="abs nad" style="left:64px;top:150px">Кнић · 7.302 важећа листића</div>
+  <div class="abs" id="s3a" style="left:64px;top:240px;width:952px">
+    <div class="disp" style="font-size:58px;color:var(--ink9)">Студентска листа</div>
+    <div style="display:flex;align-items:baseline;gap:28px;margin-top:10px"><span class="mono" id="s3an" style="font-size:150px;line-height:1;color:var(--red)">0</span><span class="mono" id="s3ap" style="font-size:64px;color:var(--redtx)">51,81%</span></div>
+    <div style="position:relative;height:40px;margin-top:20px;background:var(--s200)"><div id="s3ab" style="position:absolute;left:0;top:0;bottom:0;background:var(--red)"></div></div>
+  </div>
+  <div class="abs" id="s3b" style="left:64px;top:620px;width:952px">
+    <div class="disp" style="font-size:58px;color:var(--ink9)">Листа А. Вучића</div>
+    <div style="display:flex;align-items:baseline;gap:28px;margin-top:10px"><span class="mono" id="s3bn" style="font-size:150px;line-height:1;color:var(--p700)">0</span><span class="mono" id="s3bp" style="font-size:64px;color:var(--p700)">43,33%</span></div>
+    <div style="position:relative;height:40px;margin-top:20px;background:var(--s200)"><div id="s3bb" style="position:absolute;left:0;top:0;bottom:0;background:var(--p700)"></div></div>
+  </div>
+  <div class="abs" id="s3o" style="left:64px;top:1000px;width:952px;font-family:Inter;font-size:30px;color:var(--ink6);line-height:1.5">
+    Дачић <b class="mono" style="color:var(--ink9)">143</b> · Љајић <b class="mono" style="color:var(--ink9)">74</b> · Аутентична десница <b class="mono" style="color:var(--ink9)">52</b> · осталих 14 листа <b class="mono" style="color:var(--ink9)">86</b>
+  </div>
+  <div class="abs" id="s3d" style="left:64px;top:1130px;width:952px;height:190px;background:var(--p900);display:flex;align-items:center;justify-content:space-between;padding:0 40px;box-sizing:border-box">
+    <span class="disp" style="font-size:64px;color:#fff">Разлика</span><span class="mono" style="font-size:120px;color:#ff8d9c">+619</span>
+  </div>
+</div>
+
+<div class="scene" id="s4">
+  <div class="abs nad" style="left:64px;top:150px">Листе власти у Книћу · % важећих</div>
+  <div class="abs disp" id="s4h" style="left:64px;top:220px;width:952px;font-size:96px;color:var(--p900)">Власт пала<br>испод половине</div>
+  <div class="abs" id="s4r" style="left:64px;top:520px;width:952px;height:820px"></div>
+</div>
+
+<div class="scene" id="s5">
+  <div class="abs nad" id="s5nad" style="left:64px;top:150px">Победник по бирачком месту</div>
+  <div class="abs disp" id="s5h" style="left:64px;top:200px;width:952px;font-size:62px;white-space:nowrap;color:var(--ink9)"></div>
+  <svg id="s5map" class="abs" style="left:270px;top:300px" width="540" height="567" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s5leg" style="left:64px;top:330px;width:240px;font-family:Inter;font-size:24px;line-height:1.6;color:var(--ink6)"></div>
+  <div class="abs" id="s5big" style="left:64px;top:930px;width:952px;text-align:center"><div class="mono" id="s5bn" style="font-size:300px;line-height:1"></div><div class="disp" id="s5bl" style="font-size:56px;color:var(--ink6)">од 36 бирачких места</div></div>
+  <div class="abs" id="s5c0" style="left:64px;top:880px;width:451px"></div>
+  <div class="abs" id="s5c1" style="left:565px;top:880px;width:451px"></div>
+</div>
+
+<div class="scene" id="s7">
+  <div class="abs nad" style="left:64px;top:150px">Студентска листа · % важећих</div>
+  <div class="abs disp" id="s7h" style="left:64px;top:200px;width:952px;font-size:96px;color:var(--ink9)">Највише<br>за студенте</div>
+  <svg id="s7map" class="abs" style="left:660px;top:150px" width="356" height="373" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s7r" style="left:64px;top:560px;width:952px"></div>
+</div>
+
+<div class="scene" id="s8">
+  <div class="abs nad" style="left:64px;top:150px">Најтесније</div>
+  <div class="abs disp" id="s8h" style="left:64px;top:200px;font-size:110px;color:var(--ink9)">Брњица</div>
+  <svg id="s8map" class="abs" style="left:640px;top:170px" width="376" height="394" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s8sc" style="left:64px;top:420px;width:952px;display:flex;align-items:flex-end;gap:30px">
+    <div><div class="lbl" style="color:var(--redtx)">Студентска</div><div class="mono" id="s8a" style="font-size:230px;line-height:1;color:var(--red)">70</div></div>
+    <div class="mono" style="font-size:150px;line-height:1.2;color:var(--ink4)">:</div>
+    <div><div class="lbl" style="color:var(--p700)">Вучић</div><div class="mono" id="s8b" style="font-size:230px;line-height:1;color:var(--p700)">69</div></div>
+  </div>
+  <div class="abs" id="s8one" style="left:64px;top:720px;padding:14px 28px;background:var(--p900);color:#fff" ><span class="disp" style="font-size:72px">Један једини глас</span></div>
+  <div class="abs" id="s8r" style="left:64px;top:920px;width:952px"></div>
+  <div class="abs disp" id="s8z" style="left:64px;top:1230px;width:952px;font-size:64px;color:var(--p700)">Сваки глас се рачунао.</div>
+</div>
+
+<div class="scene" id="s9">
+  <div class="abs nad" style="left:64px;top:150px">Листа власти · 2023 → 2026 · п.п.</div>
+  <div class="abs disp" id="s9h" style="left:64px;top:200px;width:952px;font-size:86px;color:var(--ink9)">Пад на свих 36</div>
+  <div class="abs" id="s9g" style="left:64px;top:330px;width:952px;height:1150px"></div>
+  <div class="abs" id="s9st" style="left:680px;top:205px;padding:6px 18px;border:6px solid var(--ink9);color:var(--ink9);transform:rotate(-6deg)"><span class="disp" style="font-size:46px">Без изузетка</span></div>
+</div>
+
+<div class="scene" id="s10">
+  <div class="abs nad" style="left:64px;top:150px">Бирачка места где власт нема већину</div>
+  <div class="abs" style="left:64px;top:230px;width:452px;text-align:center"><div class="disp" style="font-size:54px;color:var(--ink6)">2023</div><div class="mono" id="s10a" style="font-size:180px;line-height:1.05;color:var(--ink6)">2</div></div>
+  <div class="abs" id="s10bw" style="left:564px;top:230px;width:452px;text-align:center"><div class="disp" style="font-size:54px;color:var(--ink9)">2026</div><div class="mono" id="s10b" style="font-size:180px;line-height:1.05;color:var(--red)">26</div></div>
+  <svg id="s10m1" class="abs" style="left:64px;top:520px" width="452" height="474" viewBox="0 0 1000 1049"></svg>
+  <svg id="s10m2" class="abs" style="left:564px;top:520px" width="452" height="474" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s10n" style="left:64px;top:1030px;width:952px;font-family:Inter;font-size:30px;line-height:1.45;color:var(--ink6)">2023: само Лесковац и БМ 15 (Губеревац 2).<br>Власт = СНС + СПС (2023), Вучић + Дачић (2026).</div>
+</div>
+
+<div class="scene" id="s11">
+  <div class="abs nad" style="left:64px;top:150px">Излазност по бирачком месту</div>
+  <div class="abs disp" id="s11h" style="left:64px;top:200px;width:952px;font-size:96px;color:var(--ink9)">Најбоља<br>излазност</div>
+  <svg id="s11map" class="abs" style="left:660px;top:150px" width="356" height="373" viewBox="0 0 1000 1049"></svg>
+  <div class="abs" id="s11r" style="left:64px;top:560px;width:952px"></div>
+</div>
+
+<div class="scene" id="s12">
+  <div class="abs nad" style="left:64px;top:150px">Србија · парламентарни избори 2026.</div>
+  <svg id="s12map" class="abs" style="left:240px;top:220px" width="600" height="667" viewBox="0 0 900 1000"></svg>
+  <div class="abs" id="s12a" style="left:64px;top:930px;width:952px">
+    <div class="disp" style="font-size:52px">Студентска листа</div>
+    <div class="mono" id="s12an" style="font-size:130px;line-height:1.05;color:var(--red)">53,4%</div>
+  </div>
+  <div class="abs" id="s12b" style="left:64px;top:1150px;width:952px">
+    <div class="disp" style="font-size:52px">Листа А. Вучића</div>
+    <div class="mono" id="s12bn" style="font-size:130px;line-height:1.05;color:var(--p700)">39,7%</div>
+  </div>
+</div>
+
+<div class="scene" id="s13">
+  <div class="abs nad" style="left:64px;top:150px">28 градова + Кнић · % важећих</div>
+  <div class="abs disp" id="s13h" style="left:64px;top:195px;width:952px;font-size:66px;color:var(--ink9)">Студенти – 25 од 28</div>
+  <div class="abs" id="s13r" style="left:64px;top:290px;width:952px"></div>
+</div>
+
+<div class="scene" id="s14" style="background:var(--p900)">
+  <svg id="s14map" class="abs" style="left:240px;top:200px" width="600" height="629" viewBox="0 0 1000 1049"></svg>
+  <div class="abs disp" id="s14a" style="left:64px;top:900px;width:952px;font-size:88px;color:#fff">Хвала свима<br>који су изашли.</div>
+  <div class="abs disp" id="s14b" style="left:64px;top:1110px;width:952px;font-size:64px;color:var(--p200)">Ово је ваш резултат.</div>
+  <div class="abs disp" id="s14c" style="left:64px;top:1210px;width:952px;font-size:88px;color:#ff8d9c">Кнић је показао да може.</div>
+</div>
+
+<div class="scene" id="so">
+  <canvas id="logo" class="abs" width="1600" height="1600" style="left:140px;top:420px;width:800px;height:800px"></canvas>
+  <div class="abs disp" id="sod" style="left:0;right:0;top:1300px;text-align:center;font-size:56px;color:var(--p700)">25. 10. 2026.</div>
+</div>
+
+<div id="sub"><span id="subt"></span></div>
+<div id="src"></div>
+</div>
+
+<script src="data.js"></script><script src="serbia.js"></script><script src="data5.js"></script><script src="cities.js"></script><script>
+const O=0.30, TAG=191.70, END=TAG+3.97+2.6;
+window.DURATION=END+O;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const lin=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const fmt=n=>{const s=Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');return (n<0?'−':'')+s;};
+const cnt=(t,a,d,v)=>fmt(v*eo(lin(t,a,a+d)));
+const pc=(x,d=1)=>x.toFixed(d).replace('.',',');
+function fade(el,t,a,dur=.28,dy=36){const p=eo(lin(t,a,a+dur));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dy}px)`;}
+
+const SUBS=[
+ [0.00,1.88,'Двадесет пети октобар.'],[2.49,3.59,'Кнић је изабрао.'],
+ [4.23,9.02,'Ово су резултати – свако место, свако бирачко место, по записницима.'],
+ [9.49,13.09,'Гласало је 7.392 људи.'],[13.55,16.33,'Излазност – 72%.'],
+ [16.83,20.76,'Највећа на републичким изборима у Книћу још од двехиљадитих.'],
+ [21.20,25.21,'Студентска листа – 3.783 гласа.'],[25.54,27.33,'Скоро 52%.'],
+ [27.84,31.80,'Листа Александра Вучића – 3.164.'],[32.14,33.59,'43%.'],
+ [34.05,36.86,'Разлика – 619 гласова.'],
+ [37.63,43.54,'Пре три године, СНС и СПС заједно имали су у Книћу 62%.'],
+ [44.00,47.71,'Данас, Вучић и Дачић заједно – 45.'],
+ [48.38,52.56,'Студентска листа сама има више од обе листе власти заједно.'],
+ [52.94,57.82,'Студентска листа победила је на 26 од 36 бирачких места.'],
+ [58.23,59.63,'Честин, Балосаве…'],[59.98,61.44,'Бечевица, Борач…'],[61.74,63.09,'Брњица, Дубрава…'],[63.45,64.96,'Вучковица, Гривац…'],
+ [65.26,66.88,'Грабовац, Губеревац…'],[67.18,68.96,'Губеревац 2, Пољци…'],[69.32,70.98,'Драгушица, Забојница…'],[71.35,72.91,'Кикојевац, Кнежевац…'],
+ [73.25,75.37,'Кнић – Рибеш, Доња мала…'],[75.68,77.20,'Горња мала, Коњуша…'],[77.52,78.96,'Лесковац, Липница…'],[79.31,80.68,'Опланић, Претоке…'],[80.99,82.60,'Топоница, Рашковић.'],
+ [83.41,85.36,'Листа Вучића – на десет.'],
+ [85.69,86.92,'Врбета, Баре…'],[87.24,88.93,'Бумбарево Брдо, Гружа…'],[89.24,90.59,'Гунцати, Жуње…'],[90.88,92.21,'Љубић, Љуљаци…'],[92.56,94.18,'Пајсијевић, Радмиловић.'],
+ [94.83,98.37,'Највише за студенте – Лесковац, 70%.'],[98.74,100.46,'Кикојевац – 68.'],
+ [100.79,105.34,'Преко 60% још Дубрава, Рашковић, Драгушица и Топоница.'],
+ [105.99,110.66,'Најтесније – Брњица. 70 према 69.'],[111.11,112.90,'Један једини глас.'],
+ [113.42,117.47,'У Бумбаревом Брду разлика је 4 гласа, у Врбети 5.'],[117.81,119.47,'Сваки глас се рачунао.'],
+ [120.12,126.29,'У односу на 2023, листа власти је пала на свих 36 бирачких места.'],[126.64,127.75,'Без изузетка.'],
+ [128.29,132.96,'Највише у Гунцатима и Брњици – више од 22 процентна поена.'],
+ [133.48,139.46,'Пре три године, власт није имала већину само у Лесковцу и на једном бирачком месту у Губеревцу.'],
+ [139.86,142.42,'Данас – нема је на 26.'],
+ [142.81,146.95,'Најбоља излазност – Дубрава, 87,5%.'],[147.54,151.88,'Па Врбета, Кикојевац и Рашковић – преко 83.'],
+ [152.63,153.30,'А Србија?'],[154.11,156.64,'Студентска листа – 53%.'],[157.57,159.92,'Листа Вучића – око 40.'],
+ [160.57,164.64,'Од 28 градова, студенти су победили у 25.'],[165.08,168.49,'Нови Сад и Београд – скоро 64%.'],
+ [169.18,172.90,'Чачак, Ваљево, Ужице и Ниш – преко 60.'],[173.67,177.54,'Листа Вучића задржала је само Лесковац, Врање и Прокупље.'],
+ [178.48,182.36,'А Кнић је гласао јаче од Крушевца, Пожаревца и Пирота.'],
+ [183.83,185.87,'Хвала свима који су изашли.'],[186.54,188.03,'Ово је ваш резултат.'],[189.18,191.24,'Кнић је показао да може.'],
+ [TAG+0.28,TAG+1.37,'Ви одлучујете –'],[TAG+2.00,TAG+3.68,'Кнић без рудника.'],
+];
+const SC=[['s1',-9,9.3],['s2',9.3,20.95],['s3',20.95,37.3],['s4',37.3,52.75],['s5',52.75,94.55],['s7',94.55,105.75],['s8',105.75,119.85],
+ ['s9',119.85,133.2],['s10',133.2,142.65],['s11',142.65,152.3],['s12',152.3,160.3],['s13',160.3,183.4],['s14',183.4,TAG-0.25],['so',TAG-0.25,999]];
+const SRC={
+ s2:'Извор: arhivaizbora.rs, РИК · парламентарни · скала од 30%',
+ s3:'Извор: записници свих 36 БМ (= РИК) · % важећих листића',
+ s4:'Извор: РИК 2023 (СНС 3.628, СПС 519 / 6.651) · записници 2026',
+ s5:'Записници свих 36 бирачких места · сви гласови свих листа',
+ s7:'Записници 2026 · Студентска листа, % важећих по БМ',
+ s8:'Записници 2026 · број гласова на бирачком месту',
+ s9:'Листа СНС 2023 → листа А. Вучића 2026 · % важећих, п.п.',
+ s10:'Власт: СНС+СПС (2023), Вучић+Дачић (2026) · испод 50% важећих',
+ s11:'Излазност = гласали / уписани (примљени листићи) по БМ',
+ s12:'Извор: РИК, пресек 27.10.2026. 14:45 · 98% БМ · % важећих',
+ s13:'Извор: РИК, 27.10.2026. 14:45 · без градова на КиМ · % важећих',
+};
+const DARK={s1:1,s14:1};
+const NOSUB={s5:1,s13:1,s14:1};
+
+const D=window.ST5;               // 36 BM
+const BM=k=>D[k-1];
+const SW=k=>BM(k).v[2]>BM(k).v[0]; // Studentska wins
+const LN=['Вучић','Дачић','Студентска листа','Љајић','СВМ','Зукорлић','Руска странка','Аутентична десница','Европска Србија','СДА Санџака','Карић','Либерално зелена','Бирам правду','Рус.-срп. јединство','Ћале, ово је за тебе','Гајић','Албанска коалиција','Мајка Србија'];
+const RED='#c0152f',REDL='#f2b8c1',BLUE='#253f87',BLUEL='#b7c4ee',GREY='#f2f4fa';
+// naselje -> BM
+const NB={'Bajčetina':[1],'Čestin':[1],'Balosave':[2],'Vrbeta':[3],'Bare':[4],'Bečevica':[5],'Borač':[6],'Brnjica':[7],'Dubrava':[8],'Bumbarevo Brdo':[9],
+ 'Vučkovica':[10],'Grivac':[11],'Gruža':[12],'Grabovac':[13],'Guberevac':[14,15],'Guncati':[16,17],'Dragušica':[18],'Žunje':[19],'Zabojnica':[20],'Sumorovac':[20],
+ 'Kikojevac':[21],'Kneževac':[22],'Knić':[23,24,25],'Konjuša':[26],'Brestovac':[26],'Leskovac':[27],'Lipnica':[28],'Ljubić':[29],'Ljuljaci':[30],'Oplanić':[31],
+ 'Pajsijević':[32],'Pretoke':[33],'Radmilović':[34],'Toponica':[35],'Kusovac':[35],'Rašković':[36]};
+
+function mapSvg(id,dark){const M=window.MAPD;let h=`<defs><pattern id="${id}st" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="24" fill="${REDL}"/><rect x="12" width="12" height="24" fill="${BLUEL}"/></pattern></defs>`;
+ M.nas.forEach((n,i)=>h+=`<path id="${id}n${i}" d="${n.d}" fill="${dark?'#253f87':GREY}" stroke="${dark?'#16265a':'#ffffff'}" stroke-width="4"/>`);
+ h+=`<path d="${M.jezero}" fill="${dark?'#16265a':'#ffffff'}" stroke="${dark?'#7e8bb5':BLUEL}" stroke-width="3"/><path d="${M.opstina}" fill="none" stroke="${dark?'#b7c4ee':'#7d8cbd'}" stroke-width="5"/>`;
+ h+=`<g id="${id}hl"></g>`;
+ $(id).innerHTML=h;}
+function setN(id,i,fill){const e=$(id+'n'+i);if(e.getAttribute('fill')!==fill)e.setAttribute('fill',fill);}
+function hlSet(id,list,color){const g=$(id+'hl');const key=list.join(',')+color;if(g.dataset.k===key)return;g.dataset.k=key;const M=window.MAPD;
+ g.innerHTML=list.map(i=>`<path d="${M.nas[i].d}" fill="none" stroke="${color}" stroke-width="12"/>`).join('');}
+const NIDX={};window.MAPD.nas.forEach((n,i)=>NIDX[n.l]=i);
+const bmNas=k=>Object.keys(NB).filter(l=>NB[l].includes(k)).map(l=>NIDX[l]);
+
+// winner fill of naselje given revealed set
+function nasFill(l,rev,strongSet){const ks=NB[l].filter(k=>rev.has(k));if(!ks.length)return GREY;
+ const s=ks.filter(SW).length, v=ks.length-s; const strong=ks.some(k=>strongSet&&strongSet.has(k));
+ if(s&&v)return 'url(#'+'%ID%'+'st)'; if(s)return strong?RED:REDL; return strong?BLUE:BLUEL;}
+function paintMap(id,rev,strong){Object.keys(NB).forEach(l=>{let f=nasFill(l,rev,strong);f=f.replace('%ID%',id);setN(id,NIDX[l],f);});}
+
+// ---- S1 map (dark) + BM dots
+mapSvg('s1map',true);
+(function(){let h='';window.MAPD.bm.forEach(b=>{const off={23:[-16,4],24:[16,4],25:[0,-22]}[b.bm]||[0,0];h+=`<circle class="bmd" cx="${b.x+off[0]}" cy="${b.y+off[1]}" r="14" fill="#ffffff" stroke="#16265a" stroke-width="4" opacity="0"/>`;});$('s1map').insertAdjacentHTML('beforeend',h);})();
+
+// ---- S2 turnout chart
+const TURN=[[2000,64.11],[2003,58.84],[2007,64.08],[2008,67.89],[2012,68.76],[2014,56.74],[2016,66.24],[2020,63.32],[2022,60.54],[2023,64.89],[2026,72.33]];
+(function(){const W=952,H=660,bw=62,gap=(W-TURN.length*bw)/(TURN.length-1),base=560,sc=6.2;let h='';
+ h+=`<text x="0" y="28" font-family="Inter" font-weight="600" font-size="26" fill="#414a6d">ИЗЛАЗНОСТ НА ПАРЛАМЕНТАРНИМ ИЗБОРИМА, %</text>`;
+ TURN.forEach(([y,v],i)=>{const x=i*(bw+gap),hh=(v-30)*sc,last=y===2026;
+  h+=`<rect class="tb" data-h="${hh}" x="${x}" y="${base}" width="${bw}" height="0" fill="${last?RED:BLUEL}"/>`;
+  h+=`<text class="tv" x="${x+bw/2}" y="${base-hh-14}" text-anchor="middle" font-family="JBM" font-weight="700" font-size="${last?30:22}" fill="${last?'#ac1129':'#414a6d'}" opacity="0">${pc(v,1)}</text>`;
+  h+=`<text x="${x+bw/2}" y="${base+40}" text-anchor="middle" font-family="JBM" font-size="22" fill="${last?'#ac1129':'#5c678f'}" font-weight="${last?700:500}">${String(y).slice(2)=='00'?'2000':"'"+String(y).slice(2)}</text>`;});
+ h+=`<line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="#7d8cbd" stroke-width="3"/>`;
+ $('s2c').innerHTML=h;})();
+
+// ---- S4 bars
+(function(){const rows=[['2023 · СНС + СПС',62.35,BLUE,'#253f87'],['2026 · Вучић + Дачић',45.29,BLUE,'#253f87'],['2026 · Студентска листа',51.81,RED,'#ac1129']];
+ let h='';rows.forEach((r,i)=>{h+=`<div id="s4r${i}" style="position:absolute;left:0;top:${i*240}px;width:952px"><div style="font-family:Inter;font-weight:700;font-size:36px;color:#0b0f1e">${r[0]}</div>
+ <div style="position:relative;height:90px;margin-top:14px;background:${GREY}"><div id="s4b${i}" style="position:absolute;left:0;top:0;bottom:0;width:0;background:${r[2]}"></div>
+ <div id="s4v${i}" class="mono" style="position:absolute;right:20px;top:8px;font-size:62px;color:${r[3]}"></div></div></div>`;});
+ h+=`<div style="position:absolute;left:${952*0.5}px;top:40px;height:${3*240-60}px;border-left:4px dashed #0b0f1e"></div><div style="position:absolute;left:${952*0.5+12}px;top:${3*240-50}px;font-family:JBM;font-size:26px;color:#0b0f1e">50%</div>`;
+ $('s4r').innerHTML=h;})();
+const S4V=[62.35,45.29,51.81];
+
+// ---- S5 sequence
+const PS=[[58.23,59.63,1,2],[59.98,61.44,5,6],[61.74,63.09,7,8],[63.45,64.96,10,11],[65.26,66.88,13,14],[67.18,68.96,15,17],[69.32,70.98,18,20],[71.35,72.91,21,22],
+ [73.25,75.37,23,24],[75.68,77.20,25,26],[77.52,78.96,27,28],[79.31,80.68,31,33],[80.99,82.60,35,36]];
+const PV=[[85.69,86.92,3,4],[87.24,88.93,9,12],[89.24,90.59,16,19],[90.88,92.21,29,30],[92.56,94.18,32,34]];
+const REV=[];[...PS,...PV].forEach(p=>{const m=p[0]+0.46*(p[1]-p[0]);REV.push([p[0],p[2]]);REV.push([m,p[3]]);});
+mapSvg('s5map',false);mapSvg('s7map',false);mapSvg('s8map',false);mapSvg('s11map',false);mapSvg('s14map',true);
+function card(k){const b=BM(k),s=SW(k),col=s?RED:BLUE;const rows=b.v.map((x,i)=>[i,x]).filter(r=>r[1]>0).sort((a,c)=>c[1]-a[1]);const mx=rows[0][1];
+ let h=`<div style="border-top:10px solid ${col};background:#fff;padding-top:14px">
+ <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="mono" style="font-size:26px;color:#5c678f">БМ ${k}</span><span class="mono" style="font-size:26px;color:#5c678f">излазност ${pc(b.izl)}%</span></div>
+ <div class="disp" style="font-size:${b.n.length>15?42:54}px;margin-top:6px;color:#0b0f1e;white-space:nowrap">${b.n}</div>
+ <div style="font-family:Inter;font-size:25px;color:#5c678f;margin:4px 0 12px">${b.val} важећих · ${b.nev} неважећих</div>`;
+ rows.forEach(([i,x])=>{const top=i===2||i===0;const c=i===2?RED:(i===0?BLUE:'#7e8bb5');
+  h+=`<div style="position:relative;height:44px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e1e6f4">
+  ${top?`<div style="position:absolute;left:0;bottom:0;height:6px;width:${Math.max(2,x/mx*100)}%;background:${c}"></div>`:''}
+  <span style="font-family:Inter;font-weight:${top?700:500};font-size:${top?28:25}px;color:${top?'#0b0f1e':'#414a6d'};white-space:nowrap">${LN[i]}</span>
+  <span class="mono" style="font-size:${top?36:28}px;font-weight:700;color:${i===2?'#ac1129':(i===0?'#253f87':'#0b0f1e')}">${x}</span></div>`;});
+ h+=`<div style="font-family:Inter;font-size:22px;color:#7d8cbd;margin-top:10px">Остале листе: 0 гласова</div></div>`;return h;}
+const CARDS={};for(let k=1;k<=36;k++)CARDS[k]=card(k);
+
+// ---- S7/S11 ranking rows
+function rankRows(el,items,maxv,red0){let h='';items.forEach((it,i)=>{const c=it.red?RED:(it.col||BLUE);
+ h+=`<div id="${el}_${i}" style="position:relative;height:128px;opacity:0"><div style="display:flex;justify-content:space-between;align-items:baseline">
+ <span style="font-family:Inter;font-weight:700;font-size:40px;color:#0b0f1e">${it.name}</span><span class="mono" style="font-size:44px;font-weight:700;color:${it.red?'#ac1129':'#253f87'}">${pc(it.v)}%</span></div>
+ <div style="position:relative;height:34px;margin-top:8px;background:${GREY}"><div id="${el}_b${i}" style="position:absolute;left:0;top:0;bottom:0;width:0;background:${c}"></div></div></div>`;});$(el).innerHTML=h;}
+const R7=[[27,96.32],[21,98.74],[8,102.55],[36,103.25],[18,103.95],[35,104.65]];
+rankRows('s7r',R7.map(([k])=>({name:BM(k).n,v:100*BM(k).v[2]/BM(k).val,red:true})));
+const R11=[[8,144.39],[3,148.0],[21,148.85],[36,149.75]];
+rankRows('s11r',R11.map(([k],i)=>({name:BM(k).n,v:BM(k).izl,red:i===0})));
+$('s11r').insertAdjacentHTML('beforeend',`<div id="s11avg" style="font-family:Inter;font-size:30px;color:#414a6d;margin-top:20px">Кнић укупно: <b class="mono" style="color:#0b0f1e">72,3%</b></div>`);
+
+// ---- S8 rows
+$('s8r').innerHTML=[[9,'Бумбарево Брдо'],[3,'Врбета']].map(([k,n],i)=>{const b=BM(k);return `<div id="s8r${i}" style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #e1e6f4;padding:14px 0">
+ <span style="font-family:Inter;font-weight:700;font-size:40px">${n}</span><span class="mono" style="font-size:48px"><span style="color:#ac1129">${b.v[2]}</span> : <span style="color:#253f87">${b.v[0]}</span> <span style="font-size:32px;color:#5c678f">· ${b.v[0]-b.v[2]} гл.</span></span></div>`;}).join('');
+
+// ---- S9 grid
+(function(){let h='';const cw=952/6,ch=170;D.forEach((b,i)=>{const r=Math.floor(i/6),c=i%6;const nm=b.n.replace(/ \(.*\)/,'');const L=Math.abs(b.drop);
+ h+=`<div id="g${b.bm}" style="position:absolute;left:${c*cw}px;top:${r*ch}px;width:${cw-10}px;height:${ch-10}px;background:${GREY};opacity:0;box-sizing:border-box;padding:10px 12px">
+ <div style="font-family:Inter;font-weight:600;font-size:${nm.length>11?17:20}px;color:#414a6d;white-space:nowrap;overflow:hidden">${nm}</div>
+ <div class="mono gv" style="font-size:40px;font-weight:700;color:#253f87;margin-top:6px">−${pc(L)}</div>
+ <div style="position:absolute;left:12px;bottom:12px;height:12px;width:${Math.max(6,L/24*126)}px;background:#7e8bb5" class="gb"></div></div>`;});$('s9g').innerHTML=h;})();
+
+// ---- S10 dots maps
+function dotsMap(id,red){mapSvg(id,false);let h='';window.MAPD.bm.forEach(b=>{const off={23:[-22,6],24:[22,6],25:[0,-30]}[b.bm]||[0,0];
+ h+=`<circle id="${id}d${b.bm}" cx="${b.x+off[0]}" cy="${b.y+off[1]}" r="22" fill="#7e8bb5" stroke="#fff" stroke-width="5"/>`;});$(id).insertAdjacentHTML('beforeend',h);}
+dotsMap('s10m1');dotsMap('s10m2');
+const NOMAJ23=[15,27];const NOMAJ26=D.filter(b=>(b.v[0]+b.v[1])*2<b.val).map(b=>b.bm);
+
+// ---- S12 Serbia
+const CITIES=[['Нови Сад',63.80,31.88],['Београд',63.61,31.95],['Чачак',62.20,33.97],['Ваљево',62.12,33.38],['Ужице',61.36,34.70],['Ниш',60.44,35.51],['Панчево',59.53,36.58],
+ ['Крагујевац',58.47,35.92],['Вршац',56.30,39.47],['Зрењанин',56.21,38.71],['Шабац',54.50,41.34],['Краљево',54.48,40.22],['Бор',54.38,41.02],['Смедерево',52.74,42.57],
+ ['Суботица',52.09,35.36],['Сомбор',52.06,41.62],['Зајечар',51.93,42.95],['Кнић',51.81,43.33],['Пожаревац',50.34,44.93],['Сремска Митровица',50.21,45.31],['Крушевац',50.20,45.29],
+ ['Јагодина',50.13,36.44],['Пирот',48.92,45.94],['Лозница',48.23,47.94],['Кикинда',47.15,46.70],['Лесковац',45.17,48.91],['Прокупље',43.19,52.45],['Врање',41.82,52.65],['Нови Пазар',40.10,19.61]];
+(function(){const S=window.SRB,C=window.CITY;let h=`<path d="${S.d}" fill="${GREY}" stroke="#7d8cbd" stroke-width="3"/>`;
+ CITIES.forEach(([n,s,v],i)=>{if(n==='Кнић')return;const p=C[n];h+=`<circle class="cd" data-i="${i}" cx="${p[0]}" cy="${p[1]}" r="15" fill="${s>v?RED:BLUE}" stroke="#fff" stroke-width="4" opacity="0"/>`;});
+ const k=C['Кнић'];h+=`<g id="s12k" opacity="0"><circle cx="${k[0]}" cy="${k[1]}" r="20" fill="#fff" stroke="${RED}" stroke-width="8"/><text x="${k[0]+34}" y="${k[1]+14}" font-family="Inter" font-weight="800" font-size="42" fill="#0b0f1e">Кнић</text></g>`;
+ $('s12map').innerHTML=h;})();
+// ---- S13 ranking
+(function(){let h='';const rh=40;CITIES.forEach(([n,s,v],i)=>{const kn=n==='Кнић';
+ h+=`<div id="cr${i}" style="position:absolute;left:0;top:${i*rh}px;width:952px;height:${rh-4}px;display:flex;align-items:center;opacity:0;box-sizing:border-box;${kn?'outline:4px solid #c0152f;':''}">
+ <span class="mono" style="width:44px;font-size:20px;color:#7d8cbd">${i+1}</span>
+ <span class="cn" style="width:250px;font-family:Inter;font-weight:${kn?800:600};font-size:24px;color:#0b0f1e;white-space:nowrap">${n}</span>
+ <span style="position:relative;width:470px;height:24px;background:${GREY}"><span style="position:absolute;left:0;top:0;bottom:0;width:${s}%;background:${RED}"></span><span style="position:absolute;left:${s}%;top:0;bottom:0;width:${v}%;background:${BLUE}"></span></span>
+ <span class="mono" style="width:188px;text-align:right;font-size:23px;font-weight:700"><span style="color:#ac1129">${pc(s)}</span> <span style="color:#253f87">${pc(v)}</span></span></div>`;});
+ h+=`<div id="crleg" style="position:absolute;left:0;top:${CITIES.length*rh+10}px;font-family:Inter;font-size:22px;color:#414a6d"><span style="color:#c0152f">■</span> Студентска листа &nbsp; <span style="color:#253f87">■</span> Листа А. Вучића</div>`;
+ $('s13r').style.height=(CITIES.length*rh+50)+'px';$('s13r').innerHTML=h;})();
+const CI=n=>CITIES.findIndex(c=>c[0]===n);
+
+// logo canvas
+const LOGO=new Image();LOGO.src='assets/logo.png';
+function drawLogo(t){
+ const c=$('logo'),x=c.getContext('2d');const W=c.width,cx=W/2,cy=W/2;x.clearRect(0,0,W,W);
+ if(!LOGO.complete)return;const sc=W/447;
+ const pc=eo(lin(t,TAG-0.25,TAG+0.35));
+ x.save();x.globalAlpha=pc;x.beginPath();x.arc(cx,cy,140*sc,0,Math.PI*2);x.clip();x.drawImage(LOGO,0,(1-pc)*30,W,W);x.restore();
+ const a1=eio(lin(t,TAG+0.20,TAG+1.45));
+ if(a1>0){x.save();x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,W,Math.PI-0.06,Math.PI-0.06+(Math.PI+0.12)*a1,false);x.closePath();x.arc(cx,cy,140*sc,0,Math.PI*2,true);x.clip('evenodd');x.drawImage(LOGO,0,0,W,W);x.restore();}
+ const a2=eio(lin(t,TAG+1.95,TAG+3.70));
+ if(a2>0){x.save();x.beginPath();x.moveTo(cx,cy);x.arc(cx,cy,W,Math.PI+0.06,Math.PI+0.06-(Math.PI+0.12)*a2,true);x.closePath();x.arc(cx,cy,140*sc,0,Math.PI*2,true);x.clip('evenodd');x.drawImage(LOGO,0,0,W,W);x.restore();}
+}
+
+
+let lastScene=null, lastCards='';
+window.render=function(vt){
+ const t=vt-O;
+ let cur=SC.find(s=>t>=s[1]&&t<s[2])[0];
+ if(cur!==lastScene){document.querySelectorAll('.scene').forEach(e=>e.style.display='none');$(cur).style.display='block';lastScene=cur;}
+ const s=SUBS.find(x=>t>=x[0]-0.05&&t<x[1]+0.25);
+ const sub=$('subt');sub.textContent=s?s[2]:'';
+ const dark=DARK[cur];
+ sub.style.color=dark?'#ffffff':(cur==='so'?'#16265a':'#0b0f1e');
+ sub.style.background=dark?'rgba(22,38,90,0)':'rgba(255,255,255,.92)';
+ $('sub').style.display=(s&&!NOSUB[cur])?'block':'none';
+ const src=SRC[cur];$('src').style.display=src?'flex':'none';if(src)$('src').textContent=src;
+
+ if(cur==='s1'){
+  fade($('s1d'),t,0.15);fade($('s1t'),t,2.5,.35,40);
+  $('s1map').style.opacity=lin(t,4.2,4.9);
+  document.querySelectorAll('#s1map .bmd').forEach((e,i)=>e.setAttribute('opacity',lin(t,5.6+i*0.08,5.75+i*0.08)));
+  fade($('s1l'),t,8.6);
+ }
+ if(cur==='s2'){
+  fade($('s2gl'),t,9.45);$('s2n').textContent=cnt(t,9.5,2.2,7392);
+  fade($('s2il'),t,13.55);$('s2p').style.opacity=eo(lin(t,14.5,14.8));$('s2p').style.transform=`scale(${1.08-0.08*eo(lin(t,14.5,14.9))})`;$('s2p').style.transformOrigin='left center';
+  $('s2c').style.opacity=lin(t,16.7,17.0);
+  document.querySelectorAll('#s2c .tb').forEach((e,i)=>{const a=16.9+i*0.22+(i===10?0.6:0);const p=eio(lin(t,a,a+0.5));const hh=+e.dataset.h*p;e.setAttribute('height',hh);e.setAttribute('y',560-hh);});
+  document.querySelectorAll('#s2c .tv').forEach((e,i)=>{const a=16.9+i*0.22+(i===10?0.6:0)+0.4;e.setAttribute('opacity',lin(t,a,a+0.2));});
+ }
+ if(cur==='s3'){
+  fade($('s3a'),t,21.1);$('s3an').textContent=cnt(t,22.4,1.9,3783);$('s3ab').style.width=(51.81*eio(lin(t,22.4,24.3)))+'%';$('s3ap').style.opacity=lin(t,25.5,25.7);
+  fade($('s3b'),t,27.8);$('s3bn').textContent=cnt(t,29.6,1.8,3164);$('s3bb').style.width=(43.33*eio(lin(t,29.6,31.4)))+'%';$('s3bp').style.opacity=lin(t,32.1,32.3);
+  fade($('s3o'),t,32.6);fade($('s3d'),t,34.05,.3,30);
+ }
+ if(cur==='s4'){
+  fade($('s4h'),t,37.5);
+  [[37.9,0],[44.0,1],[48.4,2]].forEach(([a,i])=>{fade($('s4r'+i),t,a);const p=eio(lin(t,a+0.3,a+1.4));$('s4b'+i).style.width=(S4V[i]*p)+'%';
+   const v=$('s4v'+i);v.textContent=pc(S4V[i]*eo(lin(t,a+0.3,a+1.4)))+'%';});
+ }
+ if(cur==='s5'){
+  const vu=t>=83.3;
+  $('s5h').innerHTML=vu?'Листа Вучића – <span class="mono" style="color:#253f87">10</span> од 36':'Студентска листа – <span class="mono" style="color:#c0152f">26</span> од 36';
+  $('s5h').style.opacity=vu?lin(t,83.3,83.6):lin(t,52.8,53.1);
+  $('s5map').style.opacity=lin(t,52.8,53.2);
+  const rev=new Set(REV.filter(r=>t>=r[0]).map(r=>r[1]));
+  const pairs=[...PS,...PV];let curp=null;for(const p of pairs){if(t>=p[0])curp=p;}
+  if(t>=82.75&&t<85.6)curp=null;
+  const strong=new Set(curp?[curp[2],...(t>=curp[0]+0.46*(curp[1]-curp[0])?[curp[3]]:[])]:[]);
+  paintMap('s5map',rev,strong);
+  hlSet('s5map',[...strong].flatMap(bmNas),'#0b0f1e');
+  const nS=[...rev].filter(SW).length,nV=rev.size-nS;
+  $('s5leg').innerHTML=`<div><span style="color:#c0152f;font-size:30px">■</span> Студентска <b class="mono" style="color:#0b0f1e">${nS}</b></div><div><span style="color:#253f87;font-size:30px">■</span> Вучић <b class="mono" style="color:#0b0f1e">${nV}</b></div><div style="margin-top:8px;font-size:20px;color:#7d8cbd"><span style="display:inline-block;width:22px;height:16px;background:repeating-linear-gradient(45deg,#f2b8c1 0 6px,#b7c4ee 6px 12px)"></span> подељено</div>`;
+  $('s5leg').style.opacity=lin(t,58.0,58.3);
+  // big number intro
+  const big=(t<58.2)||(t>=83.0&&t<85.6);
+  $('s5big').style.display=big?'block':'none';
+  if(big){const isV=t>=83.0;$('s5bn').textContent=isV?'10':'26';$('s5bn').style.color=isV?'#253f87':'#c0152f';fade($('s5big'),t,isV?83.4:53.3,.3,30);}
+  const key=(!big&&curp)?curp[2]+'_'+curp[3]:'';
+  if(key!==lastCards){lastCards=key;$('s5c0').innerHTML=curp&&!big?CARDS[curp[2]]:'';$('s5c1').innerHTML=curp&&!big?CARDS[curp[3]]:'';}
+  if(curp&&!big){fade($('s5c0'),t,curp[0],.22,24);fade($('s5c1'),t,curp[0]+0.46*(curp[1]-curp[0]),.22,24);}
+ }
+ if(cur==='s7'){
+  fade($('s7h'),t,94.7);$('s7map').style.opacity=lin(t,94.7,95.0);
+  const all=new Set(D.map(b=>b.bm));const shown=new Set(R7.filter(r=>t>=r[1]).map(r=>r[0]));
+  Object.keys(NB).forEach(l=>{const ks=NB[l];const on=ks.some(k=>shown.has(k));setN('s7map',NIDX[l],on?RED:(ks.some(SW)?'#fbe8eb':GREY));});
+  R7.forEach(([k,a],i)=>{fade($('s7r_'+i),t,a,.25,24);$('s7r_b'+i).style.width=(100*BM(k).v[2]/BM(k).val*eio(lin(t,a+0.1,a+0.8)))+'%';});
+ }
+ if(cur==='s8'){
+  fade($('s8h'),t,105.95);$('s8map').style.opacity=lin(t,105.95,106.3);
+  Object.keys(NB).forEach(l=>setN('s8map',NIDX[l],l==='Brnjica'?RED:GREY));hlSet('s8map',bmNas(7),'#0b0f1e');
+  fade($('s8sc'),t,108.2,.3,30);$('s8a').textContent=Math.round(70*eo(lin(t,108.3,109.3)));$('s8b').textContent=Math.round(69*eo(lin(t,108.3,109.3)));
+  const p=eo(lin(t,111.1,111.35));$('s8one').style.opacity=p;$('s8one').style.transform=`scale(${1.15-0.15*p})`;$('s8one').style.transformOrigin='left center';
+  fade($('s8r0'),t,113.4);fade($('s8r1'),t,116.35);fade($('s8z'),t,117.8);
+ }
+ if(cur==='s9'){
+  fade($('s9h'),t,120.0);
+  D.forEach((b,i)=>{const a=120.3+i*0.15;fade($('g'+b.bm),t,a,.22,20);
+   const hl=t>=128.3&&(b.bm===16||b.bm===7);const e=$('g'+b.bm);e.style.background=hl?'#fbe8eb':GREY;e.querySelector('.gv').style.color=hl?'#ac1129':'#253f87';e.querySelector('.gb').style.background=hl?RED:'#7e8bb5';
+   e.style.outline=hl?'4px solid #c0152f':'none';});
+  const p=eo(lin(t,126.6,126.85));$('s9st').style.opacity=p;$('s9st').style.transform=`rotate(-6deg) scale(${1.4-0.4*p})`;
+ }
+ if(cur==='s10'){
+  [['s10m1',NOMAJ23,133.6],['s10m2',NOMAJ26,139.9]].forEach(([id,set,a],j)=>{$(id).style.opacity=j===0?lin(t,133.3,133.6):lin(t,139.7,140.0);
+   D.forEach((b,i)=>{const on=set.includes(b.bm);const ti=a+(on?set.indexOf(b.bm)*0.05:0);$(id+'d'+b.bm).setAttribute('fill',on&&t>=ti?RED:'#b7c4ee');});});
+  fade($('s10a').parentNode,t,133.4);$('s10bw').style.opacity=lin(t,139.8,140.1);$('s10b').textContent=Math.round(26*eo(lin(t,139.9,141.3)));
+  fade($('s10n'),t,134.5);
+ }
+ if(cur==='s11'){
+  fade($('s11h'),t,142.75);$('s11map').style.opacity=lin(t,142.8,143.1);
+  const shown=new Set(R11.filter(r=>t>=r[1]).map(r=>r[0]));
+  Object.keys(NB).forEach(l=>{const on=NB[l].some(k=>shown.has(k));setN('s11map',NIDX[l],on?(NB[l].includes(8)?RED:BLUE):GREY);});
+  R11.forEach(([k,a],i)=>{fade($('s11r_'+i),t,a,.25,24);$('s11r_b'+i).style.width=(BM(k).izl*eio(lin(t,a+0.1,a+0.8)))+'%';});
+  fade($('s11avg'),t,150.6);
+ }
+ if(cur==='s12'){
+  $('s12map').style.opacity=lin(t,152.4,152.7);
+  document.querySelectorAll('#s12map .cd').forEach((e,i)=>e.setAttribute('opacity',lin(t,152.7+i*0.04,152.85+i*0.04)));
+  $('s12k').setAttribute('opacity',lin(t,153.6,153.9));
+  fade($('s12a'),t,154.1);$('s12an').textContent=pc(53.37*eo(lin(t,154.3,155.6)))+'%';
+  fade($('s12b'),t,157.55);$('s12bn').textContent=pc(39.74*eo(lin(t,157.7,159.0)))+'%';
+ }
+ if(cur==='s13'){
+  fade($('s13h'),t,160.5);
+  const G=[[165.0,['Нови Сад','Београд']],[169.1,['Чачак','Ваљево','Ужице','Ниш']],[173.6,['Лесковац','Врање','Прокупље']],[178.4,['Кнић','Крушевац','Пожаревац','Пирот']]];
+  let act=null;for(const g of G)if(t>=g[0])act=g;
+  CITIES.forEach((c,i)=>{const e=$('cr'+i);const a=160.7+i*0.07;e.style.opacity=act?(act[1].includes(c[0])?1:0.28):lin(t,a,a+0.2);
+   e.style.background=act&&act[1].includes(c[0])?'#eaeefb':'transparent';});
+  $('crleg').style.opacity=lin(t,162.8,163.1);
+ }
+ if(cur==='s14'){
+  $('s14map').style.opacity=lin(t,183.45,183.9);paintMap('s14map',new Set(D.map(b=>b.bm)),null);
+  Object.keys(NB).forEach(l=>{const e=$('s14mapn'+NIDX[l]);const f=e.getAttribute('fill');if(f===REDL)e.setAttribute('fill','#ff8d9c');else if(f===BLUEL)e.setAttribute('fill','#7e8bb5');});
+  fade($('s14a'),t,183.8);fade($('s14b'),t,186.5);fade($('s14c'),t,189.15);
+ }
+ if(cur==='so'){drawLogo(t);$('sod').style.opacity=eo(lin(t,TAG+3.9,TAG+4.4));}
+};
+window.ready=Promise.all([document.fonts.ready,new Promise(r=>{if(LOGO.complete)r();else LOGO.onload=r;})]);
+
+</script></body></html>
