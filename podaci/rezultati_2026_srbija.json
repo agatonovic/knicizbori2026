@@ -10,11 +10,11 @@
   "vazeci": 4385065
  },
  "knic": {
-  "voters": 10217,
-  "voted": 7392,
+  "voters": 10221,
+  "voted": 7393,
   "invalid": 90,
   "valid": 7302,
-  "turnout": 72.35,
+  "turnout": 72.33,
   "van_bm": 144
  },
  "liste": [
@@ -100,13 +100,13 @@
    "lista": "Stranka rusko-srpskog jedinstva",
    "glasova_srbija": 4286,
    "mandata": 0,
-   "glasova_knic": 4
+   "glasova_knic": 3
   },
   {
    "lista": "Ćale, ovo je za tebe – Petar Đurić",
    "glasova_srbija": 2022,
    "mandata": 0,
-   "glasova_knic": 3
+   "glasova_knic": 4
   },
   {
    "lista": "Vladimir Gajić – Alternativa za Srbiju",
