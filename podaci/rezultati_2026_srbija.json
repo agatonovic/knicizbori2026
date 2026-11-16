@@ -1,0 +1,130 @@
+{
+ "izbori": "Parlamentarni izbori 25. 10. 2026 (ponovljeno glasanje na 53 BM 1. 11.)",
+ "izvor": "RIK, Ukupni izveštaj o rezultatima, 5. 11. 2026",
+ "srbija": {
+  "biracka_mesta": 8392,
+  "upisani": 6451292,
+  "izaslo": 4444310,
+  "listici_u_kutiji": 4441636,
+  "nevazeci": 56571,
+  "vazeci": 4385065
+ },
+ "knic": {
+  "voters": 10217,
+  "voted": 7392,
+  "invalid": 90,
+  "valid": 7302,
+  "turnout": 72.35,
+  "van_bm": 144
+ },
+ "liste": [
+  {
+   "lista": "Aleksandar Vučić – Ujedinjena Srbija",
+   "glasova_srbija": 1731323,
+   "mandata": 103,
+   "glasova_knic": 3164
+  },
+  {
+   "lista": "Ivica Dačić – Faktor stabilnosti",
+   "glasova_srbija": 94766,
+   "mandata": 0,
+   "glasova_knic": 143
+  },
+  {
+   "lista": "Studentska lista – Studenti pobeđuju",
+   "glasova_srbija": 2354417,
+   "mandata": 140,
+   "glasova_knic": 3783
+  },
+  {
+   "lista": "Rasim Ljajić – Ljudski",
+   "glasova_srbija": 20638,
+   "mandata": 1,
+   "glasova_knic": 74
+  },
+  {
+   "lista": "SVM – dr Balint Pastor",
+   "glasova_srbija": 35461,
+   "mandata": 2,
+   "glasova_knic": 2
+  },
+  {
+   "lista": "Usame Zukorlić – Pokret za ujedinjenje",
+   "glasova_srbija": 12440,
+   "mandata": 1,
+   "glasova_knic": 3
+  },
+  {
+   "lista": "Ruska stranka – Slobodan Nikolić",
+   "glasova_srbija": 6503,
+   "mandata": 0,
+   "glasova_knic": 13
+  },
+  {
+   "lista": "Autentična desnica – dr Miloš Jovanović",
+   "glasova_srbija": 39503,
+   "mandata": 0,
+   "glasova_knic": 52
+  },
+  {
+   "lista": "Evropska Srbija – Tepić, Ponoš",
+   "glasova_srbija": 12570,
+   "mandata": 0,
+   "glasova_knic": 22
+  },
+  {
+   "lista": "SDA Sandžaka – Čuvari Sandžaka",
+   "glasova_srbija": 12596,
+   "mandata": 1,
+   "glasova_knic": 0
+  },
+  {
+   "lista": "Bogoljub Karić – Pokret Snaga Srbije",
+   "glasova_srbija": 20045,
+   "mandata": 0,
+   "glasova_knic": 26
+  },
+  {
+   "lista": "Liberalno zelena stranka",
+   "glasova_srbija": 2686,
+   "mandata": 0,
+   "glasova_knic": 1
+  },
+  {
+   "lista": "Biram pravdu, biram budućnost",
+   "glasova_srbija": 1187,
+   "mandata": 0,
+   "glasova_knic": 0
+  },
+  {
+   "lista": "Stranka rusko-srpskog jedinstva",
+   "glasova_srbija": 4286,
+   "mandata": 0,
+   "glasova_knic": 4
+  },
+  {
+   "lista": "Ćale, ovo je za tebe – Petar Đurić",
+   "glasova_srbija": 2022,
+   "mandata": 0,
+   "glasova_knic": 3
+  },
+  {
+   "lista": "Vladimir Gajić – Alternativa za Srbiju",
+   "glasova_srbija": 3705,
+   "mandata": 0,
+   "glasova_knic": 5
+  },
+  {
+   "lista": "Albanska koalicija",
+   "glasova_srbija": 27683,
+   "mandata": 2,
+   "glasova_knic": 1
+  },
+  {
+   "lista": "Majka Srbija – Gruda",
+   "glasova_srbija": 3234,
+   "mandata": 0,
+   "glasova_knic": 6
+  }
+ ]
+}
