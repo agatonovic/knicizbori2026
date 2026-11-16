@@ -17,6 +17,7 @@ Jedan fajl (`index.html`), bez servera. Izbor izbora, poređenja i osnovice proc
 
 ## Podaci (folder `podaci/`)
 - `rezultati_2026_knic_po_bm.csv` – 2026, svih 36 biračkih mesta: zvanični rezultati RIK (upisani, izašli, važeći, nevažeći, 18 lista) i iz zapisnika primljeni, neupotrebljeni listići i glasanje van BM.
+- `rezultati_predsednicki_2022_knic_po_bm.csv` – predsednički izbori 2022, svih 8 kandidata po biračkim mestima, očitano iz zapisnika RIK; zbir = zvaničan rezultat za Knić.
 - `rezultati_lokalni_2023_knic_po_bm.csv` – lokalni izbori 17. 12. 2023 (Skupština opštine Knić), svih 6 lista po biračkim mestima, očitano iz zapisnika RIK; zbir po listama = zvaničan rezultat (RZS).
 - `rezultati_opstine_2023_2026.csv` – sve opštine i gradske opštine, 2023 i 2026 (RIK): upisani, izašli, važeći, nevažeći i glavne liste.
 - `izlaznost_2026_knic_po_satima.csv` – 2026, broj glasalih po biračkom mestu u 8, 10, 12, 14, 16, 18, 19 i 20 časova.
