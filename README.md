@@ -11,10 +11,13 @@ Pogledi:
 - **Knić u Srbiji** – Knić prema Šumadijskom okrugu, susedima i svim opštinama Srbije (2023 i 2026), sa rangovima.
 - **Podaci i metod** – preuzimanje podataka, izvori, metod.
 
+Uključeni su i lokalni izbori 2023. Tabele opština i biračkih mesta imaju pretragu; klik na opštinu otvara njen profil.
+
 Jedan fajl (`index.html`), bez servera. Izbor izbora, poređenja i osnovice procenta pamti se u pregledaču.
 
 ## Podaci (folder `podaci/`)
 - `rezultati_2026_knic_po_bm.csv` – 2026, svih 36 biračkih mesta: zvanični rezultati RIK (upisani, izašli, važeći, nevažeći, 18 lista) i iz zapisnika primljeni, neupotrebljeni listići i glasanje van BM.
+- `rezultati_lokalni_2023_knic_po_bm.csv` – lokalni izbori 17. 12. 2023 (Skupština opštine Knić), svih 6 lista po biračkim mestima, očitano iz zapisnika RIK; zbir po listama = zvaničan rezultat (RZS).
 - `rezultati_opstine_2023_2026.csv` – sve opštine i gradske opštine, 2023 i 2026 (RIK): upisani, izašli, važeći, nevažeći i glavne liste.
 - `izlaznost_2026_knic_po_satima.csv` – 2026, broj glasalih po biračkom mestu u 8, 10, 12, 14, 16, 18, 19 i 20 časova.
 - `rezultati_2026_srbija.json` – 2026, Srbija: sve liste, glasovi i mandati (RIK, ukupni izveštaj 5. 11. 2026).
