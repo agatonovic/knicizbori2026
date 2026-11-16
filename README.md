@@ -18,7 +18,7 @@ Jedan fajl (`index.html`), bez servera. Izbor izbora, poređenja i osnovice proc
 - `rezultati_opstine_2023_2026.csv` – sve opštine i gradske opštine, 2023 i 2026 (RIK): upisani, izašli, važeći, nevažeći i glavne liste.
 - `izlaznost_2026_knic_po_satima.csv` – 2026, broj glasalih po biračkom mestu u 8, 10, 12, 14, 16, 18, 19 i 20 časova.
 - `rezultati_2026_srbija.json` – 2026, Srbija: sve liste, glasovi i mandati (RIK, ukupni izveštaj 5. 11. 2026).
-- `rezultati_po_bm_2012_2023.json` / `.csv` – svih 36 biračkih mesta, parlamentarni 2012, 2014, 2016, 2020, 2022, 2023 i predsednički 2012 (oba kruga) i 2017. Za 2022. su očitani upisani, glasali, važeći, SNS i SPS.
+- `rezultati_po_bm_2012_2023.json` / `.csv` – svih 36 biračkih mesta, parlamentarni 2012, 2014, 2016, 2020, 2022, 2023 i predsednički 2012 (oba kruga) i 2017. Za 2022. su svih 19 lista očitane iz skeniranih zapisnika i proverene zbirom.
 - `izlaznost_po_satima.json` – RIK preseci za Srbiju (2016–2026), Šumadijski okrug (2022, 2023) i izmerena izlaznost Knića 2026.
 - `popis2022_starost_po_naseljima.json` – Popis 2022 po naseljima opštine.
 - `video_kit/` – proverene serije za video materijale.
